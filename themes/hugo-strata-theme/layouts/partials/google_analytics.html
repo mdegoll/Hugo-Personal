@@ -1,8 +1,6 @@
 {{- $privacy := .Site.Config.Privacy.GoogleAnalytics -}}
 {{- if not $privacy.Disable -}}
-  {{- $servicesID := .Site.Config.Services.GoogleAnalytics.ID -}}
-  {{- $legacyID := .Site.GoogleAnalytics -}}
-  {{- $id := $servicesID | default $legacyID -}}
+  {{- $id := .Site.Config.Services.GoogleAnalytics.ID -}}
   {{- if $id -}}
     {{- $idLower := lower $id -}}
     {{- if hasPrefix $idLower "ua-" -}}

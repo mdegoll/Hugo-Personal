@@ -11,6 +11,15 @@ googleAnalytics = "UA-36067780-1"
 [pagination]
 	pagerSize = 10
 
+[services]
+	[services.googleAnalytics]
+		id = "UA-36067780-1"
+
+[markup]
+	[markup.goldmark]
+		[markup.goldmark.renderer]
+			unsafe = true
+
 [params]
 	# To provide some metadata for search engines feel free to add a few
     # information about you and your website.
