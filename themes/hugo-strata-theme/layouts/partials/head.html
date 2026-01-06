@@ -22,7 +22,7 @@
 		<meta name="og:image" content="{{ .Site.BaseURL }}images/{{ .Site.Params.sidebar.avatar }}">
 		{{ end }}
 
-		{{ .Hugo.Generator }}
+		{{ hugo.Generator }}
 
 		{{ "<!--[if lte IE 8]>" | safeHTML }}<script src='{{ .Site.BaseURL }}js/ie/html5shiv.js'></script>{{ "<![endif]-->" | safeHTML}}
 		<link rel="preload" href="main.css" as="style">
