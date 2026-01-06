@@ -30,7 +30,7 @@ googleAnalytics = "G-DX23EZT920"
 	# To provide some metadata for search engines feel free to add a few
     # information about you and your website.
 	name = "Michael DeGoll"
-	description = "Full Stack Salesforce Architect"
+	description = "CTO & Agent Orchstrator"
 
 	# Format dates with Go's time formatting
 	date_format = "2006-01-02"
@@ -169,6 +169,11 @@ googleAnalytics = "G-DX23EZT920"
 	name = "Home"
 	url  = "/"
 	weight = 0
+
+[[menu.main]]
+	name = "About"
+	url  = "/about/"
+	weight = 5
 
 [[menu.main]]
 	name = "Blog"
