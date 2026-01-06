@@ -27,36 +27,6 @@ googleAnalytics = "G-DX23EZT920"
 	defaultTheme = "light"
 	disableThemeToggle = true
 
-	[params.profileMode]
-		enabled = true
-		title = "Michael DeGoll"
-		subtitle = "Full Stack Salesforce Architect"
-		imageUrl = "images/Me2.png"
-		imageTitle = "Michael DeGoll"
-		imageWidth = 160
-		imageHeight = 160
-
-	[[params.profileMode.buttons]]
-		name = "Blog"
-		url = "/post/"
-
-	[[params.profileMode.buttons]]
-		name = "Email"
-		url = "mailto:michael@degoll.net"
-
-	[[params.socialIcons]]
-		name = "github"
-		url = "https://github.com/mdegoll"
-
-	[[params.socialIcons]]
-		name = "linkedin"
-		url = "https://www.linkedin.com/in/michael-j-degoll"
-
-	[[params.socialIcons]]
-		name = "email"
-		url = "mailto:michael@degoll.net"
-
-[params]
 	# To provide some metadata for search engines feel free to add a few
     # information about you and your website.
 	name = "Michael DeGoll"
@@ -83,7 +53,7 @@ googleAnalytics = "G-DX23EZT920"
 		facebook = ""
 		googleplus = ""
 		flickr = ""
-		linkedin = "https://www.linkedin.com/in/michael-goll-074656a2"
+		linkedin = "https://www.linkedin.com/in/michael-j-degoll/"
 
 		copyright = [
 			"&copy; Michael DeGoll",
@@ -163,6 +133,35 @@ googleAnalytics = "G-DX23EZT920"
 			email = "Email"
 			message = "Message"
 			submit = "Send message"
+
+	[params.profileMode]
+		enabled = true
+		title = "Michael DeGoll"
+		subtitle = "Full Stack Salesforce Architect"
+		imageUrl = "images/Me2.png"
+		imageTitle = "Michael DeGoll"
+		imageWidth = 160
+		imageHeight = 160
+
+	[[params.profileMode.buttons]]
+		name = "Blog"
+		url = "/post/"
+
+	[[params.profileMode.buttons]]
+		name = "Email"
+		url = "mailto:michael@degoll.net"
+
+	[[params.socialIcons]]
+		name = "github"
+		url = "https://github.com/mdegoll"
+
+	[[params.socialIcons]]
+		name = "linkedin"
+		url = "https://www.linkedin.com/in/michael-j-degoll"
+
+	[[params.socialIcons]]
+		name = "email"
+		url = "mailto:michael@degoll.net"
 
 
 # Menu links that appear on the left sidebar
