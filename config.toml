@@ -45,7 +45,7 @@ googleAnalytics = "G-DX23EZT920"
 		avatar = "Me2.png"
 		# Use Markdown to format the string. This works nearly all over the theme
 		bio = "Salesforce"
-		bio2 = "Full Stack Architect"
+		bio2 = "agent-powered CTO"
 		# The icons will be shown if you enter your username
 		twitter = ""
 		github = "mdegoll"
@@ -78,7 +78,7 @@ googleAnalytics = "G-DX23EZT920"
 			image = "https://salesforce.com/"
 			thumb = "thumbs/salesforce.png"
 			title = "Salesforce"
-			description = "Full Stack Architect"
+			description = "agent-powered CTO"
 
 		[[params.portfolio.gallery]]
 			image = "https://www.mulesoft.com/"
