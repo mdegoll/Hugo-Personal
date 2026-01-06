@@ -43,7 +43,7 @@
 <!--[if lte IE 8]><script src="{{ .Site.BaseURL }}js/ie/respond.min.js"></script><![endif]-->
 <script src="{{ .Site.BaseURL }}js/main.js"></script>
 
-{{ template "_internal/google_analytics.html" . }}
+{{ partial "google_analytics.html" . }}
 
 {{ range .Site.Params.custom_js }}
 <script src="{{ $.Site.BaseURL }}{{ . }}"></script>
