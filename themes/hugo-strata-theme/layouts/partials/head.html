@@ -28,15 +28,13 @@
 
     {{ hugo.Generator }}
 
-    {{ "<!--[if lte IE 8]>" | safeHTML }}<script src='{{ .Site.BaseURL }}js/ie/html5shiv.js'></script>{{ "<![endif]-->"
-    | safeHTML}}
+    {{ "<!--[if lte IE 8]>" | safeHTML }}<script src='{{ .Site.BaseURL }}js/ie/html5shiv.js'></script>{{ "<![endif]-->" | safeHTML }}
     <link rel="preload" href="main.css" as="style">
     <link rel="preload" href="font-awesome.min.css.css" as="style">
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="{{ .Site.BaseURL }}css/main.css" />
-    {{ "<!--[if lte IE 8]>" | safeHTML }}<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/ie8.css">{{ "<![endif]-->"
-    | safeHTML}}
+    {{ "<!--[if lte IE 8]>" | safeHTML }}<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/ie8.css">{{ "<![endif]-->" | safeHTML }}
 
 
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
