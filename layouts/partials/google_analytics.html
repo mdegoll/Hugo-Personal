@@ -1,0 +1,37 @@
+{{- $privacy := .Site.Config.Privacy.GoogleAnalytics -}}
+{{- if not $privacy.Disable -}}
+  {{- $id := .Site.Config.Services.GoogleAnalytics.ID -}}
+  {{- if $id -}}
+    {{- $idLower := lower $id -}}
+    {{- if hasPrefix $idLower "ua-" -}}
+      <script type="application/javascript">
+      var doNotTrack = false;
+      if ({{ $privacy.RespectDoNotTrack }}) {
+        var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+        doNotTrack = (dnt == "1" || dnt == "yes");
+      }
+      if (!doNotTrack) {
+        window.ga = window.ga || function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', '{{ $id }}', 'auto');
+        ga('send', 'pageview');
+      }
+      </script>
+      <script async src="https://www.google-analytics.com/analytics.js"></script>
+    {{- else -}}
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{ $id }}"></script>
+      <script>
+      var doNotTrack = false;
+      if ({{ $privacy.RespectDoNotTrack }}) {
+        var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+        doNotTrack = (dnt == "1" || dnt == "yes");
+      }
+      if (!doNotTrack) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ $id }}');
+      }
+      </script>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
