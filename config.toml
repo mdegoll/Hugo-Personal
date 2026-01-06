@@ -137,7 +137,7 @@ googleAnalytics = "G-DX23EZT920"
 	[params.profileMode]
 		enabled = true
 		title = "Michael DeGoll"
-		subtitle = "Full Stack Salesforce Architect"
+		subtitle = "Agent-powered CTO"
 		imageUrl = "images/Me2.png"
 		imageTitle = "Michael DeGoll"
 		imageWidth = 160
