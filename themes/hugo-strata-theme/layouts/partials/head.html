@@ -6,35 +6,41 @@
 {{ "Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)" | safeHTML }}
 {{ "-->" | safeHTML }}
 <html lang="en">
-	<head>
-		<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} &middot; {{ .Site.Title }}{{ end }}</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		{{ with .Site.Params.name }}<meta name="author" content="{{ . }}">{{ end }}
-		{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
-		{{ with .Site.LanguageCode }}<meta http-equiv="content-language" content="{{ . }}" />{{ end }}
 
-		{{ if not .Site.Params.OpenGraph.hide }}
-		<meta name="description" content="Michael Goll personal website for consulting and business development." />
-		<meta name="og:site_name" content="{{ .Site.Title }}">
-		<meta name="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
-		<meta name="og:url" content="{{ .Permalink }}">
-		<meta name="og:image" content="{{ .Site.BaseURL }}images/{{ .Site.Params.sidebar.avatar }}">
-		{{ end }}
+<head>
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} &middot; {{ .Site.Title }}{{ end }}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {{ with .Site.Params.name }}
+    <meta name="author" content="{{ . }}">{{ end }}
+    {{ with .Site.Params.description }}
+    <meta name="description" content="{{ . }}">{{ end }}
+    {{ with .Site.LanguageCode }}
+    <meta http-equiv="content-language" content="{{ . }}" />{{ end }}
 
-		{{ hugo.Generator }}
+    {{ if not .Site.Params.OpenGraph.hide }}
+    <meta name="description" content="Michael Goll personal website for consulting and business development." />
+    <meta name="og:site_name" content="{{ .Site.Title }}">
+    <meta name="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+    <meta name="og:url" content="{{ .Permalink }}">
+    <meta name="og:image" content="{{ .Site.BaseURL }}images/{{ .Site.Params.sidebar.avatar }}">
+    {{ end }}
 
-		{{ "<!--[if lte IE 8]>" | safeHTML }}<script src='{{ .Site.BaseURL }}js/ie/html5shiv.js'></script>{{ "<![endif]-->" | safeHTML}}
-		<link rel="preload" href="main.css" as="style">
-		<link rel="preload" href="font-awesome.min.css.css" as="style">
- 
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
-		<link rel="stylesheet" href="{{ .Site.BaseURL }}css/main.css" />
-		{{ "<!--[if lte IE 8]>" | safeHTML }}<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/ie8.css">{{ "<![endif]-->" | safeHTML}}
+    {{ hugo.Generator }}
 
-		
-		<link rel="icon" href="images/favicon.ico" type="image/x-icon"> 
-		{{ range .Site.Params.custom_css }}
-		<link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
-		{{ end }}
-	</head>
+    {{ "<!--[if lte IE 8]>" | safeHTML }}<script src='{{ .Site.BaseURL }}js/ie/html5shiv.js'></script>{{ "<![endif]-->"
+    | safeHTML}}
+    <link rel="preload" href="main.css" as="style">
+    <link rel="preload" href="font-awesome.min.css.css" as="style">
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/main.css" />
+    {{ "<!--[if lte IE 8]>" | safeHTML }}<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/ie8.css">{{ "<![endif]-->"
+    | safeHTML}}
+
+
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    {{ range .Site.Params.custom_css }}
+    <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
+    {{ end }}
+</head>
