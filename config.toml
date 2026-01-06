@@ -1,10 +1,10 @@
 ### CHANGE BEFORE DEPLOY ####
 #baseurl = "http://10.0.0.10/"
-baseurl = "https://www.michaelgoll.com/"
+baseurl = "https://www.degoll.net/"
 languageCode = "en-us"
-title = "Michael Goll"
-theme = "hugo-strata-theme"
-disqusShortname = "gollmj"
+title = "Michael DeGoll"
+theme = "PaperMod"
+disqusShortname = "mdegoll"
 # Enable Google Analytics by inserting your tracking code
 googleAnalytics = "G-DX23EZT920"
 # Define how many posts should appear on a site
@@ -21,9 +21,45 @@ googleAnalytics = "G-DX23EZT920"
 			unsafe = true
 
 [params]
+	# PaperMod theme settings
+	env = "production"
+	author = "Michael DeGoll"
+	defaultTheme = "light"
+	disableThemeToggle = true
+
+	[params.profileMode]
+		enabled = true
+		title = "Michael DeGoll"
+		subtitle = "Full Stack Salesforce Architect"
+		imageUrl = "images/Me2.png"
+		imageTitle = "Michael DeGoll"
+		imageWidth = 160
+		imageHeight = 160
+
+	[[params.profileMode.buttons]]
+		name = "Blog"
+		url = "/post/"
+
+	[[params.profileMode.buttons]]
+		name = "Email"
+		url = "mailto:michael@degoll.net"
+
+	[[params.socialIcons]]
+		name = "github"
+		url = "https://github.com/mdegoll"
+
+	[[params.socialIcons]]
+		name = "linkedin"
+		url = "https://www.linkedin.com/in/michael-j-degoll"
+
+	[[params.socialIcons]]
+		name = "email"
+		url = "mailto:michael@degoll.net"
+
+[params]
 	# To provide some metadata for search engines feel free to add a few
     # information about you and your website.
-	name = "Michael Goll"
+	name = "Michael DeGoll"
 	description = "Full Stack Salesforce Architect"
 
 	# Format dates with Go's time formatting
@@ -42,7 +78,7 @@ googleAnalytics = "G-DX23EZT920"
 		bio2 = "Full Stack Architect"
 		# The icons will be shown if you enter your username
 		twitter = ""
-		github = "gollmj"
+		github = "mdegoll"
 		dribbble = ""
 		facebook = ""
 		googleplus = ""
@@ -50,8 +86,8 @@ googleAnalytics = "G-DX23EZT920"
 		linkedin = "https://www.linkedin.com/in/michael-goll-074656a2"
 
 		copyright = [
-			"&copy; Michael Goll",
-			"Design: [Michael Goll](//michaelgoll.com)",
+			"&copy; Michael DeGoll",
+			"Design: [Michael DeGoll](//degoll.net)",
 			"Images: [Unsplash](//unsplash.com/)"
 		]
 
@@ -59,7 +95,7 @@ googleAnalytics = "G-DX23EZT920"
 	[params.about]
 		hide  = false
 		title = "Your Trusted Advisor for Salesforce"
-		content = "<br>[Send me an email](https://www.michaelgoll.com/#contact-form) to start the conversation."
+		content = "<br>[Send me an email](https://www.degoll.net/#contact-form) to start the conversation."
 
 
 	[params.portfolio]
@@ -118,7 +154,7 @@ googleAnalytics = "G-DX23EZT920"
 	    # - send a dummy email yourself to confirm your account
 	    # - click the confirm link in the email from www.formspree.io
 	    # - you're done. Happy mailing!
-		email = "michael@michaelgoll.com"
+		email = "michael@mdegoll.net"
 
 		[params.contact.form]
 			# Set custom strings for the form if your native
