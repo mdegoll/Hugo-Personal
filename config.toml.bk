@@ -1,18 +1,36 @@
-baseurl = "http://www.michaelgoll.com"
+### CHANGE BEFORE DEPLOY ####
+#baseurl = "http://10.0.0.10/"
+baseurl = "https://www.degoll.net/"
 languageCode = "en-us"
-title = "Michael Goll"
-theme = "hugo-strata-theme"
-disqusShortname = "gollmj"
+title = "Michael DeGoll"
+theme = "PaperMod"
+disqusShortname = "mdegoll"
 # Enable Google Analytics by inserting your tracking code
-googleAnalytics = "UA-36067780-1"
+googleAnalytics = "G-DX23EZT920"
 # Define how many posts should appear on a site
-paginate = 10
+[pagination]
+	pagerSize = 10
+
+[services]
+	[services.googleAnalytics]
+		id = "G-DX23EZT920"
+
+[markup]
+	[markup.goldmark]
+		[markup.goldmark.renderer]
+			unsafe = true
 
 [params]
+	# PaperMod theme settings
+	env = "production"
+	author = "Michael DeGoll"
+	defaultTheme = "light"
+	disableThemeToggle = true
+
 	# To provide some metadata for search engines feel free to add a few
     # information about you and your website.
-	name = "Michael Goll"
-	description = "Solving difficult problems"
+	name = "Michael DeGoll"
+	description = "agent-powered CTO"
 
 	# Format dates with Go's time formatting
 	date_format = "2006-01-02"
@@ -26,70 +44,59 @@ paginate = 10
 		# Replace the avatar with a picture of your own under static/images
 		avatar = "Me2.png"
 		# Use Markdown to format the string. This works nearly all over the theme
-		bio = "**Michael Goll** <br><br> 'I enjoy fixing problems<br> using software.'"
+		bio = "Salesforce"
+		bio2 = "agent-powered CTO"
 		# The icons will be shown if you enter your username
 		twitter = ""
-		github = "gollmj"
+		github = "mdegoll"
 		dribbble = ""
 		facebook = ""
 		googleplus = ""
 		flickr = ""
-		linkedin = "https://www.linkedin.com/in/michael-goll-074656a2"
+		linkedin = "https://www.linkedin.com/in/michael-j-degoll/"
 
 		copyright = [
-			"&copy; Michael Goll",
-			"Design: [HTML5 UP](//html5up.net)",
-			"Demo Images: [Unsplash](//unsplash.com/)"
+			"&copy; Michael DeGoll",
+			"Design: [Michael DeGoll](//degoll.net)",
+			"Images: [Unsplash](//unsplash.com/)"
 		]
 
 
 	[params.about]
 		hide  = false
-		title = "Utilize Data engineering principles<br> to streamline your business"
-		content = "<br>Currently under construction. Please [send me an email](http://www.michaelgoll.com/#contact-form) to start a conversation."
+		title = "Your Trusted Advisor for Salesforce"
+		content = "<br>[Send me an email](https://www.degoll.net/#contact-form) to start the conversation."
 
 
 	[params.portfolio]
 		hide  = false
-		title = "Recent Work"
+		title = "Most Recent Tools"
 
 		# The images and thumbnails are stored under static/images
 		# Create and change subfolders as you like
 		[[params.portfolio.gallery]]
-			image = "fulls/01.jpg"
-			thumb = "thumbs/01.jpg"
-			title = "Lorem ipsum dolor."
-			description = "Lorem ipsum dolor sit amet."
+			image = "https://salesforce.com/"
+			thumb = "thumbs/salesforce.png"
+			title = "Salesforce"
+			description = "agent-powered CTO"
 
 		[[params.portfolio.gallery]]
-			image = "fulls/02.jpg"
-			thumb = "thumbs/02.jpg"
-			title = "Lorem ipsum dolor."
-			description = "Lorem ipsum dolor sit amet."
+			image = "https://www.mulesoft.com/"
+			thumb = "thumbs/mulesoft.png"
+			title = "Mulesoft"
+			description = "Mulesoft Certified"
 
 		[[params.portfolio.gallery]]
-			image = "fulls/03.jpg"
-			thumb = "thumbs/03.jpg"
-			title = "Lorem ipsum dolor."
-			description = "Lorem ipsum dolor sit amet."
+			image = "https://www.jitterbit.com"
+			thumb = "thumbs/jitterbit.jpg"
+			title = "Jittbit Integration."
+			description = "Salesforce Integration"
 
 		[[params.portfolio.gallery]]
-			image = "fulls/04.jpg"
-			thumb = "thumbs/04.jpg"
-			title = "Lorem ipsum dolor."
-			description = "Lorem ipsum dolor sit amet."
-
-		[[params.portfolio.gallery]]
-			image = "fulls/05.jpg"
-			thumb = "thumbs/05.jpg"
-			title = "Lorem ipsum dolor."
-			description = "Lorem ipsum dolor sit amet."
-
-		[[params.portfolio.gallery]]
-			image = "fulls/06.jpg"
-			thumb = "thumbs/06.jpg"
-			title = "Lorem ipsum dolor."
-			description = "Lorem ipsum dolor sit amet."
+			image = "https://www.ibm.com/software/products/en/ibm-integration-bus"
+			thumb = "thumbs/IIB.jpg"
+			title = "IBM Integration Bus"
+			description = "Message Broker v9 Certified"
 
 	[params.recentposts]
 		hide  = false
@@ -102,7 +109,7 @@ paginate = 10
 
 		address = [
 			"Currently:",
-			"Athens, Greece",
+			"Seattle, WA",
 		]
 		phone = "+1-610-462-4393"
 
@@ -117,7 +124,7 @@ paginate = 10
 	    # - send a dummy email yourself to confirm your account
 	    # - click the confirm link in the email from www.formspree.io
 	    # - you're done. Happy mailing!
-		email = "gollmj@gmail.com"
+		email = "michael@mdegoll.net"
 
 		[params.contact.form]
 			# Set custom strings for the form if your native
@@ -127,12 +134,46 @@ paginate = 10
 			message = "Message"
 			submit = "Send message"
 
+	[params.profileMode]
+		enabled = true
+		title = "Michael DeGoll"
+		subtitle = "Agent-powered CTO"
+		imageUrl = "images/Me2.png"
+		imageTitle = "Michael DeGoll"
+		imageWidth = 160
+		imageHeight = 160
+
+	[[params.profileMode.buttons]]
+		name = "Blog"
+		url = "/post/"
+
+	[[params.profileMode.buttons]]
+		name = "Email"
+		url = "mailto:michael@degoll.net"
+
+	[[params.socialIcons]]
+		name = "github"
+		url = "https://github.com/mdegoll"
+
+	[[params.socialIcons]]
+		name = "linkedin"
+		url = "https://www.linkedin.com/in/michael-j-degoll"
+
+	[[params.socialIcons]]
+		name = "email"
+		url = "mailto:michael@degoll.net"
+
 
 # Menu links that appear on the left sidebar
 [[menu.main]]
 	name = "Home"
 	url  = "/"
 	weight = 0
+
+[[menu.main]]
+	name = "About"
+	url  = "/about/"
+	weight = 5
 
 [[menu.main]]
 	name = "Blog"
