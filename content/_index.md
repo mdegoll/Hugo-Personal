@@ -8,17 +8,14 @@ hideMeta: true
   <div class="home-hero-copy">
     <p class="home-kicker">For operators, founders, and technical teams</p>
     <h1>Move past bloated platforms. Build tools around the work.</h1>
-    <p class="home-lede">I help teams get more from the systems they already own, then retire the parts that slow the work down. Legacy systems can be cleaned up when they still earn their keep. Systems that have become drag are better handled one practical slice at a time, often with a purpose-built tool that matches how the team works today. AI belongs in the workflow when it makes the job clearer, faster, or easier to trust.</p>
+    <p class="home-lede">I help teams get more from the systems they own and retire the parts that slow work down. Existing platforms can be cleaned up when they still earn their keep. When they become drag, the better move is usually one small purpose-built tool. AI belongs where it makes the job clearer, faster, or easier to trust.</p>
     <div class="home-actions">
-      <a class="home-action-primary" href="mailto:michael@degoll.net">Start with a tool audit</a>
-      <a href="/post/">Recent writing</a>
-      <a href="/playbooks/">Read the playbooks</a>
-      <a href="/about/">About Michael</a>
+      <a class="home-action-primary" href="mailto:michael@degoll.net">Tool audit</a>
+      <a href="/post/">Writing</a>
+      <a href="/playbooks/">Playbooks</a>
+      <a href="/about/">About</a>
     </div>
   </div>
-  <figure class="home-photo">
-    <img src="/images/Me2.png" alt="Michael DeGoll">
-  </figure>
 </section>
 
 <section class="home-section">

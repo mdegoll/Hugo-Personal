@@ -1,0 +1,10 @@
+{
+  "name": "hugo-personal",
+  "private": true,
+  "scripts": {
+    "playwright:check": "node -e \"console.log(require.resolve('playwright'))\""
+  },
+  "devDependencies": {
+    "playwright": "^1.60.0"
+  }
+}
