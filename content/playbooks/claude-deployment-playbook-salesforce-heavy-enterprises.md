@@ -11,7 +11,7 @@ playbookEyebrow: "Proof artifact"
 playbookMeta:
   - "Audience: enterprise AI, Salesforce, and SI leaders"
   - "Format: deployable reference playbook"
-  - "Goal: move from AI theater to governed production adoption"
+  - "Goal: move from demo-led pilots to governed production use"
 tags:
   - Claude
   - Salesforce
@@ -22,7 +22,7 @@ tags:
 
 ## Executive Thesis
 
-Salesforce-heavy enterprises do not need another generic chatbot pilot. They need repeatable deployment patterns for high-volume business workflows that already span CRM, service, billing, documents, partner channels, data warehouses, collaboration tools, and integration middleware.
+Salesforce-heavy enterprises need deployment patterns for high-volume workflows that span CRM, service, billing, documents, partner channels, data warehouses, collaboration tools, and integration middleware.
 
 Claude can become useful in these environments when it is treated as a governed enterprise capability: connected to the right systems, constrained by permissions, evaluated against real tasks, instrumented for audit, and packaged into workflows that business teams already recognize.
 
@@ -47,7 +47,7 @@ This playbook defines the workflows, reference architecture, evaluation model, a
 
 The highest-value Claude deployments start where enterprise workflows are document-heavy, decision-heavy, cross-system, and painful to coordinate manually. In Salesforce-heavy companies, those workflows usually share the same pattern: Salesforce holds the customer or case context, another system holds financial or operational truth, documents contain unstructured evidence, and employees coordinate through Slack, email, spreadsheets, or service queues.
 
-The goal is not to replace the system of record. The goal is to make each workflow faster, more accurate, and more governable by placing Claude at the point where people currently read, reconcile, summarize, route, compare, draft, and escalate.
+The system of record still owns the record. Claude is useful at the point where people currently read, reconcile, summarize, route, compare, draft, and escalate; that is where the workflow can get faster, more accurate, and easier to govern.
 
 <div class="workflow-grid">
   <article>
@@ -94,7 +94,7 @@ The goal is not to replace the system of record. The goal is to make each workfl
 
 ## 2. Reference Architecture
 
-Claude should sit inside an enterprise architecture that treats AI output as a governed workflow participant, not as an uncontrolled side channel. The reference architecture below assumes Salesforce is the primary operating system for customer, case, opportunity, partner, or intake state. MuleSoft or a comparable integration layer brokers access to downstream systems. Snowflake or Databricks provides analytical and historical context. Slack and Google Workspace provide collaboration and document surfaces. Permissions and audit logging are enforced across every path.
+Claude should sit inside an enterprise architecture that treats AI output as a governed workflow participant rather than an uncontrolled side channel. The reference architecture below assumes Salesforce is the primary operating system for customer, case, opportunity, partner, or intake state. MuleSoft or a comparable integration layer brokers access to downstream systems. Snowflake or Databricks provides analytical and historical context. Slack and Google Workspace provide collaboration and document surfaces. Permissions and audit logging are enforced across every path.
 
 ```mermaid
 flowchart LR
@@ -251,7 +251,7 @@ The deployment plan should move from proof to production in 90 days without pret
       <li>Launch a second wave of workflows using the same governance pattern.</li>
       <li>Create a model for SI-led discovery, build, eval, release, and post-production optimization.</li>
       <li>Publish executive reporting on adoption, quality, ROI, risk, and operating maturity.</li>
-      <li>Train internal champions and partner delivery teams on deployment patterns, not demo scripts.</li>
+      <li>Train internal champions and partner delivery teams on deployment patterns instead of demo scripts.</li>
     </ul>
     <p><strong>Exit criteria:</strong> repeatable deployment kit, partner delivery model, executive adoption metrics, and a roadmap for workflow expansion.</p>
   </section>
@@ -259,7 +259,7 @@ The deployment plan should move from proof to production in 90 days without pret
 
 ## 6. Partner and SI Operating Model
 
-Anthropic can multiply enterprise adoption by enabling SIs to deliver Claude deployments as a governed implementation practice. The SI motion should not be "add AI to Salesforce." It should be a repeatable operating model for workflow transformation in environments where Salesforce is one of several enterprise systems.
+Anthropic can multiply enterprise adoption by enabling SIs to deliver Claude deployments as a governed implementation practice. The SI motion should center on repeatable workflow change in environments where Salesforce is one of several enterprise systems.
 
 ### What Anthropic Should Give SIs
 
@@ -274,7 +274,7 @@ Anthropic can multiply enterprise adoption by enabling SIs to deliver Claude dep
 
 ### How SIs Should Deliver
 
-The SI delivery motion should look like implementation, not theater.
+The SI delivery motion should be operational rather than sales-led.
 
 1. Discovery maps the real workflow, source systems, decision rules, pain points, permissions, and measurable outcomes.
 2. Architecture defines the Claude interaction surface, tool gateway, retrieval paths, write-safety tiers, audit model, and support ownership.
@@ -284,9 +284,9 @@ The SI delivery motion should look like implementation, not theater.
 6. Production launch adds support, monitoring, change control, release cadence, and executive reporting.
 7. Expansion repeats the model across adjacent workflows with reusable artifacts instead of bespoke demos.
 
-### Avoiding AI Theater
+### Avoiding Demo-First Delivery
 
-AI theater happens when teams optimize for an impressive demo instead of operational adoption. This operating model avoids that trap by requiring every workflow to have:
+Demo-first behavior happens when teams optimize for an impressive demo instead of operational adoption. This operating model avoids that pattern by requiring every workflow to have:
 
 - A business owner with a measurable operating problem.
 - A defined system boundary and source-of-truth map.
@@ -298,6 +298,6 @@ AI theater happens when teams optimize for an impressive demo instead of operati
 
 ## Proof Package
 
-This playbook can become the landing artifact for a targeted application, partner conversation, or consulting motion because it shows the work at the level enterprise buyers and platform teams care about: architecture, evals, integrations, permissions, rollout mechanics, and repeatable delivery.
+This playbook can serve as the landing artifact for a targeted application, partner conversation, or consulting motion because it shows the work at the level enterprise buyers and platform teams care about: architecture, evals, integrations, permissions, rollout mechanics, and repeatable delivery.
 
 The next proof layer would be a companion demo workflow: for example, a Salesforce Case escalation assistant or invoice exception reviewer that uses a bounded MCP tool gateway, a small evaluation set, and a write-safety approval gate. That would make the playbook tangible without turning the page into a generic product pitch.

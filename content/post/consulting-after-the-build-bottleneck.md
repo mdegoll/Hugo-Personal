@@ -1,121 +1,113 @@
 ---
 title: "Consulting After the Build Bottleneck"
 date: 2026-05-18
-description: "If AI agents can handle much of the build, consultants have to move toward judgment, architecture, trust, and adoption."
-summary: "AI agents are compressing the cost of implementation. That does not make consultants irrelevant. It changes where the valuable work lives."
+description: "AI agents can handle much of the build. Consultants now compete on judgment, architecture, and operational trust."
+summary: "AI agents compress build work. The consultancy edge shifts to decision quality, system design, and sustained adoption."
 tags: ["consulting", "ai agents", "architecture", "business tools"]
 ShowToc: true
 TocOpen: false
 ---
 
-AI agents can now handle a lot of the build.
+AI agents can now handle a lot of build work.
 
-Not all of it. Not safely without review. Not without context. But enough of it that the old consulting model starts to look exposed.
+They still need review, context, and business judgment. Enough has shifted that a pure implementation model is no longer enough.
 
-If the core value of a consultant is configuring screens, writing boilerplate, moving tickets, producing status decks, or grinding through implementation tasks, that value is going to compress. The work will not disappear overnight, but the business will eventually notice that a smaller team with better tools can produce the same amount of output faster.
+If a consultant's main value is screen setup, boilerplate, ticket churn, or status reporting, that value compresses. The work continues, but teams with better tooling can often do the same operations faster than larger execution-heavy teams.
 
-That does not mean consultants become irrelevant.
+Consultants still matter, but the role moves from output volume to operating judgment.
 
-It means the consultant role moves up the stack.
+The useful consultant decides what should exist, what should be removed, what to change next, what risk to accept, and how to make the outcome trustworthy.
 
-The valuable consultant becomes the person who can decide what should exist, what should not exist, what order to change things in, how to reduce risk, and how to make the business trust the result.
+Positioning is simple:
 
-The positioning line is simple:
+> AI agents can carry much of the build. Consultants carry the judgment of what should become production software.
 
-> AI agents can now handle much of the build. The consultant's job is to know what should be built, what should be retired, how to reduce risk, and how to help the business adopt the new way of working.
-
-That is a different job than "implementation resource." It is closer to business diagnostician, architect, reviewer, migration strategist, and change lead.
+The job starts to look like diagnostician, architect, reviewer, migration strategist, and change lead.
 
 ## The Build Bottleneck Is Breaking
 
-For a long time, the practical blocker was implementation capacity.
+The practical blocker used to be build capacity.
 
-A business could usually describe the pain:
+Businesses described the same pain repeatedly:
 
-- The CRM is too hard to use.
-- The approval process lives in email.
-- The dashboard is wrong or stale.
-- The integration breaks and nobody trusts the data.
-- The team wants automation, but nobody has time to build it.
-- A platform was purchased for one workflow and slowly became the place where every unrelated process went to live.
+- The CRM is hard to use.
+- The approval process is spread across email.
+- Dashboards are stale or wrong.
+- Integrations break and data trust collapses.
+- The team wants automation but cannot spare cycles to build it.
+- A platform was bought for one workflow and then became the home for many unrelated processes.
 
-The answer was often a large implementation project because the cost of changing software was high. You needed admins, developers, architects, testers, project managers, release managers, documentation, training, and a long queue of scoped tickets.
+The usual response was expensive: admins, developers, architects, QA, PMs, release managers, training, and long ticket queues.
 
-AI agents change the shape of that constraint.
+Agents shorten that cost curve.
 
-They can inspect codebases. They can write and modify software. They can generate tests. They can explain unfamiliar systems. They can draft migrations, scripts, docs, UI states, data checks, and integration glue. They can keep working through the tedious middle of a task where human attention often gets expensive.
+They can read code, modify software, generate tests, explain unfamiliar systems, and draft migrations, scripts, docs, UI states, and integration glue. They are effective in repetitive middle work where human attention is usually expensive.
 
-That means implementation is still important, but it is less often the scarce thing.
+Implementation is still necessary. It is just no longer the dominant constraint.
 
-The scarce thing becomes knowing what work is worth doing.
+The scarce resource becomes selection. Which work is worth doing now, and which should wait?
 
-## The Consultant Becomes a Diagnostician
+## The Consultant as Diagnostician
 
-Most technology requests are not really technology requests.
+Many requests are labeled as "software" but describe a process problem.
 
-"We need a Salesforce dashboard" might mean leadership does not trust pipeline stages.
+"Need a Salesforce dashboard" can mean leadership does not trust pipeline stages.
 
-"We need an integration" might mean two teams do not agree on who owns the customer handoff.
+"Need an integration" can mean two teams disagree on handoff ownership.
 
-"We need AI" might mean support volume is rising and nobody knows which questions are repeated.
+"Need AI" can mean support is repeating the same questions too often.
 
-"We need to customize the CRM" might mean the business process was never designed clearly enough for a CRM to support it.
+"Need CRM customization" can mean the underlying process was never designed for this outcome.
 
-In the old model, a consultant could take the stated request, turn it into requirements, and start building. That will still happen, but it is less defensible when agents can produce the requested artifact quickly.
+A consultant can still turn requirements into work. What changes is what gets built first and how quickly teams retire work that does not add value.
 
-The higher-value move is to diagnose the business behind the request.
-
-That means asking:
+The better move is to ask better questions:
 
 - What decision is blocked?
-- What work is being repeated?
-- Where does trust break down?
-- Which team is compensating for the system?
-- What process exists only because the current tool makes it necessary?
-- What would we stop doing if we were not protecting sunk cost?
+- What process is duplicated?
+- Where does trust fail?
+- Which team is compensating for bad workflows?
+- What process exists only because the current system forced it?
+- What would disappear if the team stopped protecting sunk cost?
 
-This is where consultants can become much more useful. They can translate between operators, executives, admins, developers, finance, security, and customers. They can separate the real operating problem from the first software-shaped request.
+That is where consulting value compounds. The consultant translates across operators, executives, admins, developers, finance, security, and customers and points to the operating decision behind the request.
 
-Second-order effect: discovery becomes more valuable, but only if it produces decisions. Long discovery projects that end in slideware will feel even worse in a world where a prototype can be built in days. The new bar is sharper diagnosis plus a working path forward.
+Discovery only matters when it closes a decision. A two-day prototype can invalidate long planning cycles quickly. The standard now is diagnosis plus immediate execution plan.
 
-## Architecture Matters More, Not Less
+## Architecture Decisions Matter More
 
-Agents can build pieces quickly. That does not mean they know which system should own the workflow.
+Agents can build pieces quickly. They do not decide system ownership.
 
-This is especially important for businesses stuck inside expensive legacy platforms. The question is no longer just "Can we configure this in Salesforce?" or "Can we integrate this with the existing stack?"
+The right questions become:
 
-The better question is:
+- Should this remain in Salesforce?
+- Can Salesforce be simplified instead?
+- Can one workflow move out first?
+- Is Salesforce still the source of truth for this process?
+- Is this process generic enough for a system of record?
+- Is a purpose-built tool the better fit?
+- Which data moves, and which data can be archived?
+- Which dependencies should retire first?
 
-- Should this stay in Salesforce?
-- Should Salesforce be simplified?
-- Should one workflow move out first?
-- Is the platform still the source of truth?
-- Is this process generic enough to keep in a system of record?
-- Is it specific enough that a purpose-built tool would be better?
-- What data needs to move, and what data can be archived?
-- Which dependencies need to be retired before the business can move faster?
+Consulting value moves from preserving current implementation patterns to shaping the architecture and migration path.
 
-The consultant's job becomes owning the architecture and migration path.
+That can mean staying in Salesforce, cleaning object models, removing unused automation, tightening permissions, and improving operating discipline in the existing platform.
 
-That does not always mean ripping out the old platform. Sometimes the right answer is to keep Salesforce, clean up the object model, remove unused automation, tighten permissions, and make the team faster inside the system they already bought.
+It can also mean removing one high-friction workflow into a smaller tool, or planning a staged migration off Salesforce entirely.
 
-Sometimes the right answer is to replace a single painful workflow with a smaller tool that fits the work better.
+The benchmark is no longer how much platform extension you can deliver. It is whether the business becomes simpler and faster without losing control.
 
-Sometimes the right answer is a staged migration away from the platform entirely.
+Platform loyalties can bias recommendations. If a team is paid only to extend one platform, there is a built-in pull toward recommendations that are easy rather than right. The trusted advisor is the one who can say, "Do not solve this here."
 
-The important shift is that the consultant is no longer rewarded for keeping every process inside the implementation surface they know best. They are rewarded for making the business simpler and more capable.
+## Trust as the Review Layer
 
-Second-order effect: platform loyalty becomes a weaker consulting moat. If a consultancy makes money only by extending a specific platform, it will be tempted to recommend that platform even when a smaller tool would be better. Clients will get better at noticing this. The trusted advisor will be the person willing to say, "Do not build that here."
+As output velocity rises, trust design matters more.
 
-## Trust Becomes the Review Layer
+Wrong code is only part of the risk. Plausible output that is weak on evidence can do just as much damage.
 
-When agents produce more output, review becomes more important.
+That risk now lands across code, configuration, migrations, recommendations, support responses, documentation, and automation.
 
-The risk is not only bad code. The risk is plausible output that nobody understands well enough to challenge.
-
-That applies to code, configuration, data migrations, workflow recommendations, support responses, generated documentation, and automated actions. If the business starts using agents to move faster, someone has to own the trust layer around that speed.
-
-That layer includes:
+Teams adopting agents need owners for:
 
 - Evals and regression sets
 - Permission checks
@@ -126,175 +118,170 @@ That layer includes:
 - Data quality checks
 - Exception handling
 - Rollback plans
-- Change management
 - Clear ownership after launch
 
-This is not bureaucracy for its own sake. It is what lets a business use AI without turning every demo into operational risk.
+This is the operational backbone that prevents demos from becoming process risk.
 
-The consultant who can design this layer becomes extremely valuable.
+The consultant who owns this layer becomes harder to replace than someone who runs tickets.
 
-They can say:
+They define:
 
-- Here is what the agent is allowed to do.
-- Here is what requires approval.
-- Here is how we know the answer is grounded.
-- Here is how we detect regressions.
-- Here is what happens when the model is uncertain.
-- Here is who owns the workflow after it ships.
-- Here is what gets logged for audit and debugging.
+- What the agent may do
+- What requires approval
+- How to verify evidence
+- How to detect regressions
+- What happens when the model is uncertain
+- Who owns the workflow after launch
+- What gets logged and how to troubleshoot
 
-Second-order effect: the review function becomes a product feature. Businesses will not only buy AI capability. They will buy confidence that the capability is bounded, observable, reversible, and maintainable.
+When the review layer is explicit, trust scales.
 
-## The Durable System Is the Deliverable
+## Durable Systems Over One-Off Builds
 
-AI can produce code and configuration quickly. That does not mean the business has a system.
+Code and configuration move fast. Systems do not.
 
-A system has tests. It has documentation. It has permissions. It has known failure modes. It has a deployment path. It has a support model. It has someone who understands why it exists and when it should be changed.
+Durability is what keeps value:
 
-The consultant's role is to turn agent output into something durable.
+- Tested change paths
+- Up-to-date documentation
+- Clear permissions and boundaries
+- Known failure modes
+- Deployment process
+- Support ownership
+- Shared understanding of why the system exists
 
-That means packaging the work:
+Consultants now have to make output repeatable after the first proof works.
+
+That means packaging real operations:
 
 - Repo-native build and test commands
-- Smoke tests for important workflows
-- Evals for AI-assisted behavior
-- Data migration scripts with validation
-- Runbooks for operators
+- Smoke tests on key workflows
+- AI behavior evals
+- Validation-heavy migration scripts
+- Operator runbooks
 - Architecture notes and decision records
 - Permission and approval models
-- Training based on the actual workflow
-- Post-launch feedback loops
+- Feedback loops after launch
 
-This is less glamorous than a demo and much more valuable.
+The demo proves a path. The durable system proves adoption.
 
-The demo proves possibility. The durable system proves the business can operate it.
+The biggest consulting work now is moving from prototype to operating posture before teams overbuild.
 
-Second-order effect: the gap between prototype and production becomes the main consulting battleground. Agents will make prototypes cheap. The firms that win will be the ones that can repeatedly harden prototypes into tools that survive real use.
+## Economics of Consulting Change
 
-## The Economics Of Consulting Change
+If agents reduce build labor, implementation-hour pricing becomes harder to defend.
 
-If agents reduce the labor required to build, implementation-hour pricing gets harder to defend.
+Projects will still have costs. The billing language changes from labor volume to outcome quality.
 
-That does not mean every project becomes cheap. It means the pricing basis shifts.
+Clients increasingly evaluate:
 
-Clients will care less about how many people are assigned and more about:
+- How quickly teams understand the problem
+- How much risk is removed
+- How much waste is retired
+- How quickly teams can continue without handholding
+- Whether complexity stays controlled
+- How much of the solution is maintainable by the team
 
-- How quickly can we understand the real problem?
-- How much risk can we remove?
-- How much waste can we retire?
-- How much faster can the team move after this?
-- How much complexity can we avoid adding?
-- How much of the result can we maintain ourselves?
+Delivery models built on large long-tail implementation teams must show stronger differentiators or narrower specialization.
 
-Consultancies built around billable implementation volume will feel pressure. A project staffed with many people for many months will need a stronger reason to exist.
+The new positioning is clear:
 
-The new offer is not "we have a large team that can build this."
+- From "more builders"
+- To "faster clarity, safer decisions, and a cleaner migration path"
 
-The new offer is "we can get you from confusion to a trusted working system faster, with less waste and a clearer migration path."
+Small, technically strong teams can beat large, coordination-heavy teams when they combine strong judgment, clear methods, and proof from live operations.
 
-Second-order effect: smaller expert teams become more competitive. A few strong consultants using agents well can challenge larger teams that rely on coordination-heavy delivery. But the smaller team only wins if it has strong judgment, clear operating methods, and a way to prove quality.
+## What Happens to Junior Consultants?
 
-## What Happens To Junior Consultants?
+This is a training issue as much as a delivery issue.
 
-This is one of the harder parts.
+Junior consultants have usually learned by doing the lower-level work: tickets, configuration, QA, data cleanup, reporting, and meeting notes.
 
-Historically, junior consultants learned by doing the lower-level work: tickets, configuration, documentation, QA, data cleanup, reports, and meeting notes. If agents take more of that work, the apprenticeship path has to change.
+If that work is automated, the apprenticeship shifts earlier toward structured decision work. Removing it entirely does not work; skipping directly to strategy does not work either.
 
-The answer cannot be "skip to strategy." Strategy without implementation scar tissue is usually shallow.
+People still need to learn how systems fail and how workshop-level decisions become edge cases in production.
 
-Junior consultants still need to learn how systems fail, how businesses actually operate, and how decisions made in workshops turn into weird edge cases six weeks later.
+The new skill set for junior consultants includes:
 
-But their training may shift toward:
-
-- Running structured discovery
+- Structured discovery
 - Reviewing agent output
-- Writing eval cases
-- Mapping workflows
-- Testing real scenarios
-- Documenting decisions
-- Validating migrations
+- Writing practical eval cases
+- Workflow mapping
+- Real scenario testing
+- Decision recording
+- Migration validation
 - Comparing build, buy, simplify, and retire options
-- Learning how operators actually use the system after launch
+- Post-launch operator behavior analysis
 
-Second-order effect: judgment becomes the apprenticeship target earlier. Junior people will need more deliberate coaching because the old path of slowly accumulating pattern recognition through manual implementation may shrink. Consultancies that do not redesign training will end up with people who can prompt tools but cannot diagnose businesses.
+This path needs tighter coaching. Without it, teams get people who can prompt tools but cannot diagnose operational problems.
 
-## The Risk Of AI Theater
+## The Risk of Overbuilding
 
-As agents get better, demos get easier.
+When agents get better, demos get easier.
 
-That creates a problem.
+That creates a predictable failure mode: a polished demo can skip hard questions.
 
-A polished AI demo can look like transformation while avoiding every hard question:
-
-- Where does the data come from?
+- Where does this data come from?
 - Who is allowed to see it?
 - What happens when the answer is wrong?
-- What system owns the record?
-- What does the agent do when tools fail?
-- How is cost controlled?
+- Which system owns the record?
+- What happens when tools fail?
+- How is cost managed?
 - What is logged?
-- Who approves the action?
-- What gets retired if this works?
+- Who approves actions?
+- What should be retired after this lands?
 
-Consultants have to resist becoming demo operators.
+The goal is safer operations, not more demonstration.
 
-The client does not need more AI theater. They need a safer path from old tools to better tools.
+A practical rollout usually follows this path:
 
-That path usually looks less exciting at first:
-
-1. Pick one workflow with real pain.
-2. Map the current system and human workarounds.
-3. Decide what should be kept, simplified, replaced, or retired.
+1. Pick one workflow with clear pain and measurable outcomes.
+2. Map current behavior and manual workarounds.
+3. Choose what to keep, simplify, replace, or retire.
 4. Build the smallest useful slice.
-5. Add evals, permissions, logs, and approval gates.
+5. Add evals, permissions, logs, and approvals.
 6. Pilot with real operators.
-7. Use feedback to harden or stop.
-8. Retire the old process when the new one earns trust.
+7. Iterate from feedback, or stop if risk is unresolved.
+8. Retire the old process only after trust is proven.
 
-Second-order effect: stopping bad ideas becomes part of the value. When building gets cheaper, businesses will be tempted to build too much. A good consultant will sometimes be paid to prevent software from existing.
+Good consulting includes a better exit option: stopping work that is no longer needed.
 
-## Consulting After The Build Bottleneck
+## Consulting After the Build Bottleneck
 
-The consulting role that survives and improves is not the one built around implementation volume.
+Judgment becomes the durable consulting role.
 
-It is the role built around judgment.
+The practical shape is:
 
-The fit is probably:
+### Diagnose the business behind the surface request
 
-### Diagnose the business, not just the system
+Separate the real operating problem from the software ask.
 
-Find the real operating problem behind the CRM request, integration request, dashboard request, or "we need AI" request.
+### Own architecture and migration
 
-### Own the architecture and migration path
+Choose whether to stay in Salesforce, simplify it, replace one workflow, migrate data, or build a purpose-built tool.
 
-Decide whether to keep Salesforce, simplify Salesforce, replace one workflow, sunset a module, migrate data, or build a purpose-built tool.
+### Design trust and safety
 
-### Manage trust and risk
+Define evals, permissions, audit, security, quality checks, exception handling, and ownership handoffs.
 
-Design the review layer: evals, permissions, audit trails, security, data quality, exception handling, change management, and human approval gates.
+### Turn output into running systems
 
-### Turn agent output into durable systems
-
-Package AI-generated work into tested, documented, maintainable tools that the business can operate.
+Encode agent output into tested, documented, maintainable systems the team can support.
 
 ### Lead the transition
 
-Help the business move from "we sell or buy implementation hours" to "we invest in judgment, acceleration, and a safer path from old tools to better tools."
+Move clients from large implementation plans to smaller decision cycles: more trust, less noise, and clearer results.
 
 ## The Practical Opportunity
 
-The best consultants in this next phase will probably look different from traditional implementation teams.
+The best operators and consultants in this phase tend to look different:
 
-They will be close enough to the business to understand the work.
+- Close to operators and workflow realities
+- Comfortable with technical evaluation
+- Able to simplify architecture without breaking momentum
+- Capable of embedding operations change alongside shipped features
+- Willing to say "we should not build this" when it adds risk
 
-They will be technical enough to evaluate what agents produce.
+The direction is clear: build capacity keeps rising. Judgment capacity becomes the real advantage.
 
-They will be architectural enough to reduce system complexity.
-
-They will be operational enough to make the change stick.
-
-And they will be honest enough to say when the right move is not another implementation project.
-
-That is the real shift.
-
-AI agents make it easier to build. That raises the value of knowing what should be built, what should be retired, and how to help people trust the new way of working.
+AI agents make delivery faster. That makes it more important to keep selecting the right work and executing it safely.

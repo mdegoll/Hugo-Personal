@@ -1,6 +1,6 @@
 ---
-title: "Blog"
-description: "Notes on AI, consulting, business tools, and the shift from legacy platforms to purpose-built software."
+title: "Writing"
+description: "Short notes on purpose-built software, AI-augmented operations, and migration decisions."
 ---
 
-Notes on AI agents, consulting, business tools, platform migration, and the work required to turn fast prototypes into durable systems.
+Short notes from the workbench on purpose-built software, AI agents, and practical operating systems.

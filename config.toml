@@ -30,7 +30,7 @@ googleAnalytics = "G-DX23EZT920"
 	# To provide some metadata for search engines feel free to add a few
     # information about you and your website.
 	name = "Michael DeGoll"
-	description = "agent-powered CTO"
+	description = "Practical software and AI workflows"
 
 	# Format dates with Go's time formatting
 	date_format = "2006-01-02"
@@ -44,8 +44,8 @@ googleAnalytics = "G-DX23EZT920"
 		# Replace the avatar with a picture of your own under static/images
 		avatar = "Me2.png"
 		# Use Markdown to format the string. This works nearly all over the theme
-		bio = "Salesforce"
-		bio2 = "agent-powered CTO"
+		bio = "Practical business tools"
+		bio2 = "AI workflows, Salesforce, and integration cleanup"
 		# The icons will be shown if you enter your username
 		twitter = ""
 		github = "mdegoll"
@@ -64,8 +64,8 @@ googleAnalytics = "G-DX23EZT920"
 
 	[params.about]
 		hide  = false
-		title = "Your Trusted Advisor for Salesforce"
-		content = "<br>[Send me an email](https://www.degoll.net/#contact-form) to start the conversation."
+		title = "Practical tools for teams outgrowing platform drag"
+		content = "<br>[Send me an email](mailto:michael@degoll.net) to talk through the workflow."
 
 
 	[params.portfolio]
@@ -78,7 +78,7 @@ googleAnalytics = "G-DX23EZT920"
 			image = "https://salesforce.com/"
 			thumb = "thumbs/salesforce.png"
 			title = "Salesforce"
-			description = "agent-powered CTO"
+			description = "Salesforce architecture and cleanup"
 
 		[[params.portfolio.gallery]]
 			image = "https://www.mulesoft.com/"
@@ -89,7 +89,7 @@ googleAnalytics = "G-DX23EZT920"
 		[[params.portfolio.gallery]]
 			image = "https://www.jitterbit.com"
 			thumb = "thumbs/jitterbit.jpg"
-			title = "Jittbit Integration."
+			title = "Jitterbit Integration"
 			description = "Salesforce Integration"
 
 		[[params.portfolio.gallery]]
@@ -105,7 +105,7 @@ googleAnalytics = "G-DX23EZT920"
 	[params.contact]
 		hide  = false
 		title = "Get In Touch"
-		content = "Feel free to send me an email about your business issues or just to say hello!"
+		content = "Send me a note about the workflow, platform, or tool you are trying to improve."
 
 		address = [
 			"Currently:",
@@ -137,7 +137,7 @@ googleAnalytics = "G-DX23EZT920"
 	[params.profileMode]
 		enabled = false
 		title = "Michael DeGoll"
-		subtitle = "Agent-powered CTO"
+		subtitle = "Practical software and AI workflows"
 		imageUrl = "images/Me2.png"
 		imageTitle = "Michael DeGoll"
 		imageWidth = 160
@@ -168,14 +168,14 @@ googleAnalytics = "G-DX23EZT920"
 [[menu.main]]
 	name = "Home"
 	url  = "/"
-	weight = 0
+	weight = 1
 
 [[menu.main]]
 	name = "About"
 	url  = "/about/"
-	weight = 5
+	weight = 2
 
 [[menu.main]]
 	name = "Playbooks"
 	url  = "/playbooks/"
-	weight = 15
+	weight = 3
