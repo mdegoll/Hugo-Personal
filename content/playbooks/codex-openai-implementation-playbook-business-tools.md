@@ -11,7 +11,7 @@ playbookEyebrow: "Technical playbook"
 playbookMeta:
   - "Audience: builders, operators, and technical founders"
   - "Format: implementation reference"
-  - "Goal: turn business friction into working software"
+  - "Goal: remove repetitive build and operations work"
 tags:
   - Codex
   - OpenAI
@@ -22,11 +22,11 @@ tags:
 
 ## Executive Thesis
 
-The highest-leverage use of AI for many businesses is not a giant autonomous agent. It is a faster path from operational friction to useful software: a small internal app, a script that removes manual work, a workflow assistant, a data cleanup tool, a support dashboard, or a repeatable deployment path.
+For many teams, the most practical use of AI is a steady path from repetitive work to reliable software: a small internal app, a script that removes manual work, a workflow assistant, a data cleanup tool, a support dashboard, or a deployment path with clear guardrails.
 
 Codex is the build layer. OpenAI APIs are the runtime layer. Local AI and tools like OpenClaw can be the privacy, experimentation, and control layer. Used together, they make it possible to turn a business process into a working prototype quickly, then harden it with tests, evals, permissions, traces, and release gates.
 
-This playbook is a technical implementation guide for that motion.
+This playbook is a technical implementation reference for that motion.
 
 <div class="proof-strip">
   <div>
@@ -45,7 +45,7 @@ This playbook is a technical implementation guide for that motion.
 
 ## 1. Target Workflows
 
-Start with work that already has a human-readable process, clear inputs, and a repeatable output. These are easier to prototype, evaluate, and hand back to operators for feedback.
+Start with work that already has a defined process, clear inputs, and clear outputs. These are easiest to prototype, evaluate, and return to operators for feedback.
 
 <div class="workflow-grid">
   <article>
@@ -228,7 +228,7 @@ export async function answerOperatorQuestion(input: string) {
 }
 ```
 
-The important design decision is not the sample code. It is the contract around the tool:
+The important design decision is the contract around the tool:
 
 - The tool should have a narrow schema.
 - The tool should enforce user permissions before returning data.
@@ -410,4 +410,3 @@ This is the smallest useful prototype that proves the architecture.
 - [Agents SDK tracing](https://openai.github.io/openai-agents-python/tracing/)
 - [OpenAI evals guide](https://developers.openai.com/api/docs/guides/evals)
 - [OpenAI Docs MCP](https://developers.openai.com/learn/docs-mcp)
-

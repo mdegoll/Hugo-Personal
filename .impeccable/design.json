@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-18T00:00:00-07:00",
+  "title": "Design System: Michael DeGoll",
+  "extensions": {
+    "northStar": "The Field Notebook",
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff",
+        "usage": "Main background and inverted button text."
+      },
+      "ink": {
+        "role": "primary",
+        "displayName": "Ink",
+        "canonical": "#1e1e1e",
+        "usage": "Primary text and filled button background."
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Copy",
+        "canonical": "#6c6c6c",
+        "usage": "Secondary copy, metadata, and proof lists."
+      },
+      "teal-wash": {
+        "role": "secondary",
+        "displayName": "Muted Teal",
+        "canonical": "#145c78",
+        "usage": "Low-opacity section wash and structural rules."
+      },
+      "green-wash": {
+        "role": "secondary",
+        "displayName": "Field Green",
+        "canonical": "#467240",
+        "usage": "Low-opacity proof-section support color."
+      },
+      "ochre-wash": {
+        "role": "tertiary",
+        "displayName": "Quiet Ochre",
+        "canonical": "#a87026",
+        "usage": "Low-opacity warmth in proof-section washes."
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headlines only."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Long-form writing and page copy."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Occasional kicker labels, not repeated section scaffolding."
+      }
+    },
+    "elevation": {
+      "strategy": "flat",
+      "rules": [
+        "Use borders, spacing, and tonal washes before shadows.",
+        "Do not add decorative floating card stacks."
+      ]
+    },
+    "motion": {
+      "strategy": "minimal",
+      "reducedMotion": "Respect prefers-reduced-motion. Avoid layout-property animation."
+    },
+    "breakpoints": {
+      "mobile": "820px",
+      "themeMobile": "768px"
+    },
+    "rules": {
+      "do": [
+        "Keep pages simple, consistent, and easy to publish.",
+        "Use direct copy that names the operating problem before the tool.",
+        "Use muted color washes sparingly."
+      ],
+      "dont": [
+        "Do not use corporate blue gradients, glassmorphism, gradient text, hero metric blocks, or repeated icon-card grids.",
+        "Do not make the site Salesforce-first.",
+        "Do not over-polish the site into an agency deck."
+      ]
+    }
+  }
+}

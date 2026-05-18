@@ -38,6 +38,12 @@
   margin-top: 1.5rem;
 }
 
+.playbook-single .post-footer a:focus-visible,
+.playbook-single .post-tags a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
 .playbook-meta span {
   border: 1px solid var(--border);
   border-radius: 999px;

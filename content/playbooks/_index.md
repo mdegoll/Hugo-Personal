@@ -1,6 +1,6 @@
 ---
 title: "Playbooks"
-description: "Proof artifacts and deployment patterns for enterprise AI, Salesforce architecture, integrations, and operating models."
+description: "Deployment playbooks for AI-assisted business software, with practical patterns for Salesforce, integrations, and operations."
 ---
 
 This section collects deployment-ready artifacts: reference architectures, evaluation frameworks, rollout plans, and implementation patterns for practical business software and enterprise AI systems.
