@@ -18,7 +18,7 @@
 
 .about-intro,
 .about-section {
-  margin: 2rem 0;
+  margin: clamp(2rem, 5vw, 4rem) 0;
 }
 
 .about-kicker {
@@ -71,45 +71,50 @@
 }
 
 .about-section h2 {
-  margin-bottom: 0.8rem;
+  margin: 0;
+}
+
+.about-section:not(.about-split) {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.35fr) minmax(0, 1fr);
+  gap: clamp(1.25rem, 4vw, 3rem);
+  align-items: start;
+  border-top: 1px solid var(--border);
+  padding-top: clamp(1.35rem, 3vw, 2rem);
+}
+
+.about-section:not(.about-split) h2 {
+  max-width: 11rem;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  line-height: 1.08;
+}
+
+.about-section:not(.about-split) > :not(h2) {
+  grid-column: 2;
 }
 
 .about-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  counter-reset: about-topic;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: clamp(1.35rem, 3vw, 2.25rem);
 }
 
 .about-grid article {
-  position: relative;
   display: grid;
-  gap: 0.45rem;
-  padding-top: 0.9rem;
-}
-
-.about-grid article + article {
-  border-top: 1px solid var(--border);
-  padding-top: 1rem;
-}
-
-.about-grid article::before {
-  content: counter(about-topic);
-  counter-increment: about-topic;
-  width: 1.5rem;
-  height: 1.5rem;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--secondary);
-  font-size: 0.78rem;
-  font-weight: 700;
+  gap: 0.6rem;
+  align-content: start;
+  min-width: 0;
 }
 
 .about-grid h3 {
-  margin-top: 0;
+  margin: 0;
+  font-size: clamp(1.08rem, 1.45vw, 1.28rem);
+  line-height: 1.18;
+}
+
+.about-grid p,
+.about-closing p {
+  margin: 0;
 }
 
 .about-grid p,
@@ -136,8 +141,15 @@
 }
 
 .about-closing {
-  border-top: 1px solid var(--border);
-  padding-top: 1.5rem;
+  align-items: start;
+}
+
+.about-closing p {
+  max-width: 760px;
+}
+
+.about-closing a {
+  justify-self: start;
 }
 
 @media (max-width: 820px) {
@@ -151,9 +163,25 @@
     grid-template-columns: 1fr;
   }
 
+  .about-section:not(.about-split) {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    margin: 2rem 0;
+    padding-top: 1.25rem;
+  }
+
+  .about-section:not(.about-split) h2 {
+    max-width: none;
+  }
+
+  .about-section:not(.about-split) > :not(h2) {
+    grid-column: auto;
+  }
+
   .about-actions a,
   .about-closing a {
     width: 100%;
     justify-content: center;
+    justify-self: stretch;
   }
 }
