@@ -1,0 +1,130 @@
+.post-single:has(.about-intro) .post-header {
+  margin-bottom: 1.5rem;
+}
+
+.post-single:has(.about-intro) .post-title {
+  max-width: 900px;
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.post-single:has(.about-intro) .post-description {
+  max-width: 760px;
+  margin-top: 1rem;
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+.about-intro,
+.about-section {
+  margin: 2rem 0;
+}
+
+.about-kicker {
+  margin: 0 0 0.55rem;
+  color: var(--secondary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.about-lede {
+  max-width: 860px;
+  margin: 0;
+  font-size: clamp(1.18rem, 2vw, 1.55rem);
+  line-height: 1.45;
+}
+
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.4rem;
+}
+
+.about-actions a,
+.about-closing a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.55rem 0.85rem;
+  color: var(--primary);
+  background: var(--entry);
+  box-shadow: none;
+}
+
+.about-actions .about-action-primary {
+  border-color: transparent;
+  color: var(--theme);
+  background: var(--primary);
+}
+
+.about-section h2 {
+  margin-bottom: 0.8rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.about-grid article {
+  border-top: 2px solid rgba(20, 92, 120, 0.35);
+  padding-top: 0.85rem;
+}
+
+.about-grid h3 {
+  margin-top: 0;
+}
+
+.about-grid p,
+.about-split p,
+.about-proof-list,
+.about-closing p {
+  color: var(--secondary);
+}
+
+.about-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.post-content .about-proof-list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.about-proof-list li + li {
+  margin-top: 0.45rem;
+}
+
+.about-closing {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+
+@media (max-width: 820px) {
+  .post-single:has(.about-intro) .post-title {
+    font-size: clamp(2.1rem, 10vw, 3.15rem);
+    line-height: 1.03;
+  }
+
+  .about-grid,
+  .about-split {
+    grid-template-columns: 1fr;
+  }
+
+  .about-actions a,
+  .about-closing a {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

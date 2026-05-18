@@ -135,7 +135,7 @@ googleAnalytics = "G-DX23EZT920"
 			submit = "Send message"
 
 	[params.profileMode]
-		enabled = true
+		enabled = false
 		title = "Michael DeGoll"
 		subtitle = "Agent-powered CTO"
 		imageUrl = "images/Me2.png"
@@ -144,8 +144,8 @@ googleAnalytics = "G-DX23EZT920"
 		imageHeight = 160
 
 	[[params.profileMode.buttons]]
-		name = "Blog"
-		url = "/post/"
+		name = "Playbooks"
+		url = "/playbooks/"
 
 	[[params.profileMode.buttons]]
 		name = "Email"
@@ -176,6 +176,6 @@ googleAnalytics = "G-DX23EZT920"
 	weight = 5
 
 [[menu.main]]
-	name = "Blog"
-	url  = "post/"
-	weight = 10
+	name = "Playbooks"
+	url  = "/playbooks/"
+	weight = 15
