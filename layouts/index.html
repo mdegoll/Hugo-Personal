@@ -1,0 +1,12 @@
+{{- define "main" }}
+
+{{- if .Content }}
+<div class="home-content">
+  {{- if not (.Param "disableAnchoredHeadings") }}
+  {{- partial "anchored_headings.html" .Content -}}
+  {{- else }}{{ .Content }}{{ end }}
+</div>
+{{- end }}
+
+{{- end }}
+
