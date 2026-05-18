@@ -7,9 +7,9 @@ ShowToc: false
 
 <section class="about-intro">
   <p class="about-kicker">Currently</p>
-  <p class="about-lede">I love building tools for businesses: small internal apps, workflow helpers, automations, integrations, and AI-assisted systems that make everyday work less painful.</p>
+  <p class="about-lede">I love building tools for businesses: small internal apps, workflow helpers, automations, integrations, and AI-assisted systems that make everyday work less painful. I am not attached to one platform or model. The right tool is the one that helps the team move.</p>
   <div class="about-actions">
-    <a class="about-action-primary" href="/playbooks/claude-deployment-playbook-salesforce-heavy-enterprises/">See a current artifact</a>
+    <a class="about-action-primary" href="/playbooks/">See current artifacts</a>
     <a href="mailto:michael@degoll.net">Start a conversation</a>
   </div>
 </section>
@@ -26,6 +26,43 @@ ShowToc: false
     <li>Automation that fits how people already work</li>
     <li>Software that helps teams understand their own operations</li>
   </ul>
+</section>
+
+<section class="about-section about-split">
+  <div>
+    <h2>Kicksights</h2>
+    <p>One current example is <a href="https://kicksights.com/">Kicksights</a>. I am building it to help consultancies and small organizations that do not have a dedicated technical architect understand what is actually inside their Salesforce org: metadata, automation, integrations, risks, unused complexity, and the parts of the system that still matter.</p>
+    <p>The goal is not to force everyone deeper into Salesforce. If the org is still useful, Kicksights should help teams get more value from what they already have. If the better answer is to migrate away, it should give them a practical path out of that ecosystem and toward purpose-built software they can understand and iterate on.</p>
+  </div>
+  <ul class="about-proof-list">
+    <li>Map what is really in the org</li>
+    <li>Explain architecture without requiring an architect</li>
+    <li>Identify what is valuable, risky, stale, or removable</li>
+    <li>Support Salesforce when it still earns its keep</li>
+    <li>Create an exit path when purpose-built software is the better fit</li>
+  </ul>
+</section>
+
+<section class="about-section">
+  <h2>How I Use AI</h2>
+  <div class="about-grid">
+    <article>
+      <h3>Claude</h3>
+      <p>Best as a trusted advisor: ideating, finding the shape of the problem, comparing paths, and turning messy context into a plan. It is strongest before the work is fully specified.</p>
+    </article>
+    <article>
+      <h3>Codex</h3>
+      <p>Best once there is a plan: grinding through implementation, tests, refactors, docs, and repo-native verification. It is strongest when the task has a clear boundary and a way to prove it worked.</p>
+    </article>
+    <article>
+      <h3>Local AI and OpenClaw</h3>
+      <p>Best for privacy, control, fast experimentation, and helping teams learn what AI can do close to their own work. It is strongest when the goal is exploration before production hardening.</p>
+    </article>
+    <article>
+      <h3>The tradeoff</h3>
+      <p>No tool should be treated like magic. Plans need implementation, implementation needs review, and local experiments need a path to something reliable if they become important.</p>
+    </article>
+  </div>
 </section>
 
 <section class="about-section">
@@ -69,4 +106,3 @@ ShowToc: false
   <p>Small teams, operators, founders, and business leaders who want technology to feel more useful, less mysterious, and closer to the work they actually do.</p>
   <a href="mailto:michael@degoll.net">michael@degoll.net</a>
 </section>
-
