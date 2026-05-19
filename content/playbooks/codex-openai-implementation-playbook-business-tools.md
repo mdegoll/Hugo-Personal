@@ -24,13 +24,13 @@ tags:
 
 ## Executive Thesis
 
-Claude is useful when the problem is still fuzzy. Codex is useful when the plan needs to become files.
+I use Claude while the problem is still fuzzy. I use Codex once the plan needs to become files.
 
 For Salesforce-heavy orgs, integration discovery, migration readiness, and tech debt cleanup do not become real until they are encoded in a repo: scan scripts, metadata inventories, markdown deliverables, validation checks, tests, CI, deployment notes, rollback paths, Playwright smoke checks, and pull requests. That is where Codex earns its keep.
 
 Codex is the implementation layer for the architectural brain. It can inspect the local codebase, run metadata-safe commands, update docs, write small utilities, add tests, fix brittle code, harden pipelines, and keep evidence tied to the change. OpenAI APIs are the runtime layer when the business tool itself needs model reasoning, tool calls, state, guardrails, traces, or a user-facing assistant.
 
-This playbook is about the build loop: use Codex to make the work repeatable, verifiable, and easier for the next consultant or developer to pick up.
+This playbook covers the build loop: use Codex to make the work repeatable, verifiable, and easier for the next consultant or developer to pick up.
 
 <div class="proof-strip">
   <div>
@@ -49,7 +49,7 @@ This playbook is about the build loop: use Codex to make the work repeatable, ve
 
 ## 1. Target Workflows
 
-Codex works best after the target is bounded. Give it a repo, a clear operating rule, safe commands, and a definition of done. The first goal is not a broad AI assistant. The first goal is usually a repeatable implementation path.
+Codex works best after the target is bounded. Give it a repo, a clear operating rule, safe commands, and a definition of done. The first goal is usually a repeatable implementation path, not a broad AI assistant.
 
 <div class="workflow-grid">
   <article>
@@ -88,9 +88,9 @@ Codex works best after the target is bounded. Give it a repo, a clear operating 
 
 Use Codex for changing the system. Use OpenAI APIs for running the system. Keep those concerns separate.
 
-Codex should live close to the repo and the terminal. It reads the metadata source, traces scripts, makes edits, runs checks, captures evidence, and prepares changes for review. The application runtime should use the Responses API or Agents SDK only when a product surface needs model reasoning, structured outputs, tool calls, retrieval, approval gates, traces, or a persistent workflow.
+Codex belongs close to the repo and the terminal. It reads the metadata source, traces scripts, makes edits, runs checks, captures evidence, and prepares changes for review. Use the Responses API or Agents SDK only when a product surface needs model reasoning, structured outputs, tool calls, retrieval, approval gates, traces, or a persistent workflow.
 
-[Kicksights](https://kicksights.com/) is the product direction behind this: help consultancies and small teams understand what is really inside a Salesforce org, get more from what they already own, and create a clean exit path when purpose-built software is the better fit.
+[Kicksights](https://kicksights.com/) is where this direction points: help consultancies and small teams understand what is really inside a Salesforce org, get more from what they already own, and create a clean exit path when purpose-built software is the better fit.
 
 ```mermaid
 flowchart LR
@@ -206,11 +206,11 @@ Turn org discovery into practical business tools, safer migrations, and faster v
 
 ## 4. Data-Safe Org Scan Workflow
 
-The Codex version of the org scan should create the mechanics, not just the analysis. It should turn the data-safe prompt into scripts, commands, and durable files that another consultant can rerun.
+For org scans, Codex creates the mechanics behind the analysis. It turns the data-safe prompt into scripts, commands, and durable files that another consultant can rerun.
 
 ### Non-Negotiable Boundary
 
-No Salesforce business data, user data, record-level data, report results, sample rows, file contents, message contents, payload contents, or debug logs should be retrieved by default. Pulling data first and redacting later is not acceptable.
+Do not retrieve Salesforce business data, user data, record-level data, report results, sample rows, file contents, message contents, payload contents, or debug logs by default. Pulling data first and redacting later is not acceptable.
 
 Safe evidence includes:
 
@@ -220,7 +220,7 @@ Safe evidence includes:
 - Component counts and active/inactive metadata state.
 - Named credentials and integration shape without secrets, endpoint details, tokens, certificates, usernames, or payload examples.
 
-When a conclusion would require live data, Codex should write `Unknown` and add the question to the follow-up backlog.
+When a conclusion requires live data, Codex writes `Unknown` and adds the question to the follow-up backlog.
 
 ### Four Deliverables
 
@@ -233,7 +233,7 @@ When a conclusion would require live data, Codex should write `Unknown` and add 
 
 ### Evidence Labels
 
-Every major conclusion should be labeled:
+Every major conclusion gets a label:
 
 - `Confirmed`: directly supported by metadata file paths or safe sandbox metadata/describe/inventory evidence.
 - `Inferred`: strongly suggested by naming, structure, formulas, flow labels, configuration relationships, or correlated metadata.
@@ -249,7 +249,7 @@ just test
 just smoke-ui
 ```
 
-Codex should create these commands only when they are real and maintainable. A fake command is worse than a manual step.
+Codex creates these commands only when they are real and maintainable. A fake command is worse than a manual step.
 
 ## 5. OpenAI Runtime Pattern
 
@@ -299,11 +299,11 @@ export async function explainOrgFinding(input: string) {
 
 The important design decision is the tool contract:
 
-- The tool should have a narrow schema.
-- The tool should enforce the data boundary before returning anything.
-- The tool should log request id, user id, arguments, result status, and latency.
-- The tool should be idempotent unless a human-approved write path is explicit.
-- The model should not be allowed to invent unavailable metadata or record usage patterns.
+- The tool has a narrow schema.
+- The tool enforces the data boundary before returning anything.
+- The tool logs request id, user id, arguments, result status, and latency.
+- The tool is idempotent unless a human-approved write path is explicit.
+- The model cannot invent unavailable metadata or record usage patterns.
 
 ## 6. Agents SDK Pattern
 
@@ -345,11 +345,11 @@ print(result.final_output)
 | Pipeline agent | Harden tests, CI, deployment docs, rollback, and UI smoke checks. | Shell, test runner, Playwright, GitHub Actions. |
 | QA reviewer agent | Check evidence labels, unsafe data access, unsupported claims, and regression risk. | Evals, trace viewer, diff review, policy checklist. |
 
-Use handoffs when a specialist should own a phase. Expose specialists as tools when a manager agent should stay in control of the final report.
+Use handoffs when a specialist owns a phase. Expose specialists as tools when a manager agent needs control of the final report.
 
 ## 7. MCP and Tool Gateway
 
-MCP is useful when the boundary is clear. For Codex, the first MCP server should be OpenAI's Docs MCP so current API, Agents SDK, and Codex guidance is available while building.
+MCP is useful when the boundary is clear. For Codex, start with OpenAI's Docs MCP so current API, Agents SDK, and Codex guidance is available while building.
 
 ```bash
 codex mcp add openaiDeveloperDocs --url https://developers.openai.com/mcp
@@ -366,11 +366,11 @@ Then add project-specific servers only when they are boring and narrow.
 | GitHub | Read issues, PRs, checks, and workflow logs. | Create branches, commits, comments, or PRs. | Required for publish steps. |
 | Deploy | Read build, preview, and health status. | Trigger deploy or rollback. | Required. |
 
-Keep MCP tools simple. Each tool should have one job, explicit input schema, permission checks, structured output, and no secret leakage.
+Keep MCP tools simple. Each tool has one job, explicit input schema, permission checks, structured output, and no secret leakage.
 
 ## 8. Guardrails, Approvals, and Traces
 
-Technical implementation should assume the model will sometimes choose the wrong tool, over-read context, or produce an answer that sounds better than the evidence. The control layer is where the system earns trust.
+Assume the model will sometimes choose the wrong tool, over-read context, or produce an answer that sounds better than the evidence. The control layer is where the system earns trust.
 
 ### Required Controls
 
@@ -395,7 +395,7 @@ Technical implementation should assume the model will sometimes choose the wrong
 
 ## 9. Evals and Release Gates
 
-Every useful Codex workflow needs a regression set before it becomes trusted. The eval should reflect the real work, not a generic benchmark.
+Every useful Codex workflow needs a regression set before it becomes trusted. The eval reflects the real work, not a generic benchmark.
 
 ### Eval Pack
 
@@ -409,7 +409,7 @@ evals/
   prompt_injection_cases.jsonl
 ```
 
-Each case should include:
+Each case includes:
 
 - The task request.
 - The safe source context.
@@ -436,7 +436,7 @@ Do not ship a workflow because the demo works once. Ship it when the regression 
 
 ## 10. Prototype Blueprint: Org Scan Workbench
 
-This is the smallest useful prototype that proves the architecture.
+The smallest useful prototype is an org scan workbench that proves the architecture.
 
 ### Features
 

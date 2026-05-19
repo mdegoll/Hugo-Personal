@@ -25,13 +25,13 @@ tags:
 
 ## Executive Thesis
 
-Most Salesforce AI work should not start with a chat interface. It should start with understanding the org.
+I do not start Salesforce AI work with a chat interface. I start by understanding the org.
 
 The first move is an in-depth org scan using an architectural brain: metadata, automation, permissions, integrations, deployment shape, old decisions, and the land mines hiding from years of change. That scan gets paired with contextual interviews and day-in-the-life walkthroughs from actual users. The system says one thing. People doing the work usually reveal another.
 
-Claude is useful here as a thinking layer. It can process scan output, walkthrough notes, recorded interviews, implementation docs, and migration artifacts to pull out patterns that are hard to see from the first layer of evidence. The goal is not to let Claude run the business. The goal is to make the system explain itself, expose the workarounds, and shorten the path from diagnosis to a provably safer fix.
+Claude is useful here as a thinking layer. It can process scan output, walkthrough notes, recorded interviews, implementation docs, and migration artifacts to pull out patterns that are hard to see from the first layer of evidence. I use it to make the system explain itself, expose the workarounds, and shorten the path from diagnosis to a provably safer fix.
 
-This playbook is built around the work I know best: integration discovery, data migration readiness, tech debt cleanup, and getting the pipeline to production moving fast enough that fixes can actually land.
+The work here is the part I know best: integration discovery, data migration readiness, tech debt cleanup, and getting the pipeline to production moving fast enough that fixes can actually land.
 
 <div class="proof-strip">
   <div>
@@ -50,7 +50,7 @@ This playbook is built around the work I know best: integration discovery, data 
 
 ## 1. Target Workflows
 
-The best first workflow is not a flashy autonomous agent. It is an org explainer and tech debt resolver.
+The first useful workflow is usually an org explainer and tech debt resolver.
 
 Salesforce-heavy businesses usually have the same underlying issue: the business keeps changing, but the system carries every old decision forward. Integrations pile up. Fields lose their meaning. Permissions drift. Automations overlap. Reports become political artifacts. A migration or AI project starts, and nobody has a clean picture of what the org actually does.
 
@@ -101,11 +101,11 @@ Claude fits when the work is repeatable, menial, cross-system, or hard to hold i
 
 ## 2. Reference Architecture
 
-The lean architecture starts with access to the Salesforce org, not a full business-unit overhaul.
+The lean architecture starts with access to the Salesforce org. A full business-unit overhaul can wait.
 
-Start with API access, a metadata download or org dump, and a controlled analysis path. Add business interviews and walkthrough artifacts. Bring in Slack, Google Drive, data warehouses, MuleSoft, or other systems only when the workflow actually crosses those boundaries. The business never ends where Salesforce ends, but the first pass should still be focused enough to build trust quickly.
+Start with API access, a metadata download or org dump, and a controlled analysis path. Add business interviews and walkthrough artifacts. Bring in Slack, Google Drive, data warehouses, MuleSoft, or other systems only when the workflow actually crosses those boundaries. The business never ends where Salesforce ends. Keep the first pass focused enough to build trust quickly.
 
-[Kicksights](https://kicksights.com/) is the product surface I am building around this idea: help consultancies and smaller teams understand what is really inside their Salesforce org, get more from what they already own, and define a practical exit path when Salesforce is no longer the right place for a workflow.
+[Kicksights](https://kicksights.com/) is where I am turning this into product: help consultancies and smaller teams understand what is really inside their Salesforce org, get more from what they already own, and define a practical exit path when Salesforce is no longer the right place for a workflow.
 
 ```mermaid
 flowchart LR
@@ -148,19 +148,19 @@ flowchart LR
 
 ### Design Principles
 
-Metadata comes before data. There is usually no reason to put real customer data into a model during the first pass. Start with metadata, configuration, automation, and architecture. Pull record data only when the question cannot be answered any other way, then anonymize and remove anything that is not needed.
+Metadata comes before data. There is usually no reason to put real customer data into a model during the first pass. Start with metadata, configuration, automation, and architecture. Pull record data only when the question cannot be answered any other way; anonymize it and remove anything that is not needed.
 
-Read-only comes first. Early work should explain, compare, map, and recommend. Production writes should wait until the team trusts the pipeline, the approval path, and the validation checks.
+Read-only comes first. Early work explains, compares, maps, and recommends. Save production writes until the team trusts the pipeline, the approval path, and the validation checks.
 
 The business is larger than Salesforce. Architecture diagrams help because the system boundary almost always crosses finance, support, fulfillment, data platforms, middleware, spreadsheets, inboxes, and people.
 
-Small bites beat giant promises. Complex workflows should be broken into idempotent, reusable, provably correct pieces. Do not try to eat the whole problem at once.
+Small bites beat giant promises. Break complex workflows into idempotent, reusable, provably correct pieces. Do not try to eat the whole problem at once.
 
 Fix the acute problem while aiming at the chronic one. Bad data, brittle permissions, and slow releases are not solved by one agent. They improve when the feedback loop gets shorter and the team can safely ship better fixes.
 
 ## 3. Evaluation Framework
 
-The eval set should prove that Claude is helping the team understand and change the system safely. Golden examples are the best starting point: known workflows, known org findings, known mapping issues, known bad-data cases, and known good fixes.
+The eval set has one job: prove Claude is helping the team understand and change the system safely. Golden examples are the best starting point: known workflows, known org findings, known mapping issues, known bad-data cases, and known good fixes.
 
 For a pilot, I would rather have a small set of examples that everyone understands than a huge set nobody trusts. If two teams can review the same output, compare usefulness, and weight their feedback based on the eval category, even better.
 
@@ -177,7 +177,7 @@ For a pilot, I would rather have a small set of examples that everyone understan
 
 ### Minimum Evaluation Artifacts
 
-Each serious pilot should have:
+Each serious pilot needs:
 
 - A versioned org scan with assumptions, scope, and known blind spots.
 - A handful of golden examples covering normal cases, ugly cases, and edge cases.
@@ -189,20 +189,20 @@ Each serious pilot should have:
 
 ## 4. Agent Patterns
 
-Claude should be used as part of a working delivery loop, not as a vague expert sitting on top of the org. The useful patterns are narrow enough to test and broad enough to reuse.
+I use Claude inside a delivery loop with a clear job to do. The useful patterns are narrow enough to test and broad enough to reuse.
 
 <div class="pattern-list">
   <section>
     <h3>Org Explainer Pattern</h3>
-    <p>Feed Claude structured org scan output and ask it to explain objects, automations, permissions, integrations, and deployment risk in plain language. The output should cite the scan evidence and mark uncertainty clearly.</p>
+    <p>Feed Claude structured org scan output and ask it to explain objects, automations, permissions, integrations, and deployment risk in plain language. The output cites scan evidence and marks uncertainty clearly.</p>
   </section>
   <section>
     <h3>Tech Debt Resolver Pattern</h3>
-    <p>Use Claude to group issues into acute fixes, chronic architecture problems, and safe cleanup candidates. The point is not to create a huge backlog. The point is to identify fixes that make future work faster.</p>
+    <p>Use Claude to group issues into acute fixes, chronic architecture problems, and safe cleanup candidates. A huge backlog is not the win. Faster future work is.</p>
   </section>
   <section>
     <h3>Integration Mapper Pattern</h3>
-    <p>Have Claude compare metadata, integration docs, endpoint descriptions, middleware notes, and user walkthroughs. It should produce source systems, target systems, join keys, triggers, error paths, owners, and open questions.</p>
+    <p>Have Claude compare metadata, integration docs, endpoint descriptions, middleware notes, and user walkthroughs. The output covers source systems, target systems, join keys, triggers, error paths, owners, and open questions.</p>
   </section>
   <section>
     <h3>Migration Readiness Pattern</h3>
@@ -230,7 +230,7 @@ Claude should be used as part of a working delivery loop, not as a vague expert 
 
 ## 5. Deployment Plan
 
-The 30-day version should be practical. Get the pipeline to production running smoothly and correctly. Run the org scan. Interview users. Find the first small changes that improve quality of life or stop the bleeding. Then use that trust to move into deeper architecture work.
+The 30-day version is practical: get the pipeline to production running smoothly and correctly, run the org scan, interview users, and find the first small changes that improve quality of life or stop the bleeding. Then use that trust to move into deeper architecture work.
 
 Thirty days is a lot of time when everyone is rowing in the same direction.
 
@@ -257,7 +257,7 @@ Thirty days is a lot of time when everyone is rowing in the same direction.
       <li>Create golden examples and replay them after prompt, mapping, pipeline, or implementation changes.</li>
       <li>Break complex workflows into small, idempotent, reusable pieces that can be proven independently.</li>
     </ul>
-    <p><strong>Exit criteria:</strong> migration or integration risk is visible, evals are replayable, and the team knows which changes should happen next.</p>
+    <p><strong>Exit criteria:</strong> migration or integration risk is visible, evals are replayable, and the team knows which changes come next.</p>
   </section>
   <section>
     <h3>Days 61-90: Durable Operating Model</h3>
@@ -275,7 +275,7 @@ Thirty days is a lot of time when everyone is rowing in the same direction.
 
 ## 6. Consultant and SI Operating Model
 
-Consultants still matter. The role moves toward diagnosis, architecture, evals, review, change management, and implementation acceleration. What changes is the amount of build work an agent can help grind through once the direction is clear.
+Consultants still matter. The role moves toward diagnosis, architecture, evals, review, change management, and implementation acceleration. Agents can grind through more of the build once the direction is clear.
 
 With strict guidelines, SOPs, and rules of operating, many consultants can work well together. I have seen that work. The problem is not too many people. The problem is unclear ownership, loose standards, vague deliverables, and a slow feedback loop.
 
@@ -292,9 +292,9 @@ With strict guidelines, SOPs, and rules of operating, many consultants can work 
 
 ### Avoiding AI Theater
 
-The operating model should reject demos that look impressive but cannot survive contact with the org.
+Reject demos that look impressive but cannot survive contact with the org.
 
-Every workflow should have:
+Every workflow needs:
 
 - A real org scan before solution design.
 - A business owner who can explain the pain in plain language.
@@ -307,11 +307,11 @@ Every workflow should have:
 
 ## 7. Data-Safe Org Overview Output
 
-The org scan should produce a consulting deliverable, not a generic summary. The ideal output is four linked markdown files. Each file states near the top that the analysis was performed under a strict no-record-data constraint and that no Salesforce record-level data was retrieved or processed.
+The org scan produces a consulting deliverable, not a generic summary. I like four linked markdown files. Each file states near the top that the analysis was performed under a strict no-record-data constraint and that no Salesforce record-level data was retrieved or processed.
 
 ### Data Boundary
 
-The scan starts metadata-first and stays there unless there is a narrow, approved reason to go deeper. The AI should not retrieve Salesforce business data, user data, record rows, report results, file contents, message contents, payload contents, debug logs, event logs, or sample records. Pulling data first and redacting later is not acceptable. Prohibited data should never be retrieved in the first place.
+The scan starts metadata-first and stays there unless there is a narrow, approved reason to go deeper. The AI does not retrieve Salesforce business data, user data, record rows, report results, file contents, message contents, payload contents, debug logs, event logs, or sample records. Pulling data first and redacting later is not acceptable. Prohibited data never gets retrieved in the first place.
 
 Safe evidence includes local Salesforce metadata, describe output, metadata inventory, object and field definitions, relationships, record types, picklists, layouts, flexipages, apps, tabs, permission metadata, package inventory, automation metadata, named credentials without secret values, integration configuration shape, and component counts. If a conclusion would normally require live data, mark it `Unknown` and put it in the open questions.
 
@@ -326,7 +326,7 @@ Safe evidence includes local Salesforce metadata, describe output, metadata inve
 
 ### Evidence Labels
 
-Every major conclusion should carry one of three labels:
+Every major conclusion carries one of three labels:
 
 - `Confirmed`: directly supported by metadata file paths or safe sandbox metadata/describe/inventory evidence.
 - `Inferred`: strongly suggested by naming, structure, formulas, flow labels, configuration relationships, or correlated metadata, but not fully proven without record-level inspection.
@@ -342,7 +342,7 @@ Every major conclusion should carry one of three labels:
 
 ### Process Map Standard
 
-The fourth document is the one a new team member should read first. It should use Mermaid diagrams plus numbered narratives. Diagrams should be practical, not decorative. Use prefixes like `USER:`, `UI:`, `OBJ:`, `AUTO:`, `INT:`, and `REPORT:` so the map stays readable.
+The fourth document is the first read for a new team member. Use Mermaid diagrams plus numbered narratives. Keep the diagrams practical, not decorative. Use prefixes like `USER:`, `UI:`, `OBJ:`, `AUTO:`, `INT:`, and `REPORT:` so the map stays readable.
 
 Minimum diagrams:
 
@@ -353,7 +353,7 @@ Minimum diagrams:
 
 ## Proof Package
 
-The strongest companion artifact would be an org explainer and tech debt resolver.
+The strongest companion artifact is an org explainer and tech debt resolver.
 
 Input: Salesforce metadata, deployment pipeline details, architecture diagrams, integration notes, and a handful of recorded walkthroughs.
 
