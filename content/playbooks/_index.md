@@ -7,5 +7,5 @@ This section collects deployment-ready artifacts: reference architectures, evalu
 
 ## Featured
 
-- [Claude Deployment Playbook for Salesforce-Heavy Enterprises](/playbooks/claude-deployment-playbook-salesforce-heavy-enterprises/)
+- [Claude Org Scan and Migration Readiness Playbook](/playbooks/claude-org-scan-and-migration-readiness-playbook/)
 - [Codex and OpenAI Implementation Playbook for Business Tools](/playbooks/codex-openai-implementation-playbook-business-tools/)
