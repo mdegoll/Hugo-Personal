@@ -1,6 +1,6 @@
 ---
-title: "Codex and OpenAI Implementation Playbook for Business Tools"
-description: "A technical playbook for using Codex, the Responses API, Agents SDK, MCP, tools, evals, and local AI workflows to build practical business software."
+title: "Codex Implementation Playbook for Org Scans and Business Tools"
+description: "A technical playbook for using Codex, OpenAI APIs, MCP, evals, and repo-native verification to turn org discovery into working software."
 date: 2026-05-18
 draft: false
 layout: playbook
@@ -9,131 +9,138 @@ TocOpen: true
 mermaid: true
 playbookEyebrow: "Technical playbook"
 playbookMeta:
-  - "Audience: builders, operators, and technical founders"
+  - "Audience: builders, operators, technical founders, and AI platform teams"
   - "Format: implementation reference"
-  - "Goal: remove repetitive build and operations work"
+  - "Goal: turn org discovery into validated changes"
 tags:
   - Codex
   - OpenAI
   - Business Tools
   - Local AI
   - Agents
+  - Salesforce
+  - Data Migration
 ---
 
 ## Executive Thesis
 
-For many teams, the most practical use of AI is a steady path from repetitive work to reliable software: a small internal app, a script that removes manual work, a workflow assistant, a data cleanup tool, a support dashboard, or a deployment path with clear guardrails.
+Claude is useful when the problem is still fuzzy. Codex is useful when the plan needs to become files.
 
-Codex is the build layer. OpenAI APIs are the runtime layer. Local AI and tools like OpenClaw can be the privacy, experimentation, and control layer. Used together, they make it possible to turn a business process into a working prototype quickly, then harden it with tests, evals, permissions, traces, and release gates.
+For Salesforce-heavy orgs, integration discovery, migration readiness, and tech debt cleanup do not become real until they are encoded in a repo: scan scripts, metadata inventories, markdown deliverables, validation checks, tests, CI, deployment notes, rollback paths, Playwright smoke checks, and pull requests. That is where Codex earns its keep.
 
-This playbook is a technical implementation reference for that motion.
+Codex is the implementation layer for the architectural brain. It can inspect the local codebase, run metadata-safe commands, update docs, write small utilities, add tests, fix brittle code, harden pipelines, and keep evidence tied to the change. OpenAI APIs are the runtime layer when the business tool itself needs model reasoning, tool calls, state, guardrails, traces, or a user-facing assistant.
+
+This playbook is about the build loop: use Codex to make the work repeatable, verifiable, and easier for the next consultant or developer to pick up.
 
 <div class="proof-strip">
   <div>
-    <strong>Build with Codex</strong>
-    <span>Use Codex locally or in the cloud to inspect repos, make changes, run checks, draft PRs, and encode repeatable workflows.</span>
+    <strong>Plan into files</strong>
+    <span>Turn org-scan thinking into scripts, docs, commands, evals, tests, and pull requests.</span>
   </div>
   <div>
-    <strong>Run with OpenAI</strong>
-    <span>Use the Responses API or Agents SDK for product features that need model reasoning, tool calls, state, guardrails, and traces.</span>
+    <strong>Metadata-safe execution</strong>
+    <span>Inspect Salesforce metadata and repo structure first. Do not pull record data unless there is a narrow approved reason.</span>
   </div>
   <div>
-    <strong>Control the loop</strong>
-    <span>Use local AI, OpenClaw, MCP servers, evals, and approvals where privacy, cost, or operator trust matters.</span>
+    <strong>Proof over demos</strong>
+    <span>Build the pipeline, run the checks, log the evidence, and ship small useful fixes.</span>
   </div>
 </div>
 
 ## 1. Target Workflows
 
-Start with work that already has a defined process, clear inputs, and clear outputs. These are easiest to prototype, evaluate, and return to operators for feedback.
+Codex works best after the target is bounded. Give it a repo, a clear operating rule, safe commands, and a definition of done. The first goal is not a broad AI assistant. The first goal is usually a repeatable implementation path.
 
 <div class="workflow-grid">
   <article>
-    <h3>Internal Tool Builder</h3>
-    <p>Turn a spreadsheet, inbox workflow, or recurring manual task into a small web app, CLI, dashboard, or automation.</p>
-    <p><strong>Proof metric:</strong> fewer handoffs and less repeated data entry.</p>
+    <h3>Org Scan Automation</h3>
+    <p>Write scripts and commands that inventory Salesforce metadata, package structure, automation, permissions, integrations, reports, dashboards, and deployment shape without touching record data.</p>
+    <p><strong>Proof metric:</strong> the scan can be rerun and produces the same kind of evidence every time.</p>
   </article>
   <article>
-    <h3>Workflow Assistant</h3>
-    <p>Summarize context, propose next actions, draft messages, route tasks, and prepare review packets while keeping humans in control.</p>
-    <p><strong>Proof metric:</strong> faster decisions with clearer evidence.</p>
+    <h3>Four-Document Deliverable Builder</h3>
+    <p>Generate and maintain the executive overview, technical deep dive, improvement backlog, and business-process system map from safe metadata evidence.</p>
+    <p><strong>Proof metric:</strong> each conclusion has a confidence label and a source path or safe metadata method.</p>
   </article>
   <article>
-    <h3>Document and Data Intake</h3>
-    <p>Extract structured fields, classify files, detect missing information, and prepare exception queues from messy inputs.</p>
-    <p><strong>Proof metric:</strong> higher throughput and fewer incomplete packets.</p>
+    <h3>Integration Discovery</h3>
+    <p>Extract source systems, target systems, API touchpoints, middleware references, named credentials, platform events, custom metadata, and ownership questions from the repo.</p>
+    <p><strong>Proof metric:</strong> fewer missed dependencies before a migration, platform sunset, or workflow replacement.</p>
   </article>
   <article>
-    <h3>Operations Intelligence</h3>
-    <p>Connect exports, logs, tickets, notes, and system records into practical answers for business operators.</p>
-    <p><strong>Proof metric:</strong> faster root-cause discovery and fewer status meetings.</p>
+    <h3>Migration Readiness</h3>
+    <p>Create object maps, field maps, transformation-rule drafts, data-quality checklists, validation scripts, and cutover notes from metadata and approved mapping artifacts.</p>
+    <p><strong>Proof metric:</strong> the team can see source/target gaps before cutover pressure starts.</p>
   </article>
   <article>
-    <h3>Engineering Acceleration</h3>
-    <p>Use Codex to understand codebases, implement scoped features, add tests, review PRs, and keep docs synchronized.</p>
-    <p><strong>Proof metric:</strong> smaller changes, faster verification, fewer stale docs.</p>
+    <h3>Pipeline Hardening</h3>
+    <p>Add Apex tests, unit tests, GitHub Actions, validation scripts, deployment docs, rollback instructions, release checks, and Playwright smoke tests where the UI matters.</p>
+    <p><strong>Proof metric:</strong> small fixes can move safely and quickly.</p>
   </article>
   <article>
-    <h3>Local AI Workbench</h3>
-    <p>Use OpenClaw and local models for private experimentation, workflow sketching, offline review, or low-risk automation.</p>
-    <p><strong>Proof metric:</strong> more ideas tested without exposing sensitive data unnecessarily.</p>
+    <h3>Tech Debt Repair</h3>
+    <p>Turn findings into scoped fixes: brittle tests, duplicated helpers, fragile scripts, stale docs, missing commands, and unsafe deployment paths.</p>
+    <p><strong>Proof metric:</strong> the next fix is easier than the last one.</p>
   </article>
 </div>
 
 ## 2. Reference Architecture
 
-Use Codex for changing software and OpenAI APIs for running software. Keep those concerns separate.
+Use Codex for changing the system. Use OpenAI APIs for running the system. Keep those concerns separate.
 
-Codex is best treated as a repo-aware implementation partner: it reads code, edits files, runs checks, explains unfamiliar systems, and prepares pull requests. The application runtime should use OpenAI APIs directly when the product needs model responses, tool calls, retrieval, or agent orchestration.
+Codex should live close to the repo and the terminal. It reads the metadata source, traces scripts, makes edits, runs checks, captures evidence, and prepares changes for review. The application runtime should use the Responses API or Agents SDK only when a product surface needs model reasoning, structured outputs, tool calls, retrieval, approval gates, traces, or a persistent workflow.
+
+[Kicksights](https://kicksights.com/) is the product direction behind this: help consultancies and small teams understand what is really inside a Salesforce org, get more from what they already own, and create a clean exit path when purpose-built software is the better fit.
 
 ```mermaid
 flowchart LR
-    Operator["Operator or builder"]
-    Codex["Codex local, IDE, web, or cloud"]
-    Repo["Git repo and tests"]
-    CI["CI and deployment"]
-    App["Business tool UI or CLI"]
-    API["OpenAI Responses API"]
-    SDK["Agents SDK orchestration"]
-    Tools["Function tools, MCP servers, shell, files, business APIs"]
-    Local["OpenClaw and local models"]
-    Data["Documents, exports, databases, SaaS systems"]
-    Evals["Evals, traces, logs, approvals"]
+    Architect["Architectural brain"]
+    Codex["Codex implementation agent"]
+    Repo["Salesforce metadata repo"]
+    SafeTools["Metadata-safe scripts and CLI commands"]
+    Docs["Four markdown deliverables"]
+    Pipeline["Tests, CI, deploy checks, rollback, Playwright"]
+    PR["Reviewed pull request"]
+    App["Business tool or workbench"]
+    Responses["OpenAI Responses API"]
+    Agents["Agents SDK"]
+    MCP["MCP and function tools"]
+    Evals["Evals, traces, approvals, cost"]
 
-    Operator --> Codex
-    Codex --> Repo
-    Repo --> CI
-    CI --> App
-    Operator --> App
-    App --> API
-    App --> SDK
-    API --> Tools
-    SDK --> Tools
-    Tools --> Data
-    Operator --> Local
-    Local --> Repo
-    API --> Evals
-    SDK --> Evals
-    Tools --> Evals
+    Architect --> Codex
+    Repo --> Codex
+    Codex --> SafeTools
+    SafeTools --> Docs
+    Codex --> Pipeline
+    Pipeline --> PR
+    Docs --> PR
+    PR --> App
+    App --> Responses
+    App --> Agents
+    Responses --> MCP
+    Agents --> MCP
+    Responses --> Evals
+    Agents --> Evals
+    Pipeline --> Evals
 ```
 
 ### Product Boundaries
 
 | Layer | Use it for | Do not use it for |
 |---|---|---|
-| Codex | Repo work, implementation, debugging, test generation, PRs, code review, migrations, docs, build scripts. | Silent production actions without review, handling live customer data by default, or replacing CI. |
-| Responses API | Direct model calls, tool use, file search, web search, remote MCP, structured outputs, stateful response chains. | Complex multi-agent orchestration when you do not want to own the loop. |
-| Agents SDK | Code-first agents with tools, handoffs, guardrails, tracing, sessions, and specialist orchestration. | Tiny one-shot prompts where a direct Responses call is simpler. |
-| MCP servers | Bounded access to docs, internal APIs, data exports, logs, and specialized systems. | Broad uncontrolled system access or secrets exposure. |
-| OpenClaw and local AI | Local experimentation, private review, low-risk classification, offline drafting, and operator education. | High-stakes production decisions without evaluation and logging. |
+| Codex | Repo work, metadata-safe scripts, docs, implementation, debugging, tests, PRs, code review, migration utilities, release hardening. | Silent production changes, unauthorized org actions, record-data inspection by default, or replacing CI. |
+| Responses API | Product runtime calls that need model reasoning, tool calls, structured outputs, hosted tools, state, or direct app control. | Repo implementation work that belongs in Codex or shell commands. |
+| Agents SDK | Code-first agent workflows with tools, handoffs, guardrails, tracing, sessions, and specialist orchestration. | Tiny one-shot prompts where a direct Responses call is simpler. |
+| MCP servers | Bounded access to docs, metadata inventories, internal APIs, safe file stores, and specialized systems. | Broad uncontrolled access, secrets exposure, or business-data scraping. |
+| OpenClaw and local AI | Local experimentation, private review, low-risk drafts, and operator education. | High-stakes production decisions without evals and logging. |
 
 ## 3. Codex Implementation Loop
 
-Codex should work inside a repo that gives it the same handles a strong engineer would want: clear commands, tests, examples, environment notes, and boundaries.
+Codex needs the same handles a strong engineer would want: clear commands, safe boundaries, examples, tests, environment notes, and a definition of done.
 
 ### Repo Setup
 
-Add these files before asking Codex to do serious work:
+Add or maintain these files before asking Codex to do serious work:
 
 ```text
 AGENTS.md
@@ -142,35 +149,46 @@ README.md
 justfile or package scripts
 docs/architecture.md
 docs/decisions/
+scripts/org-scan/
 scripts/smoke-*.*
 tests/
 evals/
+playwright/
 ```
 
-Use `AGENTS.md` as the operational contract:
+Use `AGENTS.md` as the operating contract:
 
 ```markdown
 # Agent Instructions
 
 ## Project Goal
-Build practical business tools that reduce manual work and keep operators in control.
+Turn org discovery into practical business tools, safer migrations, and faster validated releases.
 
 ## Commands
 - Build: `just build`
 - Unit tests: `just test`
+- Org scan: `just org-scan`
 - Local smoke: `just smoke-local`
-- Lint: `just lint`
+- UI smoke: `just smoke-ui`
+- Evals: `just eval`
+
+## Data Boundary
+- Metadata first.
+- Do not retrieve Salesforce record rows or report results.
+- Do not inspect files, logs, payloads, or exports that may contain business data.
+- If a question needs record data, mark it `Unknown` and add it to the discovery backlog.
 
 ## Boundaries
 - Do not edit production secrets.
-- Do not change database migrations without explicit approval.
+- Do not deploy or modify org metadata without explicit approval.
 - Prefer small commits with verification evidence.
 - When working with OpenAI docs, use the OpenAI developer docs MCP server first.
 
 ## Done Means
-- Code is implemented.
-- Tests or smoke checks pass.
-- Risky changes have an approval gate.
+- Code or docs are implemented.
+- Tests, evals, smoke checks, or build checks pass.
+- Risky actions have an approval gate.
+- Findings cite safe evidence.
 - Documentation reflects changed behavior.
 ```
 
@@ -178,18 +196,66 @@ Build practical business tools that reduce manual work and keep operators in con
 
 | Task shape | Best Codex mode | Prompt shape |
 |---|---|---|
-| Understand | Ask mode | "Trace this workflow from UI to database and identify where the manual handoff happens." |
-| Implement | Code mode | "Add this scoped feature. Keep files small. Run tests. Show changed paths." |
-| Refactor | Code mode | "Reduce duplication in this module without behavior changes. Add tests around extracted helpers." |
-| Verify | Ask or code mode | "Run the app, smoke the target routes, and classify expected auth states versus failures." |
-| Review | Ask mode | "Review this diff for bugs, regressions, missing tests, and security risk." |
-| Operationalize | Code mode | "Turn this manual checklist into a repo-native command and document usage." |
+| Inspect | Ask mode | "Trace the repo structure and list safe metadata evidence sources. Do not inspect record data." |
+| Inventory | Code mode | "Create a metadata-only org scan command that counts components and writes structured JSON." |
+| Generate deliverables | Code mode | "Use the scan output to update the four markdown docs. Label each conclusion Confirmed, Inferred, or Unknown." |
+| Implement | Code mode | "Fix this deployment pipeline issue. Keep the change small. Run checks. Show changed paths." |
+| Verify | Ask or code mode | "Run build, tests, evals, and Playwright smoke. Separate expected auth-gated states from failures." |
+| Review | Ask mode | "Review this diff for bugs, unsafe data access, missing tests, and deployment risk." |
+| Operationalize | Code mode | "Turn this manual migration checklist into repo-native commands and docs." |
 
-## 4. OpenAI Runtime Pattern
+## 4. Data-Safe Org Scan Workflow
 
-Use the Responses API when the app owns the orchestration loop and you want a direct, inspectable model interaction. OpenAI's docs describe Responses as the recommended primitive for new projects, with built-in support for tools, stateful context, multimodal input, and agentic flows.
+The Codex version of the org scan should create the mechanics, not just the analysis. It should turn the data-safe prompt into scripts, commands, and durable files that another consultant can rerun.
 
-### Minimal Tool-Using Service
+### Non-Negotiable Boundary
+
+No Salesforce business data, user data, record-level data, report results, sample rows, file contents, message contents, payload contents, or debug logs should be retrieved by default. Pulling data first and redacting later is not acceptable.
+
+Safe evidence includes:
+
+- Local Salesforce metadata source.
+- Metadata, Tooling, schema describe, and inventory calls.
+- Object, field, relationship, record type, picklist, layout, flexipage, app, tab, permission, package, automation, integration, and deployment metadata.
+- Component counts and active/inactive metadata state.
+- Named credentials and integration shape without secrets, endpoint details, tokens, certificates, usernames, or payload examples.
+
+When a conclusion would require live data, Codex should write `Unknown` and add the question to the follow-up backlog.
+
+### Four Deliverables
+
+| File | Codex responsibility |
+|---|---|
+| `01-executive-overview.md` | Keep it concise, business-first, and grounded in safe evidence. Summarize what the org appears to do, major risks, and highest-value improvements. |
+| `02-technical-deep-dive.md` | Map where functionality lives: objects, record types, Flows, Apex, validation rules, UI layers, permissions, packages, integrations, tests, and deployment shape. |
+| `03-improvement-areas-and-open-questions.md` | Produce the blunt backlog: quick wins, structural improvements, high-risk areas, open questions, safe next inspections, blockers, and blind spots. |
+| `04-business-process-system-map.md` | Create the visual onboarding guide with Mermaid diagrams, numbered narratives, lifecycle maps, and a process-to-metadata index. |
+
+### Evidence Labels
+
+Every major conclusion should be labeled:
+
+- `Confirmed`: directly supported by metadata file paths or safe sandbox metadata/describe/inventory evidence.
+- `Inferred`: strongly suggested by naming, structure, formulas, flow labels, configuration relationships, or correlated metadata.
+- `Unknown`: not enough safe evidence under the no-record-data constraint.
+
+### Repo-Native Command Shape
+
+```bash
+just org-scan
+just org-scan-docs
+just org-scan-validate
+just test
+just smoke-ui
+```
+
+Codex should create these commands only when they are real and maintainable. A fake command is worse than a manual step.
+
+## 5. OpenAI Runtime Pattern
+
+Use the Responses API when the product owns the orchestration loop and needs a direct model interaction. Current OpenAI guidance treats Responses as the right primitive for model calls with tools, state, structured outputs, hosted tools, and agentic workflows.
+
+For org-scan tooling, the runtime pattern is usually read-first:
 
 ```typescript
 import OpenAI from "openai";
@@ -199,67 +265,70 @@ const openai = new OpenAI();
 const tools = [
   {
     type: "function",
-    name: "lookup_order",
-    description: "Look up an order by order number.",
+    name: "lookup_metadata_component",
+    description: "Look up a Salesforce metadata component by type and API name. Never returns record data.",
     parameters: {
       type: "object",
       properties: {
-        order_number: { type: "string" }
+        component_type: { type: "string" },
+        api_name: { type: "string" }
       },
-      required: ["order_number"],
+      required: ["component_type", "api_name"],
       additionalProperties: false
     }
   }
 ];
 
-export async function answerOperatorQuestion(input: string) {
-  const response = await openai.responses.create({
+export async function explainOrgFinding(input: string) {
+  return openai.responses.create({
     model: "gpt-5.5",
-    instructions: "Help the operator. Use tools for facts. Say when data is missing.",
+    instructions: [
+      "You explain Salesforce org findings from metadata only.",
+      "Do not request or infer record-level data.",
+      "Label conclusions Confirmed, Inferred, or Unknown."
+    ].join(" "),
     input,
     tools,
     metadata: {
-      workflow: "ops_assistant",
-      environment: "staging"
+      workflow: "org_scan",
+      data_boundary: "metadata_only"
     }
   });
-
-  return response;
 }
 ```
 
-The important design decision is the contract around the tool:
+The important design decision is the tool contract:
 
 - The tool should have a narrow schema.
-- The tool should enforce user permissions before returning data.
+- The tool should enforce the data boundary before returning anything.
 - The tool should log request id, user id, arguments, result status, and latency.
 - The tool should be idempotent unless a human-approved write path is explicit.
-- The model should not be allowed to invent unavailable records.
+- The model should not be allowed to invent unavailable metadata or record usage patterns.
 
-## 5. Agents SDK Pattern
+## 6. Agents SDK Pattern
 
-Use the Agents SDK when the workflow needs more than one specialist, long-running state, guardrails, handoffs, or traceable tool orchestration. The SDK uses the Responses API by default for OpenAI models, but it manages the agent loop for you.
+Use the Agents SDK when the work needs specialists, handoffs, guardrails, tracing, or a long-running stateful workflow. The SDK moves tool wiring into agent definitions and workflow design. That fits org-scan work because different specialists can own different slices without pretending one prompt can do everything.
 
 ```python
 from agents import Agent, Runner, function_tool
 
 @function_tool
-def search_internal_docs(query: str) -> str:
-    """Search approved internal docs and return grounded snippets."""
-    return "matching snippets..."
+def search_metadata_index(query: str) -> str:
+    """Search approved Salesforce metadata inventory. Never returns record data."""
+    return "matching metadata evidence..."
 
-triage_agent = Agent(
-    name="Business tool triage",
+org_explainer = Agent(
+    name="Org explainer",
     instructions=(
-        "Classify the operator's request, gather only necessary context, "
-        "and recommend the smallest useful next action."
+        "Explain Salesforce org behavior from metadata evidence only. "
+        "Label every major conclusion Confirmed, Inferred, or Unknown."
     ),
-    tools=[search_internal_docs],
+    tools=[search_metadata_index],
 )
 
 result = Runner.run_sync(
-    triage_agent,
-    "Customer onboarding keeps stalling. Find the repeated manual step."
+    org_explainer,
+    "Summarize where onboarding logic appears to live and what needs more discovery."
 )
 
 print(result.final_output)
@@ -269,36 +338,37 @@ print(result.final_output)
 
 | Specialist | Responsibility | Tools |
 |---|---|---|
-| Triage agent | Classify request, risk, and workflow type. | Request parser, policy lookup. |
-| Context agent | Retrieve docs, records, tickets, files, exports, and prior decisions. | File search, MCP, business APIs. |
-| Builder agent | Propose implementation plan or draft code tasks for Codex. | Repo context, issue tracker, docs. |
-| QA agent | Check factuality, tool outputs, tests, and approval requirements. | Evals, test runner, trace viewer. |
-| Operator agent | Produce user-facing summary and next actions. | Notification and ticket tools. |
+| Metadata inventory agent | Count and index metadata components. | Local files, Salesforce metadata describe, Tooling inventory. |
+| Org explainer agent | Turn metadata into business-process interpretation. | Metadata index, architecture docs, safe component references. |
+| Integration mapper agent | Identify external systems, source-of-truth questions, event paths, and ownership gaps. | Named credential inventory, custom metadata, platform events, docs. |
+| Migration readiness agent | Draft field maps, transformation-rule candidates, validation checks, and cutover risks. | Metadata index, approved mapping docs, validation scripts. |
+| Pipeline agent | Harden tests, CI, deployment docs, rollback, and UI smoke checks. | Shell, test runner, Playwright, GitHub Actions. |
+| QA reviewer agent | Check evidence labels, unsafe data access, unsupported claims, and regression risk. | Evals, trace viewer, diff review, policy checklist. |
 
-Use handoffs when a specialist should take over the conversation. Use agents-as-tools when a manager should call a specialist but keep control of the final answer.
+Use handoffs when a specialist should own a phase. Expose specialists as tools when a manager agent should stay in control of the final report.
 
-## 6. MCP and Tool Gateway
+## 7. MCP and Tool Gateway
 
-MCP is the cleanest pattern for giving Codex and agents access to bounded external capabilities. The first MCP server to configure is OpenAI's Docs MCP so the agent can pull current OpenAI docs while building.
+MCP is useful when the boundary is clear. For Codex, the first MCP server should be OpenAI's Docs MCP so current API, Agents SDK, and Codex guidance is available while building.
 
 ```bash
 codex mcp add openaiDeveloperDocs --url https://developers.openai.com/mcp
 codex mcp list
 ```
 
-Then add project-specific servers only when the boundary is clear:
+Then add project-specific servers only when they are boring and narrow.
 
 | MCP server | Read tools | Write tools | Approval |
 |---|---|---|---|
 | Docs | Search and fetch official docs. | None. | None. |
-| Tickets | Search issues, read comments, list assignments. | Create draft issue, add internal note. | Required for external-facing changes. |
-| Files | Read approved workspace folders. | Write generated reports. | Required outside workspace. |
-| Business system | Lookup records and status. | Draft update, create task. | Required for any customer-impacting write. |
-| Deploy | Read build and health status. | Trigger deploy, rollback. | Required. |
+| Salesforce metadata | Describe objects, fields, layouts, Flows, Apex, permissions, packages. | None by default. | Required for metadata writes. |
+| Files | Read approved workspace folders and generated scan artifacts. | Write reports and structured scan outputs. | Required outside workspace. |
+| GitHub | Read issues, PRs, checks, and workflow logs. | Create branches, commits, comments, or PRs. | Required for publish steps. |
+| Deploy | Read build, preview, and health status. | Trigger deploy or rollback. | Required. |
 
-Keep MCP tools boring. Each tool should have one job, explicit input schema, permission checks, and structured output.
+Keep MCP tools simple. Each tool should have one job, explicit input schema, permission checks, structured output, and no secret leakage.
 
-## 7. Guardrails, Approvals, and Traces
+## 8. Guardrails, Approvals, and Traces
 
 Technical implementation should assume the model will sometimes choose the wrong tool, over-read context, or produce an answer that sounds better than the evidence. The control layer is where the system earns trust.
 
@@ -306,100 +376,108 @@ Technical implementation should assume the model will sometimes choose the wrong
 
 | Control | Implementation |
 |---|---|
-| Input guardrails | Block secrets, prompt injection patterns, unsupported workflow requests, and out-of-scope data. |
-| Tool guardrails | Validate arguments before execution and redact outputs after execution. |
-| Output guardrails | Check final answers for unsupported claims, missing caveats, and unsafe instructions. |
-| Approval gates | Require explicit approval before writes, external messages, deploys, billing changes, or customer-impacting actions. |
-| Tracing | Capture model call, tool call, handoff, guardrail, latency, cost, and final output metadata. |
+| Data boundary guardrails | Block record queries, report results, list views, file contents, payloads, debug logs, and sample rows unless separately approved. |
+| Tool guardrails | Validate arguments before execution and refuse unsafe Salesforce data access. |
+| Output guardrails | Check final docs for unsupported claims, missing confidence labels, exposed secrets, or accidental data references. |
+| Approval gates | Require explicit approval before writes, external messages, deploys, metadata changes, billing changes, or customer-impacting actions. |
+| Tracing | Capture model call, tool call, handoff, guardrail, latency, cost, final output metadata, and source artifact versions. |
 | Sensitive-data mode | Disable or redact sensitive trace payloads where needed. |
 
 ### Write-Safety Tiers
 
 | Tier | Behavior | Example |
 |---|---|---|
-| 0: Read only | Summarize, classify, retrieve, compare. | "Summarize these onboarding blockers." |
-| 1: Draft | Prepare a change for review. | "Draft an updated checklist." |
-| 2: Approved write | Execute after explicit approval. | "Create the internal follow-up task." |
-| 3: Automated low-risk write | Execute routine, reversible operations with logs. | "Tag this record as reviewed." |
-| 4: Restricted | Never execute directly. | "Change billing terms" or "delete production data." |
+| 0: Metadata read only | Summarize, classify, retrieve, compare. | Explain object and automation structure without record rows. |
+| 1: Draft | Prepare a change or report for review. | Draft a migration-readiness report or validation checklist. |
+| 2: Approved repo write | Edit local files after review boundary is clear. | Add a scan script, test, doc, or GitHub Actions check. |
+| 3: Approved org/deploy action | Execute only after explicit approval and validation. | Deploy a metadata fix or trigger a production release. |
+| 4: Restricted | Never execute directly. | Read customer records, approve money, change contract terms, delete production data, or bypass compliance. |
 
-## 8. Evals and Release Gates
+## 9. Evals and Release Gates
 
-Every useful AI workflow should have a small regression set before it goes live. The eval should reflect the actual work, not a generic benchmark.
+Every useful Codex workflow needs a regression set before it becomes trusted. The eval should reflect the real work, not a generic benchmark.
 
 ### Eval Pack
 
 ```text
 evals/
-  onboarding_intake.jsonl
-  invoice_exception.jsonl
-  tool_call_correctness.jsonl
-  permission_boundaries.jsonl
+  org_scan_findings.jsonl
+  metadata_boundary_cases.jsonl
+  integration_mapping.jsonl
+  migration_readiness.jsonl
+  pipeline_hardening.jsonl
   prompt_injection_cases.jsonl
 ```
 
 Each case should include:
 
-- The user request.
-- The available source context.
+- The task request.
+- The safe source context.
 - The tools the model is allowed to call.
 - The expected output shape.
-- The expected tool calls or forbidden tool calls.
-- The expected escalation behavior.
+- The required evidence labels.
+- Forbidden data access or forbidden tool calls.
+- Expected escalation behavior.
 - A pass/fail rubric that a human can understand.
 
 ### Release Gate
 
 ```bash
+just build
 just test
+just org-scan-validate
 just eval
 just smoke-local
+just smoke-ui
 just deploy-preview
 ```
 
-Do not ship a workflow just because the demo works once. Ship it when the regression set, logs, and operator review all agree it is useful enough and bounded enough.
+Do not ship a workflow because the demo works once. Ship it when the regression set, logs, operator review, and deployment pipeline all agree it is useful enough and bounded enough.
 
-## 9. Prototype Blueprint: Business Ops Workbench
+## 10. Prototype Blueprint: Org Scan Workbench
 
 This is the smallest useful prototype that proves the architecture.
 
 ### Features
 
-- Upload or connect a CSV, document folder, ticket export, or app database.
-- Ask operational questions in plain language.
-- Let the assistant call only approved read tools by default.
-- Generate a proposed action plan with evidence.
-- Require approval before creating tasks, sending messages, or changing records.
-- Store traces and feedback.
-- Export a report that a non-technical operator can use.
+- Connect a Salesforce metadata repo and authorized metadata-only org access.
+- Run a safe org scan from repo-native commands.
+- Generate the four markdown deliverables.
+- Index metadata components with source paths and confidence labels.
+- Show integration, migration, permission, and deployment risks.
+- Let the assistant answer questions from metadata evidence only.
+- Require approval before any write, deploy, or deeper data access.
+- Store traces, eval scores, version history, and feedback.
 
 ### Build Plan
 
-1. Use Codex to scaffold the app and add repo-native commands.
-2. Add a single OpenAI Responses endpoint with one read-only function tool.
-3. Add one MCP server or file-search source for grounded context.
-4. Add the first eval pack with 20 real examples.
-5. Add approval gates for any write path.
-6. Add traces, run ids, and feedback capture.
-7. Use Codex to turn repeated verification into `just smoke-local` and `just eval`.
-8. Pilot with one operator for one real workflow.
+1. Use Codex to add repo-native scan commands and structured scan output.
+2. Add the no-record-data policy to `AGENTS.md`, scripts, tool descriptions, and evals.
+3. Generate the first four markdown deliverables from safe metadata evidence.
+4. Add validation checks for missing evidence labels, broken markdown links, Mermaid syntax, and unsafe terms.
+5. Add Apex/unit tests, GitHub Actions, deployment docs, rollback notes, and Playwright UI smoke checks where applicable.
+6. Add a single Responses endpoint or Agents SDK workflow only if the workbench needs a runtime assistant.
+7. Add eval packs for org findings, integration mapping, migration readiness, permission boundaries, and prompt injection.
+8. Pilot it against one serious org and compare the output to consultant review.
 
-## 10. Implementation Checklist
+## 11. Implementation Checklist
 
 | Area | Done when |
 |---|---|
-| Repo | Codex can build, test, smoke, and understand project boundaries from `AGENTS.md`. |
+| Repo | Codex can build, test, smoke, scan, and understand boundaries from `AGENTS.md`. |
+| Data boundary | Metadata-only behavior is enforced in prompts, scripts, tool descriptions, evals, and review checks. |
+| Org scan | The scan produces reusable structured output and cites safe evidence. |
+| Deliverables | The four markdown docs are generated or maintained with confidence labels and source references. |
+| Pipeline | CI can build, test, eval, validate docs, deploy preview, and run UI smoke checks where needed. |
 | Runtime | The app uses Responses API directly or Agents SDK intentionally, not accidentally. |
 | Tools | Each tool is narrow, typed, logged, permission-aware, and idempotent where possible. |
-| MCP | MCP servers are read-first and added only for clear business capabilities. |
+| MCP | MCP servers are read-first and added only for clear capabilities. |
 | Local AI | OpenClaw/local models have a defined role: private review, offline work, low-risk drafts, or operator education. |
-| Evals | A small regression set runs before deployment. |
-| Approvals | Writes and external actions require explicit approval unless classified as low-risk automation. |
-| Observability | Traces, tool calls, guardrails, cost, latency, and user feedback are inspectable. |
-| Deployment | CI can build, test, eval, deploy, and verify the target surface. |
+| Observability | Traces, tool calls, guardrails, cost, latency, approvals, and user feedback are inspectable. |
 
 ## Official References
 
+- [Building an AI-Native Engineering Team](https://developers.openai.com/codex/guides/build-ai-native-engineering-team)
 - [Codex web](https://developers.openai.com/codex/cloud)
 - [Code generation with Codex and OpenAI models](https://developers.openai.com/api/docs/guides/code-generation)
 - [Migrate to the Responses API](https://developers.openai.com/api/docs/guides/migrate-to-responses)

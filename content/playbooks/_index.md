@@ -8,4 +8,4 @@ This section collects deployment-ready artifacts: reference architectures, evalu
 ## Featured
 
 - [Claude Org Scan and Migration Readiness Playbook](/playbooks/claude-org-scan-and-migration-readiness-playbook/)
-- [Codex and OpenAI Implementation Playbook for Business Tools](/playbooks/codex-openai-implementation-playbook-business-tools/)
+- [Codex Implementation Playbook for Org Scans and Business Tools](/playbooks/codex-openai-implementation-playbook-business-tools/)
