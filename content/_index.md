@@ -78,8 +78,3 @@ hideMeta: true
     </article>
   </div>
 </section>
-
-<section class="home-section home-closing">
-  <h2>Good Fit</h2>
-  <p>Teams paying too much for tools that do too little, businesses stuck between spreadsheets and enterprise platforms, and operators who know the workflow could be better if software was shaped around the people doing the work.</p>
-</section>

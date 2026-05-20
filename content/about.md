@@ -101,9 +101,3 @@ ShowToc: false
     <li>Explaining tradeoffs without burying people in jargon</li>
   </ul>
 </section>
-
-<section class="about-section about-closing">
-  <h2>Good Fit</h2>
-  <p>Small teams, operators, founders, and business leaders who want technology to feel more useful, less mysterious, and closer to the work they actually do.</p>
-  <a href="mailto:michael@degoll.net">michael@degoll.net</a>
-</section>
