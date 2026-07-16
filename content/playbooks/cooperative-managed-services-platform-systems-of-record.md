@@ -1,6 +1,6 @@
 ---
 title: "Cooperative Managed Services Platform for Systems of Record"
-description: "A playbook for building a human and AI operating layer around implementation, support, migrations, releases, and managed services work for systems of record."
+description: "How I would build a visible, approval-aware delivery system for humans and agents working on software the business cannot afford to break."
 date: 2026-05-19
 draft: false
 layout: playbook
@@ -11,7 +11,7 @@ playbookEyebrow: "Cooperative systems"
 playbookMeta:
   - "Audience: operators, implementation teams, technical founders, and AI platform teams"
   - "Format: managed services platform, support automation, evals, and delivery loop"
-  - "Goal: turn messy operational work into a trusted on-rails human/AI system"
+  - "Goal: turn messy operational work into a trusted human and AI system"
 tags:
   - Cooperative Systems
   - Managed Services
@@ -22,117 +22,121 @@ tags:
   - Internal Tools
 ---
 
-## Executive Summary
+## A work queue tells the truth
 
-The centerpiece is a managed services platform for implementation and support work around systems of record.
+A managed-services queue is a better test of an agent system than a polished chat window.
 
-Salesforce is the concrete example because it is familiar, messy, and operationally important. The broader target is any complex, constantly shifting system of record that cannot go down and has to be changed with care. It could be an ERP, billing system, support platform, loan origination system, warehouse system, data platform, or internal operations tool. The pattern is the same: the business runs on it, the work never stops, and careless automation can create more damage than value.
+The queue contains half-formed requests, old decisions, production risk, impatient users, and work that still has to land. Imagine a request that says an invoice stopped syncing. The useful context sits across a ticket, an integration map, last month's release notes, a Salesforce baseline, and the memory of the consultant who fixed it before.
 
-The platform is a cooperative system for humans and agents working together. It takes in real managed-services work, enriches the request with customer context and prior knowledge, routes tasks, drafts analysis or fixes, asks for approval at the right moments, runs checks, logs decisions, learns from feedback, and gives the team visibility into what is happening.
+An agent can summarize the ticket. Moving the work safely requires more: a durable request, current system context, an owner, a risk level, a review path, validation, rollback, and a record of what happened.
 
-Chatbots and demo agents are too small a frame. The useful thing here is an operating layer for implementation work, support queues, data migrations, release readiness, and a more accessible software delivery process.
+The platform is an operating layer for implementation, support, migration, and release work around systems of record. Agents handle bounded inspection and preparation. People make the decisions that carry customer, production, or financial consequence.
 
-The reason to start with systems of record is simple. If the loop works there, it can work in easier places too. These systems have old decisions, active users, permission boundaries, integrations, release windows, customer pressure, and a real cost when something breaks. That is where an agent system has to earn trust instead of just looking impressive.
-
-### Normal Development Choices
-
-Start with the boring pieces: existing auth, the existing ticketing or intake source, a small database schema, a typed API, a simple queue UI, an event stream, and repo-native checks. Add agents only after the work object, system context, approval path, and validation loop are clear.
-
-For a Salesforce team, the system context is org metadata, releases, permissions, integrations, and baseline snapshots. For another team, the same slot might be ServiceNow configuration, NetSuite scripts, Zendesk routing, warehouse workflows, claims data, billing rules, or internal product telemetry. The operating model stays the same even when the source system changes.
+Salesforce is the concrete example because it is familiar, integrated, permission-heavy, and hard to pause while the team improves it. The same pattern applies to an ERP, billing system, support platform, warehouse system, loan origination system, or internal operations tool. The names change. The operating problem does not.
 
 <div class="proof-strip">
   <div>
-    <strong>Real workload</strong>
-    <span>New requests, bug fixes, backlog items, system scans, migrations, releases, and managed-services support.</span>
+    <strong>Use real work</strong>
+    <span>Start with requests, incidents, scans, migrations, releases, and support work the team already owns.</span>
   </div>
   <div>
-    <strong>Human and AI loop</strong>
-    <span>Agents do bounded work. Consultants review, decide, approve, and turn repeated patterns into better operating rules.</span>
+    <strong>Bound the agent</strong>
+    <span>Agents inspect, compare, draft, and test. People review, approve, sequence, and own the relationship.</span>
   </div>
   <div>
-    <strong>Visible system</strong>
-    <span>Every task has status, related facts, customer objectives, owner, risk, trace, evaluation result, and next action.</span>
+    <strong>Make state visible</strong>
+    <span>Every request carries context, owner, risk, evidence, status, review history, and the next required action.</span>
   </div>
 </div>
 
-## 1. Why This Fits Cooperative Systems
+## Start with the boring system
 
-Managed services work is a good proving ground because it is close to customers, full of repeatable operational work that generally falls into a few dozen categories, and risky enough that being correct matters. A team is constantly asked to explain the system, fix production issues, clean up old decisions, prepare releases, migrate data, answer support questions, and keep the customer moving.
+Build the work object before the agent.
 
-That gives the platform a useful shape:
+Use the existing authentication model, the existing ticket or intake source, a small relational schema, a typed API, a plain queue UI, an event stream, and repo-native checks. Add agent workers after the request, context, approval path, and validation loop are concrete.
 
-- The work is real and measurable.
-- The users are close enough to give fast feedback.
-- The tasks cross support, sales, finance, IT, implementation, and engineering.
-- The source of truth is important enough to require careful permissions, audit trails, and approval gates.
-- The backlog is large enough that agents can help, but ambiguous enough that humans still own judgment.
+For Salesforce, the context layer includes metadata, permissions, integrations, releases, and system baselines. In another domain, it may contain ServiceNow configuration, NetSuite scripts, Zendesk routing, billing rules, warehouse workflows, or product telemetry. The source changes while the operating contract remains recognizable.
 
-The consultant role moves up the stack. Agents can handle more of the inspection, drafting, comparison, testing, and documentation. Consultants own diagnosis, architecture, customer trust, change sequencing, and the decision about what work deserves to exist.
+This order matters. A model call is easy to add. Durable state, access control, correction history, and a trustworthy release path take the real work.
 
-## 2. Target Workloads
+## Why managed services is the right proving ground
 
-A first useful version supports work a real managed-services team already does every week.
+Managed-services teams do the same broad categories of work every week: explain the system, triage issues, clean up old decisions, prepare releases, migrate data, answer customer questions, and keep the business moving.
+
+The details are messy, but the work is measurable.
+
+- The request has an owner and an outcome.
+- Reviewers sit close enough to correct weak output quickly.
+- The task crosses business and technical boundaries.
+- The system of record requires permissions, audit, and approval.
+- The backlog has repetition, but each customer still brings context and exceptions.
+
+That last point is the opportunity. Agents can handle more inspection, comparison, drafting, testing, and documentation. Consultants can spend more time on diagnosis, architecture, sequencing, and the customer decisions that cannot be inferred from metadata.
+
+## Workloads worth supporting first
+
+A useful first version handles work a real delivery team already sees.
 
 <div class="workflow-grid">
   <article>
-    <h3>Support Request Triage</h3>
-    <p>Classify incoming requests, identify missing context, connect the request to known system areas, and decide whether it is a bug, training issue, config change, data issue, or architecture problem.</p>
-    <p><strong>Proof metric:</strong> faster first response and fewer tickets bouncing between people.</p>
+    <p class="playbook-card-title">Support triage</p>
+    <p>Classify the request, find missing context, connect it to the system map, and distinguish a bug from a training issue, configuration change, data problem, or architecture problem.</p>
+    <p><strong>Proof:</strong> faster first response and fewer tickets bouncing between people.</p>
   </article>
   <article>
-    <h3>System Scan and Explainer</h3>
-    <p>Pre-run safe scans, explain objects and automation, identify land mines, and keep a current-state map ready before recommending changes.</p>
-    <p><strong>Proof metric:</strong> new consultants can understand the system without depending on one person with tribal knowledge.</p>
+    <p class="playbook-card-title">System scan and explainer</p>
+    <p>Run safe scans, explain configuration and automation, flag land mines, and keep a current-state map ready before anyone recommends a change.</p>
+    <p><strong>Proof:</strong> a new consultant can understand the system without a week of Slack archaeology.</p>
   </article>
   <article>
-    <h3>Tech Debt Work Queue</h3>
-    <p>Turn stale fields, brittle flows, weak tests, permission drift, and deployment friction into prioritized, reviewable work.</p>
-    <p><strong>Proof metric:</strong> the backlog gets cleaner and future fixes get easier.</p>
+    <p class="playbook-card-title">Tech debt queue</p>
+    <p>Turn stale fields, brittle automation, weak tests, permission drift, and release friction into evidence-backed work with a clear owner.</p>
+    <p><strong>Proof:</strong> accepted findings become smaller future changes instead of permanent backlog.</p>
   </article>
   <article>
-    <h3>Release Readiness</h3>
-    <p>Prepare deployment notes, check (and then enhance) tests, validate rollback paths, review impacted metadata, and flag unresolved risk before a change ships.</p>
-    <p><strong>Proof metric:</strong> fewer surprises during deployment and faster movement from finding to reviewed fix.</p>
+    <p class="playbook-card-title">Release readiness</p>
+    <p>Prepare deployment notes, improve tests, validate rollback, review impacted components, and surface unresolved risk before the release window.</p>
+    <p><strong>Proof:</strong> fewer surprises and a shorter path from finding to reviewed fix.</p>
   </article>
   <article>
-    <h3>Migration Readiness</h3>
-    <p>Map source and target systems, field dependencies, transformation rules, validation checks, and the repeatable path for loading data into the target system.</p>
-    <p><strong>Proof metric:</strong> migration risk is visible before cutover pressure starts.</p>
+    <p class="playbook-card-title">Migration readiness</p>
+    <p>Map systems, fields, transformations, validation, cutover sequence, and the repeatable path for loading and reconciling data.</p>
+    <p><strong>Proof:</strong> migration risk becomes visible before the team is under cutover pressure.</p>
   </article>
   <article>
-    <h3>Customer Escalation Packets</h3>
-    <p>Summarize the issue, evidence, suspected root cause, impacted workflows, proposed next step, and decision needed from the customer or delivery lead.</p>
-    <p><strong>Proof metric:</strong> escalations arrive with enough context for a decision.</p>
+    <p class="playbook-card-title">Escalation packets</p>
+    <p>Assemble the issue, evidence, suspected cause, affected workflow, open questions, recommendation, and the decision needed from the customer or delivery lead.</p>
+    <p><strong>Proof:</strong> the escalation arrives ready for a decision.</p>
   </article>
 </div>
 
-## 3. Reference Architecture
+## The platform is a control plane around the work
 
-The platform is a control plane around managed-services work. It can sit beside Jira, Slack, Salesforce, GitHub, ServiceNow, Zendesk, NetSuite, and the customer's source systems on day one. Its job is to make the work visible, bounded, reviewable, and easier to improve.
+The platform can sit beside Jira, Slack, GitHub, Salesforce, ServiceNow, Zendesk, NetSuite, and customer systems. It does not need to replace them on day one. Its job is to make delivery work visible, bounded, reviewable, and easier to improve.
 
 ```mermaid
 flowchart LR
-    Intake["Work intake: tickets, emails, Slack, backlog, customer requests"]
-    Queue["Managed services work queue"]
-    Context["Customer context and knowledge layer"]
-    SystemScan["Pre-run safe system scan"]
-    Agents["Agent workers"]
+    Intake["Requests, tickets, email, Slack, backlog"]
+    Queue["Managed-services work queue"]
+    Context["Customer context and system knowledge"]
+    Scan["Safe system baseline"]
+    Agents["Bounded agent workers"]
     Humans["Consultants, architects, delivery leads"]
     Tools["Tool gateway"]
-    Repo["Repo, tests, docs, CI/CD"]
-    SystemOfRecord["System of record: CRM, ERP, support, billing, ops"]
+    Repo["Repo, tests, docs, CI"]
+    System["CRM, ERP, billing, support, or ops system"]
     Evals["Evals and regression sets"]
     Traces["Traces, audit, cost, approvals"]
-    Dashboard["Visibility dashboard"]
+    Dashboard["Queue and delivery visibility"]
 
     Intake --> Queue
     Queue --> Context
-    SystemOfRecord --> SystemScan
-    SystemScan --> Context
+    System --> Scan
+    Scan --> Context
     Context --> Agents
     Agents --> Tools
     Tools --> Repo
-    Tools --> SystemOfRecord
+    Tools --> System
     Agents --> Humans
     Humans --> Queue
     Humans --> Tools
@@ -145,238 +149,234 @@ flowchart LR
     Queue --> Dashboard
 ```
 
-### Core Platform Primitives
+### Platform primitives
 
-| Primitive | What it does | Reason |
+| Primitive | Job | Operating consequence |
 |---|---|---|
-| Intake classifier | Tags work by customer, workflow, system area, urgency, risk, and likely owner. | Keeps the queue from becoming a junk drawer. |
-| System context layer | Stores scan output, diagrams, implementation notes, prior decisions, metadata or configuration, and current risks. | Gives agents and humans the same starting point. |
-| Agent task runner | Runs bounded jobs: explain, compare, draft, validate, test, summarize, or prepare. | Turns repeated work into observable units. |
-| Tool gateway | Provides narrow access to configuration, metadata, repos, docs, tickets, and approved systems. | Keeps automation useful without giving it uncontrolled reach. |
-| Human review layer | Assigns approvals, escalations, QA, and architecture review. | Preserves judgment and customer trust. |
-| Evaluation layer | Replays golden examples, boundary cases, tool-call checks, and release gates. | Shows whether the system is getting better or just louder. |
-| Visibility dashboard | Shows queue health, agent output, review load, risk, escalations, latency, cost, and outcomes. | Lets a manager run the hybrid workforce instead of guessing. |
+| Intake classifier | Tag work by customer, workflow, system area, urgency, risk, and likely owner. | The queue stops acting like a junk drawer. |
+| Context layer | Store scan output, diagrams, implementation notes, decisions, configuration, and current risk. | Humans and agents begin from the same system picture. |
+| Agent task runner | Execute bounded jobs such as explain, compare, draft, validate, test, summarize, or prepare. | Repeated work becomes observable and reviewable. |
+| Tool gateway | Provide narrow access to configuration, repos, docs, tickets, and approved systems. | Automation can help without gaining uncontrolled reach. |
+| Human review | Assign approvals, escalation, QA, architecture, and customer decisions. | Judgment and relationship ownership remain visible. |
+| Evaluation layer | Replay accepted examples, boundary cases, tool checks, and release gates. | The team can tell whether the system is improving. |
+| Visibility dashboard | Show queue health, risk, review load, corrections, latency, cost, and outcomes. | A manager can run the hybrid workflow from evidence rather than intuition. |
 
-## 4. Kicksights Implementation Notes
+## Kicksights as the concrete implementation
 
-### Why Kicksights Is Here
+Kicksights is where I am working through this problem. Salesforce provides the right constraints: dense metadata, old automation, permissions, integrations, migration pressure, release risk, and users who still need the system while it changes.
 
-Kicksights is the real place I am working through this problem. I am using Salesforce first because it has the right constraints: metadata, permissions, stale automation, integrations, migrations, release risk, and users who still need the system to work while it is changing.
+As of the date on this playbook, the first Kicksights slice models an authenticated managed-services workspace, persisted requests, baseline references, draft work orders, event history, and a path back to system evidence. The finished cooperative platform remains a proposed direction. The existing slice is useful because it gives the idea real state and boundaries.
 
-That makes it a useful stress test. The broader use case is a team inheriting a messy system of record and needing a safer way to understand it, support it, improve it, and sometimes migrate away from it.
+The Salesforce labels are implementation details. In another domain, `managed_requests` and `managed_request_events` can stay. `salesforce_work_orders` can become `delivery_work_orders`, `org_connections` can become `system_connections`, and `baseline_snapshot_id` can point to the current map of any supported system.
 
-Kicksights already has pieces of that shape. The finished cooperative platform still needs more work, but the first slice is useful because it turns the idea into real product primitives: an authenticated managed-services workspace, persisted requests, system baseline references, work-order drafts, event history, and a path back to overview evidence.
+### What the first slice models
 
-The Salesforce names below are implementation labels, not requirements. In another domain, `managed_requests` and `managed_request_events` stay almost the same. `salesforce_work_orders` becomes `delivery_work_orders`, `org_connections` becomes `system_connections`, and `baseline_snapshot_id` points to the current safe map of whichever system the team supports.
-
-### What Kicksights Already Models
-
-| Piece | Kicksights shape | Reason |
+| Piece | Kicksights shape | Why it matters |
 |---|---|---|
-| Managed-services workspace | `/managed-services` lets a user open a support request, choose work type, priority, delivery risk, next reviewer, and optional pinned system baseline. | Intake becomes structured enough for humans and agents to work from the same object. |
-| Request types | Admin/config work, automation fix, integration, data migration, reporting, security, release promotion, and discovery scoping. | The queue starts with the categories managed-services teams actually see. |
-| Lifecycle state | Submitted, triaging, needs clarification, scoped, queued for build, building, validating, ready for review, approved, promoting, done, blocked, canceled. | The platform can show where work is stuck and who owns the next move. |
-| Next actor | Intake, blueprint, architect, builder, QA, release, migration, or client. | Early versions can route work before every agent worker is fully automated. |
-| System baseline | A request can pin a baseline snapshot, or the service can attach the latest ready baseline when one exists. | Delivery work is grounded in the current system shape instead of memory or Slack archaeology. |
-| Work orders | Draft work orders carry scope, out-of-scope items, affected components, acceptance criteria, validation plan, rollback plan, artifacts, and audit references. | A work order becomes the contract between intake, architecture review, build, QA, and approval. |
-| Event stream | Request submitted, updated, clarified, approved, rejected, and work-order drafted events are stored with payload metadata. | Corrections and decisions become product signal instead of disappearing into chat. |
-| Auth and data boundary | The worker validates Supabase JWTs, org membership is resolved server-side, and Supabase RLS filters org-owned records. | The managed-services queue can be shared without leaking another customer's work. |
+| Workspace | `/managed-services` lets a user open a request, choose work type, priority, delivery risk, reviewer, and an optional system baseline. | Humans and agents can work from the same intake object. |
+| Request types | Admin or configuration, automation, integration, migration, reporting, security, release promotion, and discovery. | The queue begins with recognizable delivery work. |
+| Lifecycle | Submitted, triaging, needs clarification, scoped, queued, building, validating, ready for review, approved, promoting, done, blocked, canceled. | Stuck work and the next owner become visible. |
+| Next actor | Intake, blueprint, architect, builder, QA, release, migration, or client. | Routing can work before every specialist is automated. |
+| System baseline | A request can pin a baseline snapshot or use the latest ready baseline. | Scope begins from current evidence instead of memory. |
+| Work order | Scope, exclusions, affected components, acceptance, validation, rollback, artifacts, and audit references. | Intake, architecture, build, QA, and approval share one delivery contract. |
+| Event stream | Submissions, updates, clarifications, decisions, and work-order drafts are stored as events. | Corrections and decisions become product signal. |
+| Access control | Supabase JWT validation, server-side organization resolution, and RLS for organization-owned records. | One customer's work does not leak into another workspace. |
 
-The important implementation choice is durable state before autonomy. Once the request, baseline, events, and work-order contract exist, agents have something safe and specific to operate on.
+Durable state comes before autonomy. Once the request, baseline, event stream, and work-order contract exist, an agent has something specific to act on and a place to record what it did.
 
 ```mermaid
 flowchart LR
     UI["UI: /managed-services"]
-    Auth["Auth: Supabase session and org claims"]
-    API["FastAPI: managed request routes"]
-    DB["Supabase: managed_requests"]
-    Events["Supabase: managed_request_events"]
-    Baseline["Baseline snapshot"]
-    WorkOrder["Supabase: work order table"]
+    Auth["Supabase session and organization claims"]
+    API["FastAPI managed request routes"]
+    Requests["managed_requests"]
+    Events["managed_request_events"]
+    Baseline["System baseline snapshot"]
+    WorkOrder["Work order"]
     Review["Consultant review"]
     Checks["Tests, evals, smoke, deploy checks"]
 
     UI --> Auth
     Auth --> API
-    API --> DB
+    API --> Requests
     API --> Events
-    DB --> Baseline
-    DB --> WorkOrder
+    Requests --> Baseline
+    Requests --> WorkOrder
     WorkOrder --> Review
     Review --> Events
     Review --> Checks
     Checks --> Events
 ```
 
-### Kicksights-Style Technical Stack
+### Concrete stack
 
-| Layer | Concrete implementation pattern |
+| Layer | Implementation pattern |
 |---|---|
-| Frontend | Next.js and React workspace with typed API normalization, status buckets, routing controls, technical references, activity history, and work-order display. |
-| Worker | FastAPI routes for create/list/get/update managed requests, list events, draft work orders, record clarifications, approve/reject requests, create org connections, and pin baselines. |
-| Database | Supabase Postgres tables for `org_connections`, `managed_requests`, `managed_request_events`, and `salesforce_work_orders`, with indexes around org/status/baseline/request lookups. |
-| Access control | Supabase Auth, JWT claim resolution, server-side org resolution, and RLS policies for org-scoped visibility. |
-| System context | Org overview and OKG snapshots are the Kicksights baseline context layer. In another system, this can be configuration snapshots, dependency maps, workflow traces, or knowledge graph output. A request can carry `baseline_snapshot_id` so the team knows which system picture informed the scope. |
-| Reliability | Repo-native commands for build, worker tests, local route smoke, staging deploy, production deploy, org-overview refresh/retry/cancel/promote, and prompt rollout checks. |
-| Evals | Offline org-spec and prompt-contract evaluators with explicit thresholds before stricter blocking behavior is enabled. |
-| Live verification | Local smoke can use expected auth-gated states, but protected staging/prod flows need real Supabase sessions because the worker validates JWTs. |
+| Frontend | Next.js and React workspace with typed API normalization, status buckets, routing controls, technical references, activity history, and work-order views. |
+| Worker | FastAPI routes to create, list, retrieve, and update requests; list events; draft work orders; record clarifications; approve or reject; register connections; and pin baselines. |
+| Database | Supabase Postgres tables for `org_connections`, `managed_requests`, `managed_request_events`, and `salesforce_work_orders`, indexed for organization, status, baseline, and request lookups. |
+| Access | Supabase Auth, JWT claim resolution, server-side organization lookup, and RLS policies for organization-scoped visibility. |
+| Context | Org overview and OKG snapshots provide the Kicksights baseline. Another product could use configuration snapshots, dependency maps, workflow traces, or graph output. |
+| Reliability | Repo-native commands for builds, worker tests, local route smoke, deploys, baseline operations, and prompt rollout checks. |
+| Evals | Offline org-spec and prompt-contract evaluators with thresholds before stronger blocking behavior is enabled. |
+| Live verification | Local smoke can classify expected auth gates. Protected staging and production flows require real sessions because the worker validates JWTs. |
 
-### API Contract Shape
+### API contract
 
-| Endpoint shape | Purpose |
+| Endpoint | Job |
 |---|---|
-| `POST /managed-requests` | Create the request, resolve org/user context, attach the latest baseline when available, set risk and next actor, and write `request.submitted`. |
-| `GET /managed-requests` | List org-scoped work with status filtering, limit, and offset. |
-| `GET /managed-requests/{request_id}` | Hydrate one request with child events and work orders. |
-| `PATCH /managed-requests/{request_id}` | Update queue state, priority, risk, next actor, scope fields, artifacts, and audit references. |
+| `POST /managed-requests` | Create the request, resolve user and organization, attach the latest baseline when available, set risk and next actor, and write `request.submitted`. |
+| `GET /managed-requests` | List organization-scoped work with status, limit, and offset filters. |
+| `GET /managed-requests/{request_id}` | Return one request with its events and work orders. |
+| `PATCH /managed-requests/{request_id}` | Update status, priority, risk, next actor, scope, artifacts, and audit references. |
 | `GET /managed-requests/{request_id}/events` | Return the chronological decision and activity stream. |
-| `POST /managed-requests/{request_id}/clarifications` | Record a question or answer and move the request between `needs_clarification`, `triaging`, and the next baseline step. |
-| `POST /managed-requests/{request_id}/work-orders` | Generate the draft delivery object with scope, validation, rollback, affected components, and audit refs. |
-| `POST /managed-requests/{request_id}/approve` | Move the request to `approved` or `blocked` and set the next actor for builder or architect review. |
+| `POST /managed-requests/{request_id}/clarifications` | Record a question or answer and move the request through clarification and triage. |
+| `POST /managed-requests/{request_id}/work-orders` | Draft scope, validation, rollback, affected components, artifacts, and audit references. |
+| `POST /managed-requests/{request_id}/approve` | Move work to `approved` or `blocked` and assign the next actor. |
 | `POST /org-connections` | Register source, target, sandbox, UAT, archive, or client-managed systems. |
-| `POST /org-connections/{org_connection_id}/baseline` | Pin an org connection to a baseline snapshot and status. |
+| `POST /org-connections/{org_connection_id}/baseline` | Pin a connection to a baseline snapshot and status. |
 
-### One-Layer-Deeper Build Sequence
+## Build one layer deeper than the demo
 
-1. **Create the work object first.** Define a `managed_requests` record with `org_id`, `type`, `priority`, `status`, `title`, `business_goal`, `risk_level`, `next_required_actor`, `baseline_snapshot_id`, `artifacts`, `audit_refs`, and `intake_payload`.
-2. **Add an event stream immediately.** Every submit, update, clarification, approval, rejection, work-order draft, validation result, deploy attempt, and customer decision writes an event. The event stream becomes the memory of the system.
-3. **Pin system context before action.** Attach the latest org baseline when possible. If the request touches migration, integration, security, or release promotion, treat missing baseline context as medium or high risk until a human confirms otherwise.
-4. **Generate work orders instead of loose recommendations.** A work order needs scope, out-of-scope items, affected components, acceptance criteria, validation plan, rollback plan, artifacts, and audit references. That is the handoff object an agent, consultant, QA reviewer, or release manager can share.
-5. **Use agent workers as state transitions.** The intake agent classifies and requests missing detail. The blueprint agent attaches baseline evidence. The architect agent drafts scope. The builder agent proposes repo, metadata, or configuration changes. The QA agent runs checks. The release agent prepares promotion and rollback evidence.
-6. **Keep writes approval-gated.** Agents can draft, compare, summarize, test, and prepare. Production writes, configuration changes, metadata deploys, customer messages, contract decisions, and data movement wait for human approval.
-7. **Bake evals into release.** Run golden request examples, unsafe-tool-call cases, metadata-boundary cases, and reviewer-correction cases before new agent behavior becomes trusted.
-8. **Expose manager-level visibility.** The dashboard shows request counts by status, stuck work, next actor, baseline coverage, reviewer burden, correction rate, eval failures, cost, latency, and customer-facing risk.
+1. **Create the work object.** A `managed_requests` record needs `org_id`, `type`, `priority`, `status`, `title`, `business_goal`, `risk_level`, `next_required_actor`, `baseline_snapshot_id`, `artifacts`, `audit_refs`, and `intake_payload`.
+2. **Add the event stream.** Submissions, edits, clarifications, approvals, rejected work orders, validation, deploy attempts, and customer decisions all become events. This is the memory of the system.
+3. **Pin system context.** Attach the latest baseline when possible. Missing context raises risk for migration, integration, security, and release work until a person reviews it.
+4. **Generate a work order.** Replace loose recommendations with scope, exclusions, affected components, acceptance criteria, validation, rollback, artifacts, and audit references.
+5. **Give each agent a bounded transition.** Intake requests missing detail. Blueprint finds evidence. Architecture drafts scope. Build proposes a change. QA runs checks. Release prepares promotion and rollback evidence.
+6. **Gate every consequential write.** Production changes, metadata deploys, customer messages, contract decisions, and data movement wait for human approval.
+7. **Put evals in the release path.** Replay golden requests, unsafe tool cases, boundary cases, and reviewer corrections before trusting new behavior.
+8. **Give managers an operating view.** Show request status, stuck work, next actor, baseline coverage, reviewer burden, correction rate, eval failures, cost, latency, and customer risk.
 
-That is the bridge to cooperative systems work. Calling a model is the easy part. The harder work is creating the work object, the context layer, the permission boundary, the review path, the eval loop, and the feedback signal so humans and agents can move real work without creating chaos.
+The model call is the easy layer. The product is the work object, context, permissions, review, validation, and feedback that let people and agents move real work without losing control.
 
-## 5. Human and Agent Operating Model
+## Divide the work by consequence
 
-Agents are useful when the work is bounded. Humans are useful when the work needs judgment, context, sequencing, taste, or trust.
+Agents are useful when the task is bounded and evidence can be checked. People remain responsible for judgment, sequencing, taste, customer trust, and the exceptions that change the plan.
 
-| Work type | Agent role | Human role |
+| Work | Agent contribution | Human ownership |
 |---|---|---|
-| Support triage | Classify, summarize, find related evidence, identify missing context. | Decide priority, customer tone, owner, and escalation path. |
-| System analysis | Scan metadata or configuration, group findings, cite evidence, mark unknowns. | Decide what matters, what to ignore, and what to ask the customer. |
-| Implementation prep | Draft code changes, test additions, deployment notes, and rollback steps. | Review architecture, approve scope, merge only after checks pass. |
-| Migration planning | Draft field maps, identify validation needs, list unknowns. | Own source-of-truth decisions and acceptable tradeoffs. |
-| Knowledge updates | Suggest SOP changes from repeated tickets and corrections. | Approve durable policy and process changes. |
-| Customer communication | Draft clear explanations and escalation packets. | Send the message, own the relationship, and make the call. |
+| Support triage | Classify, summarize, find related evidence, and identify missing context. | Priority, customer tone, owner, and escalation path. |
+| System analysis | Scan configuration, group findings, cite sources, and mark unknowns. | What matters, what to ignore, and what to ask next. |
+| Implementation prep | Draft code, tests, deployment notes, and rollback steps. | Architecture, scope approval, review, and merge. |
+| Migration planning | Draft mappings, validation needs, and open questions. | Source of truth, acceptable tradeoffs, cutover, and loss. |
+| Knowledge updates | Suggest SOP or routing changes from repeated work and corrections. | Durable policy and process changes. |
+| Customer communication | Draft explanations and escalation packets. | Sending, relationship ownership, and commitments. |
 
-The operating rule is simple: agents can move work forward. Production changes, compliance decisions, missing evidence, and customer commitments stay under human control.
+The operating rule is simple: an agent may move the request forward. Production changes, customer commitments, compliance decisions, and cases with missing evidence stop for human review.
 
-## 6. Learning Loop
+## Corrections are product signal
 
-A cooperative platform improves because the work is instrumented. The team can see where agents helped, where they failed, where humans corrected them, and where the process itself is broken.
+The platform improves because the work is instrumented. It can show where an agent helped, where a reviewer corrected it, and where the operating process itself created the problem.
 
 ```mermaid
 sequenceDiagram
     participant Customer as Customer or operator
     participant Queue as Work queue
     participant Agent as Agent worker
-    participant Consultant as Consultant reviewer
+    participant Reviewer as Consultant reviewer
     participant System as System of record
-    participant Evals as Eval and knowledge loop
+    participant Learning as Eval and knowledge loop
 
-    Customer->>Queue: Submit request or issue
+    Customer->>Queue: Submit request
     Queue->>Agent: Assign bounded task with context
-    Agent->>Agent: Retrieve evidence and draft next step
-    Agent->>Consultant: Send result with confidence and sources
-    Consultant->>Agent: Approve, correct, or escalate
-    Consultant->>System: Apply approved change or response
-    Consultant->>Evals: Record correction and outcome
-    Evals->>Queue: Update examples, SOPs, risk rules, and routing
+    Agent->>Agent: Retrieve evidence and prepare next step
+    Agent->>Reviewer: Return result with sources and uncertainty
+    Reviewer->>Agent: Approve, correct, or escalate
+    Reviewer->>System: Apply approved change or response
+    Reviewer->>Learning: Record correction and outcome
+    Learning->>Queue: Update examples, SOPs, risk, and routing
 ```
 
-The correction loop matters more than the first answer. If a consultant rejects an output, the system captures why: bad context, missing tool, stale SOP, weak prompt, permission issue, poor judgment, or a true edge case. That turns review work into product signal.
+The rejection reason matters more than the red score. Was the context stale? Was a tool missing? Did the SOP fail? Did the agent cross a permission boundary? Was this a real edge case? Each answer points to a different product change.
 
-## 7. Evaluation Framework
+## Evaluate the work people are paying for
 
-Measure the actual work instead of a random benchmark. Start with a clear definition of what good looks like, then turn that into a repeatable scoring path. A simple rubric can use `-1`, `0`, and `1`: harmful or wrong, incomplete, useful enough to trust after review.
+Skip generic benchmarks. Define what useful work looks like, then replay it. A compact rubric can use `-1`, `0`, and `1`: harmful or wrong, incomplete, useful after review.
 
-| Evaluation Area | What to Test | Pass Standard |
+| Area | Question | Pass standard |
 |---|---|---|
-| Task success | Did the agent complete the requested support, scan, release, or migration prep task? | The output is useful enough for a reviewer to act on. |
-| Evidence quality | Did it cite metadata, configuration, docs, tickets, or repo paths instead of guessing? | Major claims have sources or are marked unknown. |
-| Tool correctness | Did it call the right tool with safe arguments? | No unsafe record access, broad scraping, or unavailable tool invention. |
-| Permission adherence | Did it respect customer, system, repo, and data boundaries? | Sensitive actions stop at approval gates. |
-| Escalation behavior | Did it ask for help when confidence was low or risk was high? | Risky cases reach a human with a clear reason. |
-| Regression control | Did a fix break known good behavior? | Golden cases and release checks stay green. |
-| Reviewer burden | Did the system save time without creating cleanup work? | Reviewer corrections go down over time. |
-| Cost and latency | Is the workflow worth running repeatedly? | Runtime, cost, and review time fit the value of the task. |
+| Task success | Did the agent complete the support, scan, release, or migration task? | A reviewer can take the next action. |
+| Evidence | Did it cite configuration, docs, tickets, metadata, or repo paths? | Major claims have sources or remain explicitly unknown. |
+| Tool use | Did it choose the right tool and safe arguments? | No broad scraping, unsafe record access, or invented tool capability. |
+| Permissions | Did it respect customer, system, repo, and data boundaries? | Consequential actions stop at approval. |
+| Escalation | Did it ask for help when confidence fell or risk rose? | A person receives the case with a concrete reason. |
+| Regression | Did the change preserve known good behavior? | Golden cases and release checks remain green. |
+| Review burden | Did the system save more time than it created? | Corrections become smaller and less frequent. |
+| Cost and latency | Is the workflow worth repeating? | Runtime, cost, and review effort fit the value of the task. |
 
-## 8. Pilot Plan
+## Pilot one customer and one queue
 
-Start with one serious managed-services workflow: support triage plus escalation packet generation for a customer running a system of record. Salesforce is a good first example, but the pilot proves the operating model rather than the CRM-specific vocabulary.
+Start with support triage and escalation packets for one customer running a serious system of record. Salesforce is a useful example, but the pilot is testing the operating model rather than the CRM vocabulary.
 
 <div class="timeline">
   <section>
-    <h3>Days 0-30: One Queue, One Customer, Real Evidence</h3>
-    <p><strong>Objective:</strong> make the first support workflow visible and reviewable.</p>
+    <p class="playbook-card-title">Days 0-30: one queue, one customer, real evidence</p>
+    <p><strong>Objective:</strong> make the support workflow visible and reviewable.</p>
     <ul>
-      <li>Connect one intake source and one customer workspace.</li>
-      <li>Run the safe system scan and create the first customer context layer.</li>
-      <li>Classify incoming work by system area, risk, urgency, and missing context.</li>
-      <li>Generate escalation packets for human review.</li>
-      <li>Track corrections, approval decisions, time saved, and unresolved unknowns.</li>
+      <li>Connect one intake source and customer workspace.</li>
+      <li>Run the safe system scan and create the first context baseline.</li>
+      <li>Classify work by system area, risk, urgency, owner, and missing detail.</li>
+      <li>Generate escalation packets for review.</li>
+      <li>Track corrections, approvals, time, and unresolved questions.</li>
     </ul>
-    <p><strong>Exit criteria:</strong> the team can see the queue, trust the evidence, and review agent work without digging through scattered context.</p>
+    <p><strong>Exit:</strong> the team can see the queue, trust the evidence, and review agent work without reconstructing context by hand.</p>
   </section>
   <section>
-    <h3>Days 31-60: Add Implementation and Release Support</h3>
-    <p><strong>Objective:</strong> connect support findings to real delivery work.</p>
+    <p class="playbook-card-title">Days 31-60: connect support to delivery</p>
+    <p><strong>Objective:</strong> turn repeated findings into reviewed implementation work.</p>
     <ul>
-      <li>Turn recurring issues into scoped backlog items.</li>
-      <li>Add repo-native checks for tests, docs, deployment notes, rollback, and UI smoke where needed.</li>
-      <li>Create eval cases from accepted and rejected support outputs.</li>
-      <li>Add approval gates for code changes, configuration changes, metadata changes, and customer-impacting actions.</li>
+      <li>Convert recurring issues into scoped backlog items and work orders.</li>
+      <li>Add tests, documentation checks, deployment notes, rollback, and browser smoke where needed.</li>
+      <li>Create evals from accepted and rejected outputs.</li>
+      <li>Add approval gates for code, configuration, metadata, data movement, and customer-facing actions.</li>
     </ul>
-    <p><strong>Exit criteria:</strong> repeated problems turn into reviewed fixes, and every change has a validation path.</p>
+    <p><strong>Exit:</strong> repeated problems produce validated fixes and every change has a review path.</p>
   </section>
   <section>
-    <h3>Days 61-90: Make It Repeatable</h3>
-    <p><strong>Objective:</strong> turn one customer workflow into a managed-services operating model.</p>
+    <p class="playbook-card-title">Days 61-90: make the loop portable</p>
+    <p><strong>Objective:</strong> turn one customer workflow into a repeatable operating model.</p>
     <ul>
-      <li>Package reusable intake, scan, escalation, eval, and release patterns.</li>
-      <li>Add dashboard views for queue health, risk, reviewer load, cost, latency, and outcome quality.</li>
-      <li>Expand to a second customer or a second workflow only after the first loop is trusted.</li>
-      <li>Document where the platform generalizes beyond Salesforce.</li>
+      <li>Package intake, scan, escalation, eval, and release patterns.</li>
+      <li>Add manager views for queue health, risk, review load, cost, latency, and outcome quality.</li>
+      <li>Expand to a second workflow or customer only after the first loop is trusted.</li>
+      <li>Document which parts generalize beyond Salesforce.</li>
     </ul>
-    <p><strong>Exit criteria:</strong> the team has a repeatable human/AI delivery loop that can move to another customer or workflow.</p>
+    <p><strong>Exit:</strong> the team can carry the same human and agent loop into another serious workflow.</p>
   </section>
 </div>
 
-## 9. Engineering Manager Operating Model
+## The engineering manager stays close to the queue
 
-The engineering manager role here is still hands-on: shaping the primitives, owning reliability, reading traces, talking to users, reviewing architecture, and making sure the team is learning from real work.
+This role remains hands-on. The manager shapes the work object, owns reliability, reads traces, talks to users, reviews architecture, and turns repeated friction into a better product primitive.
 
-### Weekly Cadence
+### Weekly rhythm
 
-- Review queue health, escalations, and reviewer burden.
-- Pick the smallest useful product improvement from real operator pain.
-- Review failed evals and rejected agent outputs.
-- Turn repeated manual review into a better tool, prompt, SOP, or guardrail.
-- Keep the platform boring where it needs to be boring: logs, permissions, deploys, rollback, tests, and ownership.
-- Ship small improvements frequently enough that users keep giving honest feedback.
+- Review queue health, stuck work, escalations, and reviewer burden.
+- Pick one product improvement from a real operator problem.
+- Read failed evals and rejected agent output.
+- Turn repeated review into a better tool, prompt, SOP, or guardrail.
+- Keep logs, permissions, deploys, rollback, tests, and ownership boring and dependable.
+- Ship often enough that users keep giving honest feedback.
 
-### Team Shape
+### Team shape
 
 | Role | Ownership |
 |---|---|
-| Engineering manager | Architecture, team focus, user loop, reliability, prioritization, and hands-on technical review. |
-| Full-stack/product engineer | Queue UI, dashboards, workbench surfaces, workflow state, and operator experience. |
-| AI/platform engineer | Agent workflows, tool gateway, traces, evals, guardrails, and model integration. |
-| Systems/data engineer | Metadata ingestion, knowledge layer, reporting, audit, cost, and system integrations. |
-| Embedded consultant or ops lead | Workflow diagnosis, acceptance criteria, customer context, and feedback quality. |
+| Engineering manager | Architecture, focus, user loop, reliability, prioritization, and technical review. |
+| Full-stack or product engineer | Queue, dashboard, workbench, workflow state, and operator experience. |
+| AI or platform engineer | Agent workflows, tool gateway, traces, evals, guardrails, and model integration. |
+| Systems or data engineer | Metadata ingestion, knowledge, reporting, audit, cost, and integrations. |
+| Embedded consultant or operations lead | Diagnosis, acceptance criteria, customer context, and feedback quality. |
 
-## 10. Proof Package
+## Proof package
 
-The public artifact shows the platform through one realistic workflow:
+The public artifact should show one request moving through the whole system:
 
-1. A managed-services request arrives for Salesforce or another system of record.
-2. The platform classifies the request and finds the relevant system context.
-3. An agent drafts an escalation packet with evidence, confidence, unknowns, and proposed next action.
-4. A consultant reviews, corrects, and approves the packet.
-5. Repeated findings become a backlog item, test, SOP update, or release task.
-6. The dashboard shows queue health, agent performance, reviewer load, cost, latency, and unresolved risk.
+1. A managed-services request arrives for a system of record.
+2. The platform classifies it and attaches current system context.
+3. An agent prepares an escalation packet with evidence, uncertainty, and a proposed action.
+4. A consultant corrects or approves the packet.
+5. A repeated finding becomes a work order, test, SOP change, or release task.
+6. The dashboard shows queue health, agent performance, review burden, cost, latency, and unresolved risk.
 
-The proof generalizes cleanly. Swap Salesforce for another system of record and the same cooperative pattern still works: intake, context, bounded agent work, human review, safe tools, evals, traces, and a feedback loop that makes the whole operation better over time.
+That is enough to test the idea. Swap Salesforce for another system of record and the same questions remain: What is the request? What context is current? What can the agent do? Where does a person decide? What proves the result? What does the system learn from the correction?

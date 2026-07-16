@@ -103,10 +103,12 @@
   color: var(--secondary);
 }
 
-.workflow-grid h3,
-.pattern-list h3,
-.timeline h3 {
-  margin-top: 0;
+.post-content .playbook-card-title {
+  margin: 0 0 12px;
+  color: var(--primary);
+  font-size: 1.22rem;
+  font-weight: 650;
+  line-height: 1.25;
 }
 
 .workflow-grid p:last-child,

@@ -1,9 +1,9 @@
 ---
 title: "Playbooks"
-description: "Working notes for org scans, migrations, integration work, and AI-assisted business software."
+description: "Practical working notes for reading messy systems, planning safer changes, and turning AI-assisted work into something operators can trust."
 ---
 
-These are the artifacts I use to make messy systems easier to understand and safer to change: org scans, architecture notes, evals, rollout plans, and implementation patterns.
+I publish the artifacts I use when a messy system needs a clear next move: org scans, architecture notes, evals, rollout plans, and implementation patterns. They are meant to be used, questioned, and improved against real work.
 
 ## Featured
 
