@@ -1,19 +1,20 @@
 ---
-title: "Claude Org Scan and Migration Readiness Playbook"
-description: "How I use Claude to read a Salesforce org before anyone proposes cleanup, automation, or migration work."
+title: "Using Claude for Salesforce Discovery and Migration Planning"
+description: "Read the configuration, watch the work, and turn the gaps into changes a team can test."
+summary: "Compare Salesforce configuration with operator walkthroughs, resolve the gaps, and define a tested path for repair or migration. Includes an evidence-note template and migration rehearsal guidance."
+weight: 1
 date: 2026-05-18
+lastmod: 2026-09-11
 draft: false
 layout: playbook
 ShowToc: true
 TocOpen: true
-mermaid: true
 aliases:
   - /playbooks/claude-deployment-playbook-salesforce-heavy-enterprises/
-playbookEyebrow: "Proof artifact"
+playbookEyebrow: "Discovery and migration"
 playbookMeta:
-  - "Audience: Salesforce teams, operators, technical founders, and AI platform teams"
-  - "Format: org scan, workflow discovery, evals, and migration readiness"
-  - "Goal: understand the system first, then make useful changes safely"
+  - "For Salesforce teams, consultants, and workflow owners"
+  - "Updated September 11, 2026"
 tags:
   - Claude
   - Salesforce
@@ -23,331 +24,94 @@ tags:
   - Integration Discovery
 ---
 
-## Read the org before you design the answer
+## Start with the workflow someone needs to finish
 
-The most expensive phrase in a mature Salesforce org is, "We think that is how it works."
+A shipping screen can produce a carrier label while the invoice still has an outstanding balance. Both events can be valid. The mistake is treating either one as proof that the order is complete.
 
-A field feeds a Flow. The Flow updates a record that triggers Apex. Apex calls middleware, and the operations team still keeps a spreadsheet because the record cannot be trusted. None of that fits cleanly into a requirements deck.
+Recent order-management work has made me more careful about these distinctions. A selected status, a saved record, a printed document, and a physical handoff each tell us something different. Before changing the software, I want to know what happened, what should happen next, and who owns that step.
 
-I start with the org itself. The first pass covers metadata, automation, permissions, integrations, deployment shape, old decisions, and the places where change is likely to hurt. In parallel, I watch people do the work. Metadata shows what can happen. A walkthrough shows what people actually depend on.
+I use Claude to compare Salesforce metadata, workflow notes, source code, and migration plans. It helps find contradictions and organize the questions. I still need evidence for the answer, especially when the question involves money, inventory, permissions, or a customer commitment.
 
-Claude comes after the evidence. It can hold scan output, interview notes, implementation docs, architecture diagrams, and migration artifacts in the same frame. That makes it useful for finding contradictions, grouping risk, and turning a pile of technical evidence into a decision someone can act on.
+The process starts with one workflow and follows it far enough to see the outcome. That gives the org scan a purpose and keeps discovery from becoming an inventory nobody uses.
 
-The goal is a better map and a safer next move. A chatbot can wait.
+## Establish what the system can tell you
 
-<div class="proof-strip">
-  <div>
-    <strong>Read the system</strong>
-    <span>Inventory metadata, automation, permissions, integrations, deployment paths, and stale configuration.</span>
-  </div>
-  <div>
-    <strong>Watch the work</strong>
-    <span>Capture walkthroughs, workarounds, exceptions, and the parts of the process that architecture documents miss.</span>
-  </div>
-  <div>
-    <strong>Make one move</strong>
-    <span>Fix the acute problem, keep the chronic one in view, and prove the change before widening the scope.</span>
-  </div>
-</div>
+Begin with the checked-out metadata, project configuration, integration documentation, and deployment scripts. Record the source revision, the environment it describes, and the inspection date. If local files differ from that revision, identify the changed files too. A finding needs a baseline another person can inspect.
 
-## What the first pass must answer
+Use approved describe and metadata inventory calls to fill gaps. Look at the objects and relationships involved in the workflow, then follow their behavior through Flows, Apex, validation rules, permissions, UI components, packages, and external systems. For each handoff, identify the trigger, join key, receiving system, failure path, and owner.
 
-An org scan should answer practical questions:
+This first pass excludes business records, report results, Salesforce file contents, messages, raw payloads, and debug logs. Constrain what each inspection tool can retrieve and return. Metadata can also contain sensitive values, so credentials and embedded customer details stay out of the analysis artifacts.
 
-- What does this org appear to do?
-- Where does important behavior live?
-- Which outside systems participate in the workflow?
-- What looks stale, duplicated, fragile, or over-permissioned?
-- What cannot be known under a metadata-only boundary?
-- Which small fix would make the next change safer or easier?
+That limit affects the conclusions. An unreferenced field is a candidate for investigation; metadata alone does not prove nobody uses it. A configured integration does not establish that it is connected. Permission definitions describe possible access, not a complete history of who exercised it.
 
-<div class="workflow-grid">
-  <article>
-    <p class="playbook-card-title">Org map</p>
-    <p>Scan objects, fields, automation, permissions, reports, packages, integrations, and deployment configuration. Explain what exists in language an operator can follow.</p>
-    <p><strong>Proof:</strong> a new team member can understand the system without relying on one tribal-knowledge owner.</p>
-  </article>
-  <article>
-    <p class="playbook-card-title">Tech debt and permission review</p>
-    <p>Find stale fields, overlapping automation, risky access patterns, brittle Flows, missing tests, and configuration that slows every release.</p>
-    <p><strong>Proof:</strong> the backlog gets smaller, clearer, and tied to evidence.</p>
-  </article>
-  <article>
-    <p class="playbook-card-title">Integration map</p>
-    <p>Trace connected systems, source-of-truth rules, triggers, join keys, middleware, failure paths, and ownership boundaries.</p>
-    <p><strong>Proof:</strong> fewer dependencies appear for the first time during a migration or production change.</p>
-  </article>
-  <article>
-    <p class="playbook-card-title">Migration readiness</p>
-    <p>Compare source and target models, flag mapping gaps, draft transformation rules, and define validation before cutover pressure starts.</p>
-    <p><strong>Proof:</strong> the team can see what will move, what needs a decision, and what could be lost.</p>
-  </article>
-  <article>
-    <p class="playbook-card-title">Release-path repair</p>
-    <p>Improve tests, CI, validation scripts, deployment notes, rollback steps, and UI smoke checks where the workflow reaches the browser.</p>
-    <p><strong>Proof:</strong> a small fix can reach production without becoming a release project.</p>
-  </article>
-  <article>
-    <p class="playbook-card-title">Workflow cleanup</p>
-    <p>Use walkthroughs to find duplicate entry, manual handoffs, spreadsheet shadows, and exceptions the official process ignores.</p>
-    <p><strong>Proof:</strong> people feel an improvement while the deeper architecture work continues.</p>
-  </article>
-</div>
+I label major findings **Confirmed**, **Inferred**, or **Unknown**. A confirmed finding has direct evidence; an inference explains the reasoning and its limits. For an unknown, I add the specific observation or decision needed to resolve it. If the saved state is unclear, name the permitted state check and the person who can demonstrate the next step.
 
-Sales, service, onboarding, billing, and support are common starting points because the handoffs are visible and the cost of missing context is easy to recognize. The right starting workflow is the one with a real owner, repeated friction, and enough evidence to tell whether a change helped.
+## Put the operator's account beside the configuration
 
-## The evidence path
+Once the technical path is visible, watch someone perform the workflow. Include the preparation, the next person's handoff, and a failure or correction. A successful form submission rarely explains the whole job.
 
-Start with the smallest evidence surface that can answer the question. A checked-out metadata repo, safe describe output, deployment configuration, architecture notes, integration documentation, and a few recorded walkthroughs are often enough for the first map.
+In recent walkthrough reviews, packing slips, reference labels, carrier labels, tracking, and invoice completion needed separate treatment. Combining them into one “shipping” step would have hidden both useful shortcuts and controls that had to remain.
 
-Add Slack, Google Drive, a warehouse, MuleSoft, or another system only when the workflow crosses that boundary. A broad connector list creates access risk before it creates understanding.
+Record what the operator entered, which action they took, the response they saw, and where the recording ends. Separate narration from visible behavior. If the review sampled frames, say so; a brief transition may have been missed. Use approved recordings and keep sensitive source material in its designated storage, with sanitized notes for wider use.
 
-[Kicksights](https://kicksights.com/) is where I am turning this approach into a product. It helps consultancies and smaller teams understand what is really inside a Salesforce org, get more from the parts that still earn their keep, and define an exit path when a workflow belongs somewhere else.
+A compact finding might read:
 
-```mermaid
-flowchart LR
-    Users["Users and workflow owners"]
-    Walkthroughs["Walkthroughs and interviews"]
-    Salesforce["Salesforce org"]
-    Metadata["Metadata, automation, permissions, reports, deployment shape"]
-    Integrations["Integration docs, API paths, middleware, source systems"]
-    Claude["Claude analysis layer"]
-    Findings["Org map, tech debt, migration risk, open questions"]
-    Backlog["Prioritized fixes and small working slices"]
-    Pipeline["Tests, release gates, rollback, UI checks"]
-    Audit["Versions, approvals, evals, cost, trace history"]
-
-    Users --> Walkthroughs
-    Salesforce --> Metadata
-    Metadata --> Claude
-    Walkthroughs --> Claude
-    Integrations --> Claude
-    Claude --> Findings
-    Findings --> Backlog
-    Backlog --> Pipeline
-    Claude --> Audit
-    Pipeline --> Audit
+```text
+Workflow: prepare an order for dispatch
+Observed: a carrier label was created; invoice completion was refused
+Evidence: recording reference and timestamps, plus inspected source revision
+Unknown: whether label creation changed the persisted shipment state
+Next check: inspect the permitted state evidence and demonstrate the next handoff
+Owner: shipping and finance
 ```
 
-### What each part owns
+That finding directs the next inspection without inventing a cause. It also prevents a UI redesign from removing a control simply because the recording did not show its purpose.
 
-| Component | Job | Control |
-|---|---|---|
-| Org scanner | Inventory objects, fields, automation, permissions, packages, integrations, and release configuration. | Repeatable method, versioned output, documented blind spots. |
-| Salesforce metadata access | Supply current-state evidence without starting in customer records. | Read-only first, least privilege, explicit metadata and data boundary. |
-| Claude | Compare evidence, explain patterns, group risk, and draft next actions. | Versioned prompts, human review, evals, cost tracking, no unauthorized actions. |
-| Walkthroughs | Show the real workflow, manual compensation, and exceptions. | Consent, source attribution, and clear separation of observation from interpretation. |
-| Integration and migration artifacts | Capture systems, mappings, transformation rules, validation, and cutover questions. | Named owners, versioned schemas, exception handling, audit trail. |
-| Delivery pipeline | Turn accepted findings into tests, fixes, release notes, and rollback paths. | Reproducible checks, explicit approvals, fast feedback. |
-| Evaluation and audit | Track evidence, output versions, approvals, rejected findings, cost, and outcomes. | Inspectable from the first serious pilot. |
+## Write the map so someone else can act
 
-### Rules that keep the scan honest
+The scan and walkthrough should now explain the same workflow, including where they disagree. I keep that explanation in four linked documents. They share source references rather than repeating the inventory.
 
-**Metadata before records.** Most first-pass questions can be answered from configuration and architecture. If record data becomes necessary, narrow the question first, approve the access, and retrieve only what the analysis requires.
+| Document | What the reader needs |
+| --- | --- |
+| `01-executive-overview.md` | What the org supports, the main risks, and the next decision. |
+| `02-technical-deep-dive.md` | Where the behavior lives, with component paths and integration dependencies. |
+| `03-improvement-areas-and-open-questions.md` | Prioritized findings, owners, unresolved rules, and the next check for each. |
+| `04-business-process-system-map.md` | The workflow, record states, role handoffs, and failure paths. |
 
-**Walkthroughs beside metadata.** A configuration map cannot tell you which field people ignore, which report nobody trusts, or why a spreadsheet exists. The system view and the user view have to meet.
+Each document states its baseline and access limits. The process map is usually the best entry point; it should lead a new builder from the user's task to the relevant screen, automation, service, and verification method.
 
-**Read-only before writes.** Early work explains, compares, and recommends. Production writes wait until the team trusts the evidence, approval path, test coverage, and rollback plan.
+Give Claude a specific review assignment:
 
-**Follow the work beyond Salesforce.** The operating workflow usually reaches finance, support, fulfillment, data platforms, middleware, inboxes, or manual work. Go far enough to see the real handoff.
+> Compare this source baseline with the approved walkthrough notes. Explain the workflow and its handoffs. Cite each major finding, distinguish observed behavior from inferred causes, and identify the next check for anything unresolved. Do not infer business policy from example values or retrieve additional record data.
 
-**Small slices before large programs.** A reusable scan, one fixed release path, or one cleaned-up workflow creates more confidence than a migration roadmap with no tested move behind it.
+Review the result against a few cases the team knows well: a normal transaction, a failed handoff, overlapping automation, and something the evidence cannot answer. Check whether the explanation is correct and useful before adding more cases or automating the report.
 
-## The no-record-data boundary
+## Choose the first change from the findings
 
-The initial org scan stays metadata-first unless a narrow, approved question requires deeper access.
+The next step depends on the kind of gap. A defect needs a reproduction and a fix. An awkward but functioning workflow may need better interaction design. An unresolved business rule needs an owner to decide it before implementation.
 
-The scan does not retrieve Salesforce record rows, report results, file contents, message contents, payloads, debug logs, event logs, or sample customer records. Pulling sensitive data first and redacting it later breaks the boundary before the analysis begins.
+Keep those differences visible in the backlog. A recording of a negative balance does not establish an overdraft policy. A missing field in one screen does not establish that the underlying capability is absent. Refresh older findings against current source before assigning work; another change may already have addressed them.
 
-Safe evidence includes:
+Write acceptance around the user's outcome. For a broker-to-shipping handoff, that could mean the shipping operator can resume the transaction, see the required destination and clearance facts, understand any blocker, and complete the next permitted step. The test should include a refusal and recovery path as well as success.
 
-- local Salesforce metadata and `sfdx-project.json`
-- object and field definitions, relationships, record types, and picklists
-- layouts, flexipages, apps, tabs, reports, and dashboard metadata
-- permission sets, profiles, public groups, queues, and package inventory
-- Flow, Apex, validation rules, formulas, LWC, Aura, and Visualforce
-- named credential and integration configuration without secret values
-- deployment configuration, manifests, tests, scripts, and component counts
+This is where discovery moves into the [implementation playbook](/playbooks/codex-openai-implementation-playbook-business-tools/). Carry the evidence, unresolved rules, and acceptance criteria into the task so the builder does not have to reconstruct them.
 
-When safe evidence cannot support a conclusion, write `Unknown`. That is a useful result. It tells the team exactly where an interview, approved query, or deeper inspection is needed.
+## Treat migration as a separate proof problem
 
-## The four-document org overview
+A map can justify moving a workflow out of Salesforce. It cannot establish that the records are ready to move.
 
-The scan should produce a consulting deliverable people can use. I use four linked Markdown files so each reader gets the level of detail they need without losing the shared evidence base.
+Before extraction, agree on which system owns each entity, which identifiers survive, how relationships will be preserved, and what will be archived. Resolve transformations with the business owner, including dates, currencies, quantities, rounding, duplicates, and lifecycle state. Metadata can suggest a mapping; record quality requires separately approved inspection.
 
-Each document states the data boundary near the top.
+For an approved migration, keep the source read-only. Preserve the permitted extract with a manifest, checksums, access controls, and retention rules. Use sanitized or pseudonymized rehearsal data where appropriate; pseudonymized data still needs protection. Record validation results against the exact extract and target revision.
 
-| File | What it carries | Primary reader |
-|---|---|---|
-| `01-executive-overview.md` | What the org appears to do, major processes, system boundaries, top risks, highest-value moves, and evidence snapshot. | Executives, operators, delivery leads. |
-| `02-technical-deep-dive.md` | Where behavior lives across objects, automation, code, UI, permissions, packages, integrations, tests, and release paths. | Architects, admins, developers. |
-| `03-improvement-areas-and-open-questions.md` | Quick wins, structural work, high-risk areas, blind spots, decisions, and the next discovery pass. | Workstream owners and delivery teams. |
-| `04-business-process-system-map.md` | Practical diagrams, numbered narratives, lifecycle maps, and process-to-metadata references. | Anyone who needs to understand the system quickly. |
+The rehearsal should reconcile counts, relationships, rejected rows, and the totals or balances the business depends on. It should also prove that operators can continue the workflow after the load. A row count cannot show whether an order can be received, allocated, shipped, or closed.
 
-### Evidence labels
+When a rehearsal fails, inspect the failed artifact, the exact migration, the actual target ledger, and the relevant database state before proposing recovery. A recent pre-production investigation traced a failure to a grant for a role that did not exist. The database already had migration history; a reset would have addressed the wrong problem. The diagnosis identified a possible repair, but the repair still needed review and a successful rehearsal.
 
-Every major conclusion uses one of three labels:
+Check whether a migration has been applied anywhere before amending it. Record partial application explicitly, then choose the recovery path that fits the evidence. Decide the cutover and recovery procedure before the live load, including how to handle new writes after cutover; restoring the old application may not undo their effects.
 
-- `Confirmed`: directly supported by metadata paths or safe describe and inventory evidence.
-- `Inferred`: strongly suggested by structure, naming, formulas, Flow labels, or correlated configuration.
-- `Unknown`: not provable under the current evidence and data boundary.
+## Hand over a decision and a way to test it
 
-The label should point toward action. An `Unknown` without the question needed to resolve it is unfinished work.
+Discovery is ready for handoff when the team can explain the workflow, locate its implementation, name the unresolved decisions, and test the next change. The recommendation may be to repair Salesforce, move one workflow, retain an archive, or leave a working part alone.
 
-### Investigation order
-
-1. Inventory the repo, packages, manifests, CI, docs, scripts, objects, fields, UI, automation, permissions, integrations, reports, and dashboards.
-2. Use metadata-only describe and inventory calls to fill gaps in the checked-out source.
-3. Infer the business processes the org appears to support and write down what still needs a walkthrough.
-4. Locate behavior across configuration, Flow, Apex, formulas, validation rules, UI components, packages, custom metadata, and integration layers.
-5. Assess the failure surface: automation overlap, recursion risk, hard-coded references, source drift, missing tests, profile-heavy access, tightly coupled integrations, and stale patterns.
-
-The process map is usually the best first read for a new team member. Use Mermaid diagrams plus numbered explanations. Prefix nodes with labels such as `USER:`, `UI:`, `OBJ:`, `AUTO:`, `INT:`, and `REPORT:` when the map needs help staying legible.
-
-At minimum, show the end-to-end operating model, each major process, the lifecycle of the most important records, and any cross-process handoff that can change the outcome.
-
-## Evals that reflect the real org
-
-A convincing scan can still be wrong. The eval set exists to catch confident explanations that outrun the evidence.
-
-Start with a small set of examples the team understands: a known workflow, an ugly automation cluster, a familiar integration, a mapping problem, and a finding that must remain unknown under the data boundary. A small regression set that reviewers trust is more useful than a large benchmark nobody can explain.
-
-| Area | Question | Example test |
-|---|---|---|
-| Org understanding | Did Claude explain the system accurately from safe evidence? | Summarize the Account, Opportunity, Case, integration, and automation shape without inventing fields or owners. |
-| Tech debt | Did it find stale, duplicated, risky, or brittle configuration? | Flag overlapping Flows, unused fields, weak tests, and permission concerns with source references. |
-| Integration mapping | Did it identify systems, timing, ownership, data paths, and open questions? | Produce a current-state billing or onboarding map and mark unresolved handoffs. |
-| Migration readiness | Did it expose mapping gaps, transformation decisions, bad-data risk, and validation needs? | Compare source and target models and produce a gap report plus checks. |
-| Permission boundary | Did it stay within metadata and approved evidence? | Run the same task with restricted access and confirm the answer does not depend on unavailable data. |
-| Workflow fit | Does the explanation match what people actually do? | Compare the scan against recorded walkthroughs and known workarounds. |
-| Delivery value | Did the finding improve the path to a safe change? | Turn one accepted finding into a test, fix, release note, and rollback step. |
-| Cost and latency | Is the workflow worth repeating? | Track model cost, runtime, tool calls, and review time per scan. |
-
-### Minimum pilot artifacts
-
-- A versioned scan with scope, assumptions, and blind spots.
-- Golden examples covering the normal path, ugly cases, and a meaningful edge case.
-- A permission record showing what was inspected and intentionally excluded.
-- An integration or migration map when the workflow crosses system boundaries.
-- Validation checks that can be rerun after a prompt, mapping, or implementation change.
-- A decision log covering approvals, rejected findings, eval results, and cost.
-- User review based on real walkthroughs rather than imagined user stories.
-
-## Agent patterns worth reusing
-
-<div class="pattern-list">
-  <section>
-    <p class="playbook-card-title">Org explainer</p>
-    <p>Give Claude structured scan output and ask it to explain objects, automation, permissions, integrations, and release risk in plain language. Require evidence and visible uncertainty.</p>
-  </section>
-  <section>
-    <p class="playbook-card-title">Tech debt resolver</p>
-    <p>Group findings into urgent repairs, chronic architecture problems, and safe cleanup. A giant backlog proves little. Useful analysis makes future work smaller.</p>
-  </section>
-  <section>
-    <p class="playbook-card-title">Integration mapper</p>
-    <p>Compare metadata, endpoint descriptions, middleware notes, architecture docs, and walkthroughs. Capture systems, keys, triggers, error paths, owners, and questions.</p>
-  </section>
-  <section>
-    <p class="playbook-card-title">Migration readiness</p>
-    <p>Draft object maps, field maps, transformation rules, validation queries, and cutover risks. Keep source-of-truth decisions and acceptable loss under human ownership.</p>
-  </section>
-  <section>
-    <p class="playbook-card-title">Walkthrough processor</p>
-    <p>Extract pain points, exceptions, repeated manual work, and contradictions between the official process and what the operator actually does.</p>
-  </section>
-  <section>
-    <p class="playbook-card-title">Release-path reviewer</p>
-    <p>Find missing tests, fragile deploy steps, validation gaps, and weak rollback thinking. Every later fix benefits from a shorter, safer path to production.</p>
-  </section>
-</div>
-
-### Safety tiers
-
-| Tier | Allowed behavior | Example |
-|---|---|---|
-| 0: Metadata only | Read metadata, configuration, automation, permissions, and architecture artifacts. | Explain org structure without touching record data. |
-| 1: Approved anonymized analysis | Inspect sanitized or aggregated data when metadata cannot answer the question. | Identify duplicate patterns without exposing PII. |
-| 2: Prepared fix | Draft code, configuration, mapping, or process changes for review. | Propose Flow cleanup, Apex tests, or validation queries. |
-| 3: Approved implementation | Execute after explicit approval and validation. | Merge a code fix or ship a narrow quality-of-life improvement. |
-| 4: Restricted | Do not execute directly. | Approve money, change contracts, contact customers, bypass compliance, or browse sensitive records without a narrow approved reason. |
-
-## A 90-day path that earns trust
-
-The first 30 days should feel useful. Run the scan, repair the release path, watch the workflow, and ship a small improvement. Deeper architecture work becomes easier once the team sees evidence turn into a safe change.
-
-<div class="timeline">
-  <section>
-    <p class="playbook-card-title">Days 0-30: map, trust, and one useful fix</p>
-    <p><strong>Objective:</strong> understand the org and make the path to production safer.</p>
-    <ul>
-      <li>Run the org scan and produce the first architecture and tech-debt readout.</li>
-      <li>Record walkthroughs for the target workflow.</li>
-      <li>Review integrations and system boundaries outside Salesforce.</li>
-      <li>Repair tests, CI, validation, deployment notes, rollback, and UI smoke checks where needed.</li>
-      <li>Ship one urgent repair or quality-of-life improvement.</li>
-    </ul>
-    <p><strong>Exit:</strong> a current-state map, prioritized risk, a repeatable release path, and one improvement people can feel.</p>
-  </section>
-  <section>
-    <p class="playbook-card-title">Days 31-60: integration and migration readiness</p>
-    <p><strong>Objective:</strong> turn the map into a tested plan for system change.</p>
-    <ul>
-      <li>Map systems, ownership, timing, join keys, and failure paths.</li>
-      <li>Draft object maps, field maps, transformation rules, and validation checks.</li>
-      <li>Complete the permission analysis before broadening access.</li>
-      <li>Replay golden examples after prompt, mapping, or implementation changes.</li>
-      <li>Split complex work into idempotent pieces that can be proven independently.</li>
-    </ul>
-    <p><strong>Exit:</strong> migration and integration risk is visible, evals are replayable, and the next sequence is clear.</p>
-  </section>
-  <section>
-    <p class="playbook-card-title">Days 61-90: a durable operating loop</p>
-    <p><strong>Objective:</strong> make the delivery model repeatable without hiding judgment.</p>
-    <ul>
-      <li>Document operating rules, review paths, and decision boundaries.</li>
-      <li>Package scan outputs, mapping templates, evals, checks, and release steps.</li>
-      <li>Assign owners for architecture, data quality, permissions, pipeline health, and user feedback.</li>
-      <li>Expand only after the first workflow is trusted.</li>
-    </ul>
-    <p><strong>Exit:</strong> the team knows what to keep, repair, migrate, or retire, and can repeat the decision process.</p>
-  </section>
-</div>
-
-## What consultants still own
-
-Agents can inspect, compare, draft, summarize, and test. Consultants own the parts that require business judgment, sequencing, and trust.
-
-| Responsibility | What it means in practice |
-|---|---|
-| Workflow diagnosis | Watch the work, record the exceptions, and separate the stated process from the real one. |
-| Architecture | Decide where Salesforce fits, where it creates drag, and which system owns the truth. |
-| Integration and migration | Set mappings, dependencies, validation, acceptable loss, cutover sequence, and rollback thinking. |
-| Eval design | Turn known good work, ugly examples, and edge cases into replayable tests. |
-| Review and risk | Catch unsafe access, unsupported claims, brittle automation, weak tests, and missing ownership. |
-| Delivery | Use Claude to move faster while keeping decisions and evidence visible to the client. |
-
-A larger team can work well when ownership is explicit, deliverables are concrete, and review happens close to the work. More people do not repair a vague operating model.
-
-### The AI-theater test
-
-Reject a demo that cannot survive contact with the org. Before treating a workflow as real, look for:
-
-- a current org scan
-- an owner who can explain the operating pain
-- a walkthrough that shows the unofficial process
-- a source-of-truth map that reaches beyond Salesforce
-- permission analysis before deeper data access
-- a replayable eval set
-- a tested path from finding to reviewed fix
-- a decision about what to keep, repair, migrate, or retire
-
-## Proof package
-
-The strongest companion artifact is an org explainer and tech debt resolver.
-
-**Input:** Salesforce metadata, deployment configuration, architecture diagrams, integration notes, and a few recorded walkthroughs.
-
-**Output:** a current-state map, evidence-backed tech-debt findings, permission concerns, integration risk, migration-readiness notes, release-path recommendations, and a short list of useful fixes.
-
-The proof is the full path from evidence to change. The team can see what the system does, where the explanation is uncertain, which move comes first, and how that move will be verified.
+I want the next builder to know where to start and the operator to know what will improve. After the change, update the map with what was verified and what remains unknown. Those updates become the starting point for the next request in the [managed-services workflow](/playbooks/cooperative-managed-services-platform-systems-of-record/).
