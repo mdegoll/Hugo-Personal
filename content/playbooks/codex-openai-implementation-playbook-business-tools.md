@@ -60,7 +60,7 @@ If deployment is part of the assignment, include it and its acceptance check. Ca
 
 ## Build a complete, narrow workflow
 
-A useful slice follows one action through the system. For package persistence, that means the screen sends the right input, the service validates it, the data survives reload, and the next operator sees the correct state. A UI-only fix would leave the original problem unresolved.
+A useful first change follows one action all the way through the system. For package persistence, that means the screen sends the right input, the service validates it, the data survives reload, and the next operator sees the correct state. A UI-only fix would leave the original problem unresolved.
 
 Use the existing domain operation where possible. A screen, CLI, and agent tool should reach the same service rules. A second implementation for agents creates another place for permissions, eligibility, and business logic to drift.
 

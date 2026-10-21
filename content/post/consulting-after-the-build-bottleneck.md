@@ -189,7 +189,7 @@ The point is safer operations. A better demo is a side effect at best. A rollout
 1. Pick one workflow with clear pain and measurable outcomes.
 2. Map current behavior and manual workarounds.
 3. Choose what to keep, simplify, replace, or retire.
-4. Build the smallest useful slice.
+4. Build the smallest version that's useful.
 5. Add evals, permissions, logs, and approvals.
 6. Pilot with real operators.
 7. Iterate from feedback, or stop if risk is unresolved.
@@ -205,7 +205,7 @@ Judgment becomes the durable consulting role. In practice that means five things
 - Own architecture and migration: stay in Salesforce, simplify it, replace one workflow, migrate data, or build a purpose-built tool.
 - Design the trust layer: evals, permissions, audit, security, quality checks, exception handling, and ownership handoffs.
 - Turn agent output into tested, documented systems the team can support without you.
-- Lead the transition from large implementation plans to smaller decision cycles.
+- Lead the move from big implementation plans to smaller, more frequent decisions.
 
 The consultants who do well here stay close to operators, are comfortable evaluating technical work, and are willing to say "we shouldn't build this" when it adds risk.
 

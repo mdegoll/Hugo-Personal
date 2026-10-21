@@ -18,7 +18,7 @@ hideMeta: true
   <div class="section-prose">
     <p>Almost every request I get is phrased as a software ask (a dashboard, an integration, a CRM cleanup), and almost none of them are software problems. Usually it's a process nobody trusts: the spreadsheet became the real system of record a year ago, one person holds the exceptions in their head, and the platform everyone pays for is the thing people route around. So that's where I start, with the workflow someone is trying to finish and the workarounds they use to finish it.</p>
     <p>What happens next depends on what I find. If the platform still does the job, the cheapest fix is usually to make it cleaner and easier to operate, and I'll say so even though it's the less interesting work. If it's become drag (expensive to change, slow to change, and no longer matched to how the team works), I move the most painful workflow out first and build something small around it. Big-bang replacements have a bad track record, and I don't think my clients are the exception.</p>
-    <p>Either way, the first release is one working slice that real operators use. The second version comes from what they do with it, which is usually not what anyone predicted.</p>
+    <p>Either way, the first release is one small piece of the workflow that actually works and that real operators use. The second version comes from what they do with it, which is usually not what anyone predicted.</p>
   </div>
 </section>
 

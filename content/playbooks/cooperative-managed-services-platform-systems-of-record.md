@@ -30,7 +30,7 @@ That's the work I want a managed-services system to support. It should carry the
 
 My recent work on order-management workflows, Salesforce migration, and remote agent delivery has pushed this design toward the handoffs. Building a component is only part of the job. The next role must be able to use it, the running environment must contain it, and the team needs a way to recover when an effect is uncertain.
 
-This playbook describes the operating model I'm working toward, drawing on those projects and the managed-services direction in Kicksights. The sections below are design guidance; each capability needs verification against its implementation and deployment.
+This playbook describes the way of working I'm aiming for, drawing on those projects and the managed-services direction in Kicksights. The sections below are design guidance; each capability needs verification against its implementation and deployment.
 
 ## Capture the request where the work happens
 
@@ -129,4 +129,4 @@ Use completed historical cases to test the first version. Include missing eviden
 
 Once the pilot is running, review time from report to verified outcome, time waiting for review, reopened requests, and cost per accepted result. Read a few failed attempts alongside the numbers. That shows whether the next improvement belongs in the agent, its tools, the documentation, or the team's handoff process.
 
-Expand when the first workflow can be repeated and recovered by someone other than its original builder. The next queue should inherit working contracts, useful tests, and a clearer operating path.
+Expand when the first workflow can be repeated and recovered by someone other than its original builder. The next queue should inherit the contracts and tests that worked and a clearer way to run things.

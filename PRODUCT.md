@@ -10,7 +10,7 @@ Operators, founders, technical founders, technically forward business owners, an
 
 ## Product Purpose
 
-This site presents Michael DeGoll's point of view on purpose-built software, AI agents, local workflows, and the move away from bloated legacy platforms. Success means a visitor quickly understands the work: diagnose the real process, keep or retire existing tools with judgment, build useful software in smaller slices, and use agents to accelerate implementation without creating AI theater.
+This site presents Michael DeGoll's point of view on purpose-built software, AI agents, local workflows, and the move away from bloated legacy platforms. Success means a visitor quickly understands the work: diagnose the real process, keep or retire existing tools with judgment, build useful software in small pieces, and use agents to accelerate implementation without creating AI theater.
 
 ## Brand Personality
 

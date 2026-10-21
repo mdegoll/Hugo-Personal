@@ -38,7 +38,7 @@ The writing should reinforce a few durable beliefs:
 - Recurring cost is only part of platform drag. Slow change, workarounds, vendor limits, and lost operating knowledge matter too.
 - AI agents compress build work. Selection, architecture, review, and operational trust become more valuable as output gets cheaper.
 - Local AI is useful when privacy, control, offline work, or fast experimentation matters. Important workflows still need a reliable operating path.
-- A working slice creates more confidence than a polished promise.
+- A small thing that works creates more confidence than a polished promise.
 - A prototype should help close a decision. A production system should survive real use.
 - Reliability is an operating outcome. People need to know what happened, correct mistakes, and recover when something fails.
 - Design should start with evidence of how the work happens, including the exceptions and manual workarounds.
@@ -253,6 +253,8 @@ Technical credibility comes from accurate boundaries as much as detailed mechani
 
 ## Vocabulary
 
+Don't use "slice" (working slice, useful slice). Say the small piece, the first change, the smallest version that works. Avoid consultant nouns like "operating model", "operating posture", "operating path", and "decision cycles"; say how the work runs.
+
 Prefer words such as:
 
 - work
@@ -268,7 +270,7 @@ Prefer words such as:
 - constraint
 - decision
 - exception
-- working slice
+- the smallest version that works
 - migration path
 - test
 - verify
