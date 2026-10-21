@@ -1,0 +1,15 @@
+Self-hosted Latin variable fonts, downloaded from Google Fonts on 2026-10-21.
+
+Geist and Geist Mono: Vercel, SIL Open Font License 1.1.
+Source: https://github.com/vercel/geist-font
+Licenses: OFL-Geist.txt and OFL-Geist-Mono.txt in this directory.
+
+Newsreader: The Newsreader Project Authors, SIL Open Font License 1.1.
+Source: https://github.com/productiontype/Newsreader
+License: OFL-Newsreader.txt in this directory.
+
+Google Fonts CSS source (normal style, Latin subset only):
+https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Geist+Mono:wght@400..500&family=Newsreader:opsz,wght@6..72,400..500&display=swap
+
+The fonts are redistributed unmodified. The accompanying OFL files contain
+copyright notices and full license terms.

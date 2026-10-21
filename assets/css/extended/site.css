@@ -700,6 +700,13 @@ h6 {
   text-wrap: pretty;
 }
 
+.page-closing .page-closing-note {
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 56ch;
+  margin-top: 14px;
+}
+
 .page-closing .page-actions {
   margin-top: 1.6rem;
 }
@@ -824,4 +831,26 @@ h6 {
   .footer span + span::before {
     content: none;
   }
+}
+
+/* Tags index: all chips in one panel */
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag-cloud li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+}
+
+.tag-cloud .panel-meta {
+  margin: 0;
 }

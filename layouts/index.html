@@ -5,6 +5,22 @@
   {{ .Content }}
   {{- end }}
 
+  <section class="page-section">
+    <h2>Current work</h2>
+    <div>
+      <ul class="panel-list">
+        <li>
+          <h3><a href="https://kicksights.com/">Kicksights</a></h3>
+          <p>Reads what is really inside a production Salesforce org: the automation, the data paths, the integration risk, and what still earns its keep. For teams without an internal architecture group who need a plain-language map before deciding what to repair, migrate, or retire.</p>
+        </li>
+        <li>
+          <h3><a href="https://rebase.team/">Rebase</a></h3>
+          <p>A team of solution engineers that moves critical systems off rented platforms and onto software fitted to how a business runs. The <a href="/playbooks/">playbooks</a> on this site come out of that delivery work.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
   {{- with site.GetPage "/playbooks" }}
   {{- $playbooks := .RegularPages.ByWeight }}
   {{- if $playbooks }}
@@ -50,8 +66,11 @@
     <h2>Tell me what the current system makes you do by hand.</h2>
     <p>That's usually where the first useful slice is. I'll tell you whether it belongs in the platform you have, in a small tool of its own, or nowhere.</p>
     <div class="page-actions">
-      <a class="button" href="mailto:michael@degoll.net">Send me an email</a>
+      <a class="button" href="mailto:michael@degoll.net?subject=The%20thing%20we%20do%20by%20hand">Send me an email</a>
+      <a class="button-secondary" href="https://github.com/mdegoll">GitHub</a>
+      <a class="button-secondary" href="https://www.linkedin.com/in/michael-j-degoll/">LinkedIn</a>
     </div>
+    <p class="page-closing-note">Tell me the tool, the workaround, and who does it. I usually reply within two working days.</p>
   </section>
 </div>
 
