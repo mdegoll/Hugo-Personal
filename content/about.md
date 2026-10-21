@@ -10,7 +10,7 @@ ShowToc: false
   <h1>One foot in operations, the other in the code.</h1>
   <p class="page-lede">I'm Michael DeGoll. I've spent most of my career inside the systems mid-sized companies rent: Salesforce, the integration platforms that sit next to it, and order-management software. Long enough to watch the same kind of system hold one business together and be the reason nothing could change at another, which is most of why I'm skeptical of blanket advice about platforms in either direction.</p>
   <div class="page-actions">
-    <a class="button" href="mailto:hi@degoll.net?subject=The%20thing%20we%20do%20by%20hand">Send me an email</a>
+    <a class="button" href="mailto:michael@degoll.net?subject=The%20thing%20we%20do%20by%20hand">Send me an email</a>
     <a class="button-secondary" href="/playbooks/">Read the playbooks</a>
   </div>
 </section>
@@ -48,7 +48,7 @@ ShowToc: false
 <section class="page-closing">
   <h2>I'm in Kirkland. Email is the fastest way to reach me.</h2>
   <div class="page-actions">
-    <a class="button" href="mailto:hi@degoll.net?subject=The%20thing%20we%20do%20by%20hand">hi@degoll.net</a>
+    <a class="button" href="mailto:michael@degoll.net?subject=The%20thing%20we%20do%20by%20hand">michael@degoll.net</a>
     <a class="button-secondary" href="https://github.com/mdegoll">GitHub</a>
     <a class="button-secondary" href="https://www.linkedin.com/in/michael-j-degoll/">LinkedIn</a>
   </div>
