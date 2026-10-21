@@ -46,7 +46,7 @@ ShowToc: false
 </section>
 
 <section class="page-closing">
-  <h2>I'm in Seattle. Email is the fastest way to reach me.</h2>
+  <h2>I'm in Kirkland. Email is the fastest way to reach me.</h2>
   <div class="page-actions">
     <a class="button" href="mailto:michael@degoll.net">michael@degoll.net</a>
     <a class="button-secondary" href="https://github.com/mdegoll">GitHub</a>
