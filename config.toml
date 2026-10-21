@@ -1,8 +1,8 @@
 baseurl = "https://www.degoll.net/"
 languageCode = "en-us"
-title = "Michael DeGoll"
+title = "Michael"
 theme = "PaperMod"
-copyright = "Michael DeGoll"
+copyright = "Michael"
 
 [pagination]
   pagerSize = 10
@@ -18,7 +18,7 @@ copyright = "Michael DeGoll"
 
 [params]
   env = "production"
-  description = "Purpose-built software for teams outgrowing the platforms they rent."
+  description = "CTO at rebase, focused on building the tools for the future of your business."
   mainSections = ["playbooks", "post"]
   defaultTheme = "light"
   disableThemeToggle = true

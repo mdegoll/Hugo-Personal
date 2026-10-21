@@ -122,7 +122,7 @@ The runtime distinctions are documented in OpenAI's [Agents guide](https://devel
 
 For Responses function calling, defining a tool only describes a callable operation. The application must validate the request, execute the handler, return its output, and continue the conversation. Use the complete [function-calling flow](https://developers.openai.com/api/docs/guides/function-calling#the-tool-calling-flow) when implementing it.
 
-For Rebase infrastructure, I'd pilot failed-build investigation: capture the run and revision, reproduce the error in an isolated checkout, attempt a bounded repair, and return a tested draft PR or a concrete blocker. I'd replay known failures and measure diagnosis quality, review time, and cost before enabling automatic triggers.
+For rebase infrastructure, I'd pilot failed-build investigation: capture the run and revision, reproduce the error in an isolated checkout, attempt a bounded repair, and return a tested draft PR or a concrete blocker. I'd replay known failures and measure diagnosis quality, review time, and cost before enabling automatic triggers.
 
 Choose the environment with its data policy in mind. As checked on September 11, 2026, the Agents API retains session state, supports US data residency, and isn't eligible for Zero Data Retention, including with a self-hosted sandbox. See the [Agents API overview](https://developers.openai.com/api/docs/guides/agents-api/overview) before connecting client material.
 

@@ -1,87 +1,330 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-05-18T00:00:00-07:00",
+  "generatedAt": "2026-10-21T18:35:53.693906+00:00",
   "title": "Design System: Michael DeGoll",
   "extensions": {
-    "northStar": "The Field Notebook",
     "colorMeta": {
       "paper": {
         "role": "neutral",
         "displayName": "Paper",
-        "canonical": "#ffffff",
-        "usage": "Main background and inverted button text."
+        "tonalRamp": [
+          "oklch(15.00% 0.00574 264.53)",
+          "oklch(26.43% 0.00574 264.53)",
+          "oklch(37.86% 0.00574 264.53)",
+          "oklch(49.29% 0.00574 264.53)",
+          "oklch(60.71% 0.00574 264.53)",
+          "oklch(72.14% 0.00574 264.53)",
+          "oklch(83.57% 0.00574 264.53)",
+          "oklch(95.00% 0.00574 264.53)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ]
       },
       "ink": {
-        "role": "primary",
+        "role": "neutral",
         "displayName": "Ink",
-        "canonical": "#1e1e1e",
-        "usage": "Primary text and filled button background."
+        "tonalRamp": [
+          "oklch(15.00% 0.02074 267.68)",
+          "oklch(26.43% 0.02074 267.68)",
+          "oklch(37.86% 0.02074 267.68)",
+          "oklch(49.29% 0.02074 267.68)",
+          "oklch(60.71% 0.02074 267.68)",
+          "oklch(72.14% 0.02074 267.68)",
+          "oklch(83.57% 0.02074 267.68)",
+          "oklch(95.00% 0.02074 267.68)"
+        ]
       },
       "muted": {
         "role": "neutral",
-        "displayName": "Muted Copy",
-        "canonical": "#6c6c6c",
-        "usage": "Secondary copy, metadata, and proof lists."
+        "displayName": "Muted",
+        "tonalRamp": [
+          "oklch(15.00% 0.02945 263.17)",
+          "oklch(26.43% 0.02945 263.17)",
+          "oklch(37.86% 0.02945 263.17)",
+          "oklch(49.29% 0.02945 263.17)",
+          "oklch(60.71% 0.02945 263.17)",
+          "oklch(72.14% 0.02945 263.17)",
+          "oklch(83.57% 0.02945 263.17)",
+          "oklch(95.00% 0.02945 263.17)"
+        ]
       },
-      "teal-wash": {
-        "role": "secondary",
-        "displayName": "Muted Teal",
-        "canonical": "#145c78",
-        "usage": "Low-opacity section wash and structural rules."
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "tonalRamp": [
+          "oklch(15.00% 0.01046 261.79)",
+          "oklch(26.43% 0.01046 261.79)",
+          "oklch(37.86% 0.01046 261.79)",
+          "oklch(49.29% 0.01046 261.79)",
+          "oklch(60.71% 0.01046 261.79)",
+          "oklch(72.14% 0.01046 261.79)",
+          "oklch(83.57% 0.01046 261.79)",
+          "oklch(95.00% 0.01046 261.79)"
+        ]
       },
-      "green-wash": {
-        "role": "secondary",
-        "displayName": "Field Green",
-        "canonical": "#467240",
-        "usage": "Low-opacity proof-section support color."
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Rule Strong",
+        "tonalRamp": [
+          "oklch(15.00% 0.01837 261.33)",
+          "oklch(26.43% 0.01837 261.33)",
+          "oklch(37.86% 0.01837 261.33)",
+          "oklch(49.29% 0.01837 261.33)",
+          "oklch(60.71% 0.01837 261.33)",
+          "oklch(72.14% 0.01837 261.33)",
+          "oklch(83.57% 0.01837 261.33)",
+          "oklch(95.00% 0.01837 261.33)"
+        ]
       },
-      "ochre-wash": {
-        "role": "tertiary",
-        "displayName": "Quiet Ochre",
-        "canonical": "#a87026",
-        "usage": "Low-opacity warmth in proof-section washes."
+      "code": {
+        "role": "neutral",
+        "displayName": "Code",
+        "tonalRamp": [
+          "oklch(15.00% 0.00914 258.34)",
+          "oklch(26.43% 0.00914 258.34)",
+          "oklch(37.86% 0.00914 258.34)",
+          "oklch(49.29% 0.00914 258.34)",
+          "oklch(60.71% 0.00914 258.34)",
+          "oklch(72.14% 0.00914 258.34)",
+          "oklch(83.57% 0.00914 258.34)",
+          "oklch(95.00% 0.00914 258.34)"
+        ]
+      },
+      "lime": {
+        "role": "primary",
+        "displayName": "Lime",
+        "tonalRamp": [
+          "oklch(15.00% 0.20278 124.90)",
+          "oklch(26.43% 0.20278 124.90)",
+          "oklch(37.86% 0.20278 124.90)",
+          "oklch(49.29% 0.20278 124.90)",
+          "oklch(60.71% 0.20278 124.90)",
+          "oklch(72.14% 0.20278 124.90)",
+          "oklch(83.57% 0.20278 124.90)",
+          "oklch(95.00% 0.20278 124.90)"
+        ]
+      },
+      "lime-bright": {
+        "role": "primary",
+        "displayName": "Lime Bright",
+        "tonalRamp": [
+          "oklch(15.00% 0.21074 124.36)",
+          "oklch(26.43% 0.21074 124.36)",
+          "oklch(37.86% 0.21074 124.36)",
+          "oklch(49.29% 0.21074 124.36)",
+          "oklch(60.71% 0.21074 124.36)",
+          "oklch(72.14% 0.21074 124.36)",
+          "oklch(83.57% 0.21074 124.36)",
+          "oklch(95.00% 0.21074 124.36)"
+        ]
+      },
+      "selection": {
+        "role": "neutral",
+        "displayName": "Selection",
+        "tonalRamp": [
+          "oklch(15.00% 0.09853 117.44)",
+          "oklch(26.43% 0.09853 117.44)",
+          "oklch(37.86% 0.09853 117.44)",
+          "oklch(49.29% 0.09853 117.44)",
+          "oklch(60.71% 0.09853 117.44)",
+          "oklch(72.14% 0.09853 117.44)",
+          "oklch(83.57% 0.09853 117.44)",
+          "oklch(95.00% 0.09853 117.44)"
+        ]
+      },
+      "lime-deep": {
+        "role": "primary",
+        "displayName": "Lime Deep",
+        "tonalRamp": [
+          "oklch(15.00% 0.12439 129.59)",
+          "oklch(26.43% 0.12439 129.59)",
+          "oklch(37.86% 0.12439 129.59)",
+          "oklch(49.29% 0.12439 129.59)",
+          "oklch(60.71% 0.12439 129.59)",
+          "oklch(72.14% 0.12439 129.59)",
+          "oklch(83.57% 0.12439 129.59)",
+          "oklch(95.00% 0.12439 129.59)"
+        ]
+      },
+      "lime-wash": {
+        "role": "primary",
+        "displayName": "Lime Wash",
+        "tonalRamp": [
+          "oklch(15.00% 0.04126 117.51)",
+          "oklch(26.43% 0.04126 117.51)",
+          "oklch(37.86% 0.04126 117.51)",
+          "oklch(49.29% 0.04126 117.51)",
+          "oklch(60.71% 0.04126 117.51)",
+          "oklch(72.14% 0.04126 117.51)",
+          "oklch(83.57% 0.04126 117.51)",
+          "oklch(95.00% 0.04126 117.51)"
+        ]
       }
     },
     "typographyMeta": {
       "display": {
-        "displayName": "Display",
-        "purpose": "Hero headlines only."
+        "displayName": "display"
+      },
+      "headline": {
+        "displayName": "headline"
+      },
+      "section": {
+        "displayName": "section"
+      },
+      "title": {
+        "displayName": "title"
+      },
+      "contentH2": {
+        "displayName": "contentH2"
+      },
+      "contentH3": {
+        "displayName": "contentH3"
+      },
+      "contentH4": {
+        "displayName": "contentH4"
+      },
+      "code": {
+        "displayName": "code"
+      },
+      "inlineCode": {
+        "displayName": "inlineCode"
+      },
+      "chipMeta": {
+        "displayName": "chipMeta"
+      },
+      "tocLink": {
+        "displayName": "tocLink"
+      },
+      "tocLabel": {
+        "displayName": "tocLabel"
+      },
+      "lede": {
+        "displayName": "lede"
       },
       "body": {
-        "displayName": "Body",
-        "purpose": "Long-form writing and page copy."
+        "displayName": "body"
       },
-      "label": {
-        "displayName": "Label",
-        "purpose": "Occasional kicker labels, not repeated section scaffolding."
+      "prose": {
+        "displayName": "prose"
+      },
+      "button": {
+        "displayName": "button"
+      },
+      "meta": {
+        "displayName": "meta"
       }
     },
-    "elevation": {
-      "strategy": "flat",
-      "rules": [
-        "Use borders, spacing, and tonal washes before shadows.",
-        "Do not add decorative floating card stacks."
-      ]
+    "shadows": [],
+    "motion": [
+      {
+        "name": "state-transition",
+        "value": "0.15s ease-out",
+        "purpose": "Background, border, and underline state changes."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "820px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Email and reading actions.",
+      "html": "<a class=\"ds-button-primary\" href=\"#\">Send me an email</a>",
+      "css": ".ds-button-primary {\n  display: inline-flex;\n  align-items: center;\n  min-height: 46px;\n  line-height: 1.3;\n  padding: 0.6rem 1.3rem;\n  border-radius: var(--radius);\n  font-size: 0.92rem;\n  font-weight: 600;\n  letter-spacing: -0.01em;\n  text-decoration: none;\n  transition: background-color 0.15s ease-out, border-color 0.15s ease-out;\n}\n.ds-button-primary {\n  margin: 0;\n  transform: none;\n}\n.ds-button-primary:active {\n  margin: 0;\n  transform: none;\n}\n.ds-button-primary {\n  background: var(--lime);\n  color: var(--ink);\n  border: 1px solid var(--lime);\n}\n.ds-button-primary:hover {\n  background: var(--lime-bright);\n  border-color: var(--lime-deep);\n  color: var(--ink);\n}\n.ds-button-primary:focus-visible {outline:2px solid var(--lime-deep);outline-offset:3px;}\n.ds-button-primary {font-family:var(--font-sans);} "
     },
-    "motion": {
-      "strategy": "minimal",
-      "reducedMotion": "Respect prefers-reduced-motion. Avoid layout-property animation."
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Email and reading actions.",
+      "html": "<a class=\"ds-button-secondary\" href=\"#\">Send me an email</a>",
+      "css": ".ds-button-secondary {\n  display: inline-flex;\n  align-items: center;\n  min-height: 46px;\n  line-height: 1.3;\n  padding: 0.6rem 1.3rem;\n  border-radius: var(--radius);\n  font-size: 0.92rem;\n  font-weight: 600;\n  letter-spacing: -0.01em;\n  text-decoration: none;\n  transition: background-color 0.15s ease-out, border-color 0.15s ease-out;\n}\n.ds-button-secondary {\n  background: var(--panel);\n  color: var(--ink);\n  border: 1px solid var(--rule-strong);\n}\n.ds-button-secondary:hover {\n  background: var(--panel);\n  border-color: var(--ink);\n  color: var(--ink);\n}\n.ds-button-secondary:focus-visible {outline:2px solid var(--lime-deep);outline-offset:3px;}\n.ds-button-secondary {font-family:var(--font-sans);} "
     },
-    "breakpoints": {
-      "mobile": "820px",
-      "themeMobile": "768px"
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "description": "Site sections with a lime underline on the active item.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link ds-active\" href=\"#\">Playbooks</a><a class=\"ds-nav-link\" href=\"#\">Writing</a><a class=\"ds-nav-link\" href=\"#\">About</a></nav>",
+      "css": ".ds-nav-link {\n  display: inline-flex;\n  align-items: center;\n  min-height: 44px;\n  color: var(--muted);\n  font-size: 0.92rem;\n  font-weight: 500;\n  text-decoration: none;\n}\n.ds-nav-link:hover {\n  color: var(--ink);\n  background: transparent;\n}\n.ds-active {\n  color: var(--ink);\n  font-weight: 500;\n  border-bottom: 2px solid var(--lime);\n  padding-bottom: 2px;\n}\n.ds-nav {display:flex;gap:22px;font-family:var(--font-sans);}.ds-nav-link:focus-visible {outline:2px solid var(--lime-deep);outline-offset:3px;}"
     },
-    "rules": {
-      "do": [
-        "Keep pages simple, consistent, and easy to publish.",
-        "Use direct copy that names the operating problem before the tool.",
-        "Use muted color washes sparingly."
-      ],
-      "dont": [
-        "Do not use corporate blue gradients, glassmorphism, gradient text, hero metric blocks, or repeated icon-card grids.",
-        "Do not make the site Salesforce-first.",
-        "Do not over-polish the site into an agency deck."
-      ]
+    {
+      "name": "Metadata Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Playbook metadata and tags.",
+      "html": "<a class=\"ds-chip\" href=\"#\">Business tools</a>",
+      "css": ".ds-chip {\n  border: 1px solid var(--rule);\n  border-radius: 999px;\n  padding: 5px 11px;\n  color: var(--muted);\n  background: var(--panel);\n  font-family: var(--font-mono);\n  font-size: 0.74rem;\n  letter-spacing: 0.04em;\n  line-height: 1.3;\n  text-decoration: none;\n}\n.ds-chip:hover {\n  color: var(--ink);\n  background: var(--lime-wash);\n  border-color: var(--lime);\n}\n.ds-chip {display:inline-block;}.ds-chip:focus-visible {outline:2px solid var(--lime-deep);outline-offset:3px;}"
+    },
+    {
+      "name": "Artifact Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "A real project, playbook, or post.",
+      "html": "<article class=\"ds-panel\"><h3><a href=\"#\">rebase</a></h3><p>Tools built around how a business runs.</p></article>",
+      "css": ".ds-panel {\n  padding: 20px 22px;\n  border: 1px solid var(--rule);\n  border-radius: var(--radius);\n  background: var(--panel);\n  transition: border-color 0.15s ease-out;\n}\n.ds-panel:hover {\n  border-color: var(--rule-strong);\n}\n.ds-panel h3 {\n  margin: 0 0 4px;\n  font-size: 1.3rem;\n  line-height: 1.15;\n  letter-spacing: -0.02em;\n}\n.ds-panel h3 a {\n  text-decoration: none;\n}\n.ds-panel h3 a:hover {\n  background: transparent;\n  text-decoration: underline;\n  text-decoration-color: var(--lime);\n}\n.ds-panel p {\n  max-width: 62ch;\n  margin: 0;\n  color: var(--muted);\n  font-size: 0.97rem;\n  line-height: 1.55;\n}\n.ds-panel p a {\n  text-decoration-thickness: 1px;\n}\n.ds-panel {font-family:var(--font-sans);}.ds-panel h3 {font-family:var(--font-serif);font-weight:500;color:var(--ink);}.ds-panel a {color:var(--ink);}.ds-panel a:focus-visible {outline:2px solid var(--lime-deep);outline-offset:3px;}"
     }
+  ],
+  "narrative": {
+    "northStar": "The Field Notebook, printed on rebase paper",
+    "overview": "The site shares a visual family with rebase.team: cool-gray paper, white panels, near-black ink, one lime accent, serif headings over a plain sans body. It is still one person's notebook, not a company landing page. No photography, no section numbers, no eyebrow labels, no hero metrics. Headings carry their own weight.",
+    "keyCharacteristics": [
+      "Serif display (Newsreader, weight 500, tight tracking) against a quiet Geist body",
+      "Cool-gray page with white panels for anything that is a list of real artifacts",
+      "Lime appears in exactly four places: the primary button, link underlines, the active nav item, and the footer band",
+      "Flat by default: borders and whitespace, never shadows"
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Lime is the only chroma on the site. Do not add teal, green, or ochre washes, and do not use lime as a text color.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Eyebrow Rule",
+        "body": "No kicker or label above a heading. If a page needs a stage or audience marker, it goes in a chip below the dek.",
+        "section": "typography"
+      },
+      {
+        "name": "The Serif Carries It Rule",
+        "body": "Serif headings are 500, never bold. Content H4 uses Geist 600. Emphasis in prose is Geist 600.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Floating Deck Rule",
+        "body": "No box shadows anywhere.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep every page on the same paper, panel, ink, lime set.",
+      "Do list real artifacts (playbooks, posts) in panels rather than describing capabilities in card grids.",
+      "Do keep long-form reading measure at 66ch.",
+      "Do keep the Newsreader optical size axis on, so small headings do not look spindly."
+    ],
+    "donts": [
+      "Don't add kickers, eyebrows, section numbers, icon grids, metric blocks, or gradients.",
+      "Don't add a second accent color or use lime as text.",
+      "Don't use bold serif. Headings are 500.",
+      "Don't reintroduce \"Powered by\" footers, scroll-to-top buttons, breadcrumbs, or share buttons.",
+      "Don't use em dashes or double-hyphen substitutes in public copy."
+    ]
   }
 }

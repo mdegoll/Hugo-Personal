@@ -123,7 +123,7 @@ Keep attempt history for audit and investigation, while editing current guidance
 
 ## Pilot one queue before expanding
 
-For a managed-services pilot, I'd choose one customer workflow with recurring requests and a reviewer who knows it well. Begin with diagnosis and work-order preparation, then add implementation and release steps as the checks become reliable. Kicksights is one place I'm exploring this pattern for Salesforce work; Rebase infrastructure offers another starting point through failed-build investigation and environment setup.
+For a managed-services pilot, I'd choose one customer workflow with recurring requests and a reviewer who knows it well. Begin with diagnosis and work-order preparation, then add implementation and release steps as the checks become reliable. Kicksights is one place I'm exploring this pattern for Salesforce work; rebase infrastructure offers another starting point through failed-build investigation and environment setup.
 
 Use completed historical cases to test the first version. Include missing evidence, a denied action, an uncertain write result, and a request that should be escalated. Measure whether the next person can act on the output and how much correction it requires.
 
