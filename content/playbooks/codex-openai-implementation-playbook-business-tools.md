@@ -1,6 +1,6 @@
 ---
-title: "Using Codex to build and verify business tools"
-description: "Take a workflow from source inspection through a scoped change, review, and verification in the environment that matters."
+title: "Change one workflow and prove it works where it runs"
+description: "Take a workflow from source inspection through a scoped change, review, and verification on the release that matters. Codex does the implementation; the checks are yours."
 summary: "Define a checkable outcome, implement the full workflow, and verify it on the intended release. Covers task scope, shared ownership, recovery, and when to add a runtime agent."
 weight: 2
 date: 2026-05-18
@@ -11,7 +11,7 @@ stage: "Change it"
 ShowToc: true
 TocOpen: true
 playbookMeta:
-  - "For builders and technical leads"
+  - "Business tools, with Codex as the builder"
 tags:
   - Codex
   - OpenAI

@@ -1,5 +1,5 @@
 ---
-title: "Running managed services with humans and agents"
+title: "Keep it working after release, with humans and agents"
 description: "Turn operator feedback into scoped work, verified changes, and better instructions for the next request."
 summary: "Carry an operator report through diagnosis, assignment, review, release, and verification. Includes a work-order template and guidance for recovering stalled work and learning from corrections."
 weight: 3
@@ -11,7 +11,7 @@ stage: "Support it after release"
 ShowToc: true
 TocOpen: true
 playbookMeta:
-  - "For delivery leads, consultants, and platform builders"
+  - "Managed services, for delivery leads and platform builders"
 tags:
   - Cooperative Systems
   - Managed Services

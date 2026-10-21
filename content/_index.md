@@ -8,7 +8,7 @@ hideMeta: true
   <h1>Move past bloated platforms. Build tools around the work.</h1>
   <p class="page-lede">Most of the software a business rents was built for someone else, and the workarounds are how the team tells you so. I help operators and founders figure out which of their systems are still worth keeping, then replace the parts that aren't with small tools built around how the work actually happens. Most of that work runs through <a href="https://rebase.team/">Rebase</a>, where I'm one of the solution engineers, and through <a href="https://kicksights.com/">Kicksights</a>. AI agents made the build cheap. Deciding what to build didn't get any cheaper.</p>
   <div class="page-actions">
-    <a class="button" href="mailto:michael@degoll.net?subject=The%20thing%20we%20do%20by%20hand">Send me an email</a>
+    <a class="button" href="mailto:hi@degoll.net?subject=The%20thing%20we%20do%20by%20hand">Send me an email</a>
     <a class="button-secondary" href="/playbooks/">Read the playbooks</a>
   </div>
 </section>

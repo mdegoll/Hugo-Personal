@@ -1,6 +1,6 @@
 ---
-title: "Using Claude for Salesforce discovery and migration planning"
-description: "Read the configuration, watch the work, and turn the gaps into changes a team can test."
+title: "Map a rented platform before you change it"
+description: "Read what the Salesforce org actually does, watch the operators work, and turn the gaps into changes a team can test. Claude does the comparing; you still need the evidence."
 summary: "Compare Salesforce configuration with operator walkthroughs, resolve the gaps, and define a tested path for repair or migration. Includes an evidence-note template and migration rehearsal guidance."
 weight: 1
 date: 2026-05-18
@@ -13,7 +13,7 @@ TocOpen: true
 aliases:
   - /playbooks/claude-deployment-playbook-salesforce-heavy-enterprises/
 playbookMeta:
-  - "For Salesforce teams, consultants, and workflow owners"
+  - "Salesforce, with Claude as the reading assistant"
 tags:
   - Claude
   - Salesforce
