@@ -44,7 +44,7 @@ An intake agent can group duplicates, locate related incidents, and draft the ne
 
 ## Turn the report into a work order
 
-The request becomes actionable when it has a reproducible problem or a clearly defined discovery step. Attach the relevant system baseline, inspect the current implementation, and identify any unresolved business rule. The [discovery playbook](/playbooks/claude-org-scan-and-migration-readiness-playbook/) describes that inspection.
+The request is ready to work on when it has a reproducible problem or a clearly defined discovery step. Attach the relevant system baseline, inspect the current implementation, and identify any unresolved business rule. The [discovery playbook](/playbooks/claude-org-scan-and-migration-readiness-playbook/) describes that inspection.
 
 Keep the work order short enough that a reviewer can understand the change without reading the entire conversation:
 

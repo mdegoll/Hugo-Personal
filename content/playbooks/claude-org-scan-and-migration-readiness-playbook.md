@@ -64,7 +64,7 @@ Next check: inspect the permitted state evidence and demonstrate the next handof
 Owner: shipping and finance
 ```
 
-That finding directs the next inspection without inventing a cause. It also prevents a UI redesign from removing a control simply because the recording didn't show its purpose.
+That finding directs the next inspection without inventing a cause. It also prevents a UI redesign from removing a control just because the recording didn't show its purpose.
 
 ## Write the map so someone else can act
 
@@ -93,7 +93,7 @@ Keep those differences visible in the backlog. A recording of a negative balance
 
 Write acceptance around the user's outcome. For a broker-to-shipping handoff, that could mean the shipping operator can resume the transaction, see the required destination and clearance facts, understand any blocker, and complete the next permitted step. The test should include a refusal and recovery path as well as success.
 
-This is where discovery moves into the [implementation playbook](/playbooks/codex-openai-implementation-playbook-business-tools/). Carry the evidence, unresolved rules, and acceptance criteria into the task so the builder doesn't have to reconstruct them.
+Discovery hands off to the [implementation playbook](/playbooks/codex-openai-implementation-playbook-business-tools/). Carry the evidence, unresolved rules, and acceptance criteria into the task so the builder doesn't have to reconstruct them.
 
 ## Treat migration as a separate proof problem
 
