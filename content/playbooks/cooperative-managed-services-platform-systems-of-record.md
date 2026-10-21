@@ -12,7 +12,6 @@ ShowToc: true
 TocOpen: true
 playbookMeta:
   - "For delivery leads, consultants, and platform builders"
-  - "Updated September 11, 2026"
 tags:
   - Cooperative Systems
   - Managed Services

@@ -1,0 +1,13 @@
+{{- define "main" }}
+<div class="page-flow">
+  <header class="page-hero">
+    <h1>There's nothing at this address.</h1>
+    <p class="page-lede">Try the homepage, browse the playbooks, or read the latest writing.</p>
+    <div class="page-actions">
+      <a class="button-secondary" href="{{ "/" | relLangURL }}">Home</a>
+      <a class="button-secondary" href="{{ "/playbooks/" | relLangURL }}">Playbooks</a>
+      <a class="button-secondary" href="{{ "/post/" | relLangURL }}">Writing</a>
+    </div>
+  </header>
+</div>
+{{- end }}

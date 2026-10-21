@@ -10,6 +10,8 @@ colors:
   rule-strong: "#c5ccd8"
   code: "#eaeef4"
   lime: "#a3d500"
+  lime-bright: "#b5e81a"
+  selection: "#e3f2a6"
   lime-deep: "#426600"
   lime-wash: "#f1f8d9"
 typography:
@@ -179,6 +181,8 @@ The site shares a visual family with rebase.team: cool-gray paper, white panels,
 ### Accent
 
 - **Lime** (#a3d500): primary button fill, link underline, active nav underline, footer band. Text on lime is always ink.
+- **Lime Bright** (#b5e81a): primary button hover fill.
+- **Selection** (#e3f2a6): selected text background.
 - **Lime Deep** (#426600): focus rings, hover underline, blockquote rule. Passes AA on paper as text.
 - **Lime Wash** (#f1f8d9): link hover background and chip hover.
 

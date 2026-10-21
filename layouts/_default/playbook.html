@@ -6,13 +6,12 @@
     {{- with .Description }}
     <p class="playbook-dek">{{ . }}</p>
     {{- end }}
-    {{- with .Params.playbookMeta }}
     <div class="playbook-meta">
-      {{- range . }}
+      {{- range .Params.playbookMeta }}
       <span>{{ . }}</span>
       {{- end }}
+      <span>Updated {{ .Lastmod.Format "January 2, 2006" }}</span>
     </div>
-    {{- end }}
   </header>
 
   {{- if (.Param "ShowToc") }}
@@ -31,7 +30,7 @@
     {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
     <ul class="post-tags">
       {{- range ($.GetTerms $tags) }}
-      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
       {{- end }}
     </ul>
     {{- if (.Param "ShowPostNavLinks") }}

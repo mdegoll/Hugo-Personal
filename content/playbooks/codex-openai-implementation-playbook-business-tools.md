@@ -12,7 +12,6 @@ ShowToc: true
 TocOpen: true
 playbookMeta:
   - "For builders and technical leads"
-  - "Updated September 11, 2026"
 tags:
   - Codex
   - OpenAI

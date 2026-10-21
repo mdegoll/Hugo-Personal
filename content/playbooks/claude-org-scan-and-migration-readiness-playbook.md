@@ -14,7 +14,6 @@ aliases:
   - /playbooks/claude-deployment-playbook-salesforce-heavy-enterprises/
 playbookMeta:
   - "For Salesforce teams, consultants, and workflow owners"
-  - "Updated September 11, 2026"
 tags:
   - Claude
   - Salesforce
