@@ -1,5 +1,5 @@
 ---
-title: "Consulting After the Build Bottleneck"
+title: "Consulting after the build bottleneck"
 date: 2026-05-18
 description: "AI agents can handle much of the build. Consultants now compete on judgment, architecture, and operational trust."
 summary: "AI agents compress build work. The consultancy edge shifts to decision quality, system design, and sustained adoption."
@@ -8,44 +8,34 @@ ShowToc: true
 TocOpen: false
 ---
 
-AI agents can now handle a lot of build work.
+A lot of what consultancies billed for in 2023 (screen setup, boilerplate, ticket churn, status reporting) is work an agent now does in an afternoon, with review. Agents still need context and business judgment, but enough has shifted that a consultancy whose main product is implementation hours has a problem: a three-person team with good tooling can often ship the same thing faster than a twenty-person team organized around tickets.
 
-They still need review, context, and business judgment. Enough has shifted that a pure implementation model is no longer enough.
-
-If a consultant's main value is screen setup, boilerplate, ticket churn, or status reporting, that value compresses. The work continues, but teams with better tooling can often do the same operations faster than larger execution-heavy teams.
-
-Consultants still matter, but the role moves from output volume to operating judgment. The useful consultant decides what should exist, what should be removed, what to change next, what risk to accept, and how to make the outcome trustworthy.
+Consultants still matter. What changes is what they're for. The useful one decides what should exist, what should be removed, what to change next, what risk to accept, and how to make the outcome something the business can trust.
 
 > AI agents can carry much of the build. Consultants carry the judgment of what should become production software.
 
-## The Build Bottleneck Is Breaking
+## The build bottleneck is breaking
 
-The practical blocker used to be build capacity.
-
-Businesses described the same pain repeatedly:
+The practical blocker used to be build capacity. Businesses described the same pain over and over:
 
 - The CRM is hard to use.
 - The approval process is spread across email.
 - Dashboards are stale or wrong.
 - Integrations break and data trust collapses.
-- The team wants automation but cannot spare cycles to build it.
+- The team wants automation but can't spare cycles to build it.
 - A platform was bought for one workflow and then became the home for many unrelated processes.
 
-The usual response was expensive: admins, developers, architects, QA, PMs, release managers, training, and long ticket queues.
+The usual response was expensive: admins, developers, architects, QA, PMs, release managers, training, and a ticket queue measured in months.
 
-Agents shorten that cost curve.
+Agents cut most of that. They read code, modify software, generate tests, explain unfamiliar systems, and draft migrations, scripts, docs, UI states, and integration glue, and they're especially good at the repetitive middle work where human attention used to be the expensive part. Implementation is still necessary; it's just no longer the thing everything else waits on.
 
-They can read code, modify software, generate tests, explain unfamiliar systems, and draft migrations, scripts, docs, UI states, and integration glue. They are effective in repetitive middle work where human attention is usually expensive.
+What's scarce now is selection. Which work is worth doing this month, and which should wait?
 
-Implementation is still necessary. It is just no longer the dominant constraint.
-
-The scarce resource becomes selection. Which work is worth doing now, and which should wait?
-
-## The Consultant as Diagnostician
+## The consultant as diagnostician
 
 Many requests are labeled as "software" but describe a process problem.
 
-"Need a Salesforce dashboard" can mean leadership does not trust pipeline stages.
+"Need a Salesforce dashboard" can mean leadership doesn't trust pipeline stages.
 
 "Need an integration" can mean two teams disagree on handoff ownership.
 
@@ -53,9 +43,9 @@ Many requests are labeled as "software" but describe a process problem.
 
 "Need CRM customization" can mean the underlying process was never designed for this outcome.
 
-A consultant can still turn requirements into work. What changes is what gets built first and how quickly teams retire work that does not add value.
+A consultant can still turn requirements into work. What changes is what gets built first, and how quickly the team retires work that doesn't add anything.
 
-The better move is to ask better questions:
+The questions worth asking before anything gets built:
 
 - What decision is blocked?
 - What process is duplicated?
@@ -68,9 +58,9 @@ The consultant translates across operators, executives, admins, developers, fina
 
 Discovery only matters when it closes a decision. A two-day prototype can invalidate a long planning cycle. The standard now is diagnosis plus an execution plan the team can start on Monday.
 
-## Architecture Decisions Matter More
+## Architecture decisions matter more
 
-Agents can build pieces quickly. They do not decide system ownership.
+Agents can build pieces quickly. They don't decide system ownership.
 
 The right questions become:
 
@@ -89,17 +79,15 @@ That can mean staying in Salesforce, cleaning object models, removing unused aut
 
 It can also mean removing one high-friction workflow into a smaller tool, or planning a staged migration off Salesforce entirely.
 
-The benchmark is no longer how much platform extension you can deliver. It is whether the business becomes simpler and faster without losing control.
+What counts is whether the business got simpler and faster without losing control. How much platform extension got delivered is a vendor's metric.
 
-Platform loyalties can bias recommendations. If a team is paid only to extend one platform, there is a built-in pull toward recommendations that are easy rather than right. The trusted advisor is the one who can say, "Do not solve this here."
+Platform loyalties bias recommendations, and not subtly. If a team is paid only to extend one platform, there's a built-in pull toward whatever is easy on that platform rather than what's right for the business. The advisor worth trusting is the one who can say "don't solve this here" and give up the work.
 
-## Trust as the Review Layer
+## Trust as the review layer
 
-As output velocity rises, trust design matters more.
+The faster output gets, the more the review layer matters.
 
-Wrong code is only part of the risk. Plausible output that is weak on evidence can do just as much damage.
-
-That risk now lands across code, configuration, migrations, recommendations, support responses, documentation, and automation.
+Wrong code is only part of the risk. Plausible output that's weak on evidence does just as much damage, and that risk now lands across code, configuration, migrations, recommendations, support responses, documentation, and automation.
 
 Teams adopting agents need owners for:
 
@@ -114,11 +102,7 @@ Teams adopting agents need owners for:
 - Rollback plans
 - Clear ownership after launch
 
-This is the operational backbone that prevents demos from becoming process risk.
-
-The consultant who owns this layer becomes harder to replace than someone who runs tickets.
-
-They define:
+That list is what keeps a demo from quietly becoming a process risk, and the consultant who owns it's a lot harder to replace than the one who runs tickets. They define:
 
 - What the agent may do
 - What requires approval
@@ -128,13 +112,11 @@ They define:
 - Who owns the workflow after launch
 - What gets logged and how to troubleshoot
 
-When the review layer is explicit, trust scales.
+Once that's written down, trust stops depending on who happens to be in the room.
 
-## Durable Systems Over One-Off Builds
+## Durable systems over one-off builds
 
-Code and configuration move fast. Systems do not.
-
-Durability is what keeps value:
+Code and configuration move fast. Systems don't. What keeps the value around after the build:
 
 - Tested change paths
 - Up-to-date documentation
@@ -144,9 +126,7 @@ Durability is what keeps value:
 - Support ownership
 - Shared understanding of why the system exists
 
-Consultants now have to make output repeatable after the first proof works.
-
-That means packaging real operations:
+Consultants now have to make the output repeatable after the first proof works, which means packaging the boring operational parts:
 
 - Repo-native build and test commands
 - Smoke tests on key workflows
@@ -157,17 +137,11 @@ That means packaging real operations:
 - Permission and approval models
 - Feedback loops after launch
 
-The demo proves a path. The durable system proves adoption.
+The demo proves a path. The durable system proves adoption. Most of the consulting work now is getting from the first to the second before the team overbuilds.
 
-The biggest consulting work now is moving from prototype to operating posture before teams overbuild.
+## Economics of consulting change
 
-## Economics of Consulting Change
-
-If agents reduce build labor, implementation-hour pricing becomes harder to defend.
-
-Projects will still have costs. The billing language changes from labor volume to outcome quality.
-
-Clients increasingly evaluate:
+If agents reduce build labor, pricing by the implementation hour gets hard to defend. Projects still cost money; what changes is that the bill gets justified by outcomes instead of headcount. What clients increasingly look at:
 
 - How quickly teams understand the problem
 - How much risk is removed
@@ -176,19 +150,11 @@ Clients increasingly evaluate:
 - Whether complexity stays controlled
 - How much of the solution is maintainable by the team
 
-Delivery models built on large long-tail implementation teams must show stronger differentiators or narrower specialization.
+Delivery models built on large implementation benches need a stronger differentiator or a narrower specialty than they used to. The pitch moves from "more builders" to faster clarity, safer decisions, and a cleaner migration path, and a small, technically strong team can beat a large, coordination-heavy one when it brings judgment, clear methods, and proof from live operations.
 
-The pitch moves from "more builders" to faster clarity, safer decisions, and a cleaner migration path. Small, technically strong teams can beat large, coordination-heavy teams when they combine strong judgment, clear methods, and proof from live operations.
+## What happens to junior consultants?
 
-## What Happens to Junior Consultants?
-
-This is a training issue as much as a delivery issue.
-
-Junior consultants have usually learned by doing the lower-level work: tickets, configuration, QA, data cleanup, reporting, and meeting notes.
-
-If that work is automated, the apprenticeship shifts earlier toward structured decision work. Removing it entirely does not work; skipping directly to strategy does not work either.
-
-People still need to learn how systems fail and how workshop-level decisions become edge cases in production.
+This is a training problem as much as a delivery problem. Junior consultants have usually learned by doing the lower-level work: tickets, configuration, QA, data cleanup, reporting, meeting notes. If that work is automated, the apprenticeship has to shift earlier, toward structured decision work. Removing the apprenticeship entirely doesn't work, and skipping straight to strategy doesn't either. People still need to learn how systems fail and how a decision made in a workshop turns into an edge case in production.
 
 The new skill set for junior consultants includes:
 
@@ -202,13 +168,11 @@ The new skill set for junior consultants includes:
 - Comparing build, buy, simplify, and retire options
 - Post-launch operator behavior analysis
 
-This path needs tighter coaching. Without it, teams get people who can prompt tools but cannot diagnose operational problems.
+That path needs tighter coaching than the old one. Without it you get people who can prompt a tool but can't diagnose an operational problem.
 
-## The Risk of Overbuilding
+## The risk of overbuilding
 
-When agents get better, demos get easier.
-
-That creates a predictable failure mode: a polished demo can skip hard questions.
+When agents get better, demos get easier, and that creates a predictable failure mode: a polished demo lets everyone skip the hard questions.
 
 - Where does this data come from?
 - Who is allowed to see it?
@@ -220,9 +184,7 @@ That creates a predictable failure mode: a polished demo can skip hard questions
 - Who approves actions?
 - What should be retired after this lands?
 
-The goal is safer operations, not more demonstration.
-
-A practical rollout usually follows this path:
+The point is safer operations. A better demo is a side effect at best. A rollout that holds up usually looks like this:
 
 1. Pick one workflow with clear pain and measurable outcomes.
 2. Map current behavior and manual workarounds.
@@ -233,7 +195,7 @@ A practical rollout usually follows this path:
 7. Iterate from feedback, or stop if risk is unresolved.
 8. Retire the old process only after trust is proven.
 
-Good consulting includes a better exit option: stopping work that is no longer needed.
+Good consulting includes a better exit option: stopping work that's no longer needed.
 
 ## What the job looks like now
 
@@ -245,6 +207,6 @@ Judgment becomes the durable consulting role. In practice that means five things
 - Turn agent output into tested, documented systems the team can support without you.
 - Lead the transition from large implementation plans to smaller decision cycles.
 
-The consultants who do well here stay close to operators, are comfortable evaluating technical work, and are willing to say "we should not build this" when it adds risk.
+The consultants who do well here stay close to operators, are comfortable evaluating technical work, and are willing to say "we shouldn't build this" when it adds risk.
 
-Build capacity keeps rising. Judgment is what gets scarce, and selecting the right work and executing it safely is where the fee is earned.
+Build capacity keeps rising. Judgment is what gets scarce, and picking the right work and shipping it safely is where the fee gets earned.

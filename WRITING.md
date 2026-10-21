@@ -89,6 +89,20 @@ Michael:
 
 > AI agents can now handle much of the build. The harder question is deciding what should become production software.
 
+## Pull from Dan Luu
+
+The second reference voice is Dan Luu ([danluu.com](https://danluu.com)). Michael's voice stays first person and operator-facing, but it borrows these habits:
+
+- Open with the most specific fact you have, with a number if you have one. "Wave is a $1.7B company with 70 engineers whose product is a CRUD app that adds and subtracts numbers" beats any thesis slogan.
+- Let a sentence run long when it is carrying a qualification. Parentheticals are fine (and so are asides that would be footnotes in print). Clipped marketing sentences are the thing to avoid, not length.
+- Count things. Compare the popular option against the one that works, and say what the evidence is and where it stops.
+- Hedge honestly and specifically: "I think", "in the orgs I've seen", "this is one data point". Never hedge with vagueness.
+- Say the unfashionable thing plainly, then show the work behind it.
+- Titles in sentence case, usually a plain statement or a question: "Why is it so hard to buy things that work well?", "In defense of simple architectures".
+- Dry. No exclamation points, nothing is "exciting". Humor is understatement.
+- Write for someone who wants to understand, not someone being sold to. The reader should be able to disagree with a specific claim, which means every paragraph needs one.
+- Link primary sources inline, right on the claim they support.
+
 ## Make it readable
 
 - Put the answer before the background.
@@ -304,7 +318,7 @@ Use vendor and product names when the choice matters. Do not make a tool the her
 - Use periods, commas, and colons. Do not use em dashes or double hyphens in public copy.
 - Do not force every idea into a group of three.
 - Avoid stacked fragments written only for emphasis.
-- Use normal capitalization. Preserve official capitalization for names and tools.
+- Use sentence case for titles and headings. Preserve official capitalization for names and tools.
 - Use a short run of questions when the questions help diagnose a decision.
 - Read important passages aloud. If the sentence is hard to say, it is probably hard to read.
 

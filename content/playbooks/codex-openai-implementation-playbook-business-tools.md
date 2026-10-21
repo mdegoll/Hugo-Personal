@@ -1,5 +1,5 @@
 ---
-title: "Using Codex to Build and Verify Business Tools"
+title: "Using Codex to build and verify business tools"
 description: "Take a workflow from source inspection through a scoped change, review, and verification in the environment that matters."
 summary: "Define a checkable outcome, implement the full workflow, and verify it on the intended release. Covers task scope, shared ownership, recovery, and when to add a runtime agent."
 weight: 2
@@ -24,9 +24,9 @@ tags:
 
 ## Begin with the outcome you can check
 
-A build can pass while an operator still cannot finish the job. A provider adapter can exist while its connection is disabled. A migration can be committed while the target database has never applied it.
+A build can pass while an operator still can't finish the job. A provider adapter can exist while its connection is disabled. A migration can be committed while the target database has never applied it.
 
-Those gaps have shaped how I use Codex. Recent work has included Salesforce migration tooling, order-management workflows, infrastructure setup, and repairs that had to survive a real deployment. Each needed a different kind of verification. “The tests pass” was useful evidence, but it did not answer every question.
+Those gaps have shaped how I use Codex. Recent work has included Salesforce migration tooling, order-management workflows, infrastructure setup, and repairs that had to survive a real deployment. Each needed a different kind of verification. “The tests pass” was useful evidence, but it didn't answer every question.
 
 I start by defining the result and where it must work. For an org scan, that might be four reports traceable to approved metadata. For a business tool, it might be a shipping operator resuming a saved transaction and completing the next permitted step. That outcome determines the implementation scope and the checks.
 
@@ -57,7 +57,7 @@ Verify: save, reload, resume, and attempt an unauthorized update.
 Delivery: implement and run local checks; report deployment status separately.
 ```
 
-If deployment is part of the assignment, include it and its acceptance check. Carry existing authorization through the work; ask again only when the action exceeds that scope or needs a decision the user has not made.
+If deployment is part of the assignment, include it and its acceptance check. Carry existing authorization through the work; ask again only when the action exceeds that scope or needs a decision the user hasn't made.
 
 ## Build a complete, narrow workflow
 
@@ -85,7 +85,7 @@ Verification should follow the failure. A persistence defect needs a save-and-re
 
 Keep broader repository gates where they are required. When a check fails, reproduce the cause and repair it without weakening the assertion. Separate a failure introduced by the change from an existing environment problem, and state any check that remains unavailable.
 
-For browser workflows, follow the operator through the handoff, refusal, correction, and reload. Test at the screen sizes they use. Hiding an unauthorized button is insufficient if the server still accepts the action. An expected login screen proves an access gate; it does not prove the authenticated workflow works.
+For browser workflows, follow the operator through the handoff, refusal, correction, and reload. Test at the screen sizes they use. Hiding an unauthorized button is insufficient if the server still accepts the action. An expected login screen proves an access gate; it doesn't prove the authenticated workflow works.
 
 The same care applies to migrations. Bind the rehearsal to its migration files, target baseline, and input artifact. Follow the failed step into the actual ledger and database state. The [discovery and migration playbook](/playbooks/claude-org-scan-and-migration-readiness-playbook/#treat-migration-as-a-separate-proof-problem) covers the evidence needed before choosing a recovery path.
 
@@ -105,7 +105,7 @@ Deployment introduces another set of facts. Keep them separate in the report:
 
 For an external action, also verify the provider result when the assignment permits it. An accepted request may still be waiting in an outbox. A local fixture proves behavior against that fixture.
 
-Pre-production is a place for reversible rehearsal and fast correction, but its financial, inventory, and audit records still need integrity. Keep provider activation and live routing explicit. A working demo does not grant authority to send a real trade, charge, shipment, or customer message.
+Pre-production is a place for reversible rehearsal and fast correction, but its financial, inventory, and audit records still need integrity. Keep provider activation and live routing explicit. A working demo doesn't grant authority to send a real trade, charge, shipment, or customer message.
 
 ## Choose an API only when the product needs an agent
 
@@ -125,7 +125,7 @@ For Responses function calling, defining a tool only describes a callable operat
 
 For Rebase infrastructure, I'd pilot failed-build investigation: capture the run and revision, reproduce the error in an isolated checkout, attempt a bounded repair, and return a tested draft PR or a concrete blocker. I'd replay known failures and measure diagnosis quality, review time, and cost before enabling automatic triggers.
 
-Choose the environment with its data policy in mind. As checked on September 11, 2026, the Agents API retains session state, supports US data residency, and is not eligible for Zero Data Retention, including with a self-hosted sandbox. See the [Agents API overview](https://developers.openai.com/api/docs/guides/agents-api/overview) before connecting client material.
+Choose the environment with its data policy in mind. As checked on September 11, 2026, the Agents API retains session state, supports US data residency, and isn't eligible for Zero Data Retention, including with a self-hosted sandbox. See the [Agents API overview](https://developers.openai.com/api/docs/guides/agents-api/overview) before connecting client material.
 
 For any runtime, narrow tools to the job, enforce authorization in the handler, and treat retrieved text as evidence rather than instructions. Log identifiers, outcomes, and timings with an allowlist; raw arguments and payloads may contain sensitive data. Evaluate wrong-tool choices, unavailable evidence, denied actions, and failed effects alongside successful answers.
 

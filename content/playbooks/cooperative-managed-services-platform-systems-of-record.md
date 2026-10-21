@@ -1,5 +1,5 @@
 ---
-title: "Running Managed Services with Humans and Agents"
+title: "Running managed services with humans and agents"
 description: "Turn operator feedback into scoped work, verified changes, and better instructions for the next request."
 summary: "Carry an operator report through diagnosis, assignment, review, release, and verification. Includes a work-order template and guidance for recovering stalled work and learning from corrections."
 weight: 3
@@ -25,13 +25,13 @@ tags:
 
 ## Follow a request until the user can finish
 
-An operator reports that a shipment cannot be completed. The problem might be missing information, an uncleared balance, a failed provider call, or a defect. Someone has to establish which one it is before changing the screen or retrying the action.
+An operator reports that a shipment can't be completed. The problem might be missing information, an uncleared balance, a failed provider call, or a defect. Someone has to establish which one it's before changing the screen or retrying the action.
 
-That is the work I want a managed-services system to support. It should carry the request from the user's observation through diagnosis, implementation, and verification, with enough context that each person or agent can take the next step.
+That's the work I want a managed-services system to support. It should carry the request from the user's observation through diagnosis, implementation, and verification, with enough context that each person or agent can take the next step.
 
 My recent work on order-management workflows, Salesforce migration, and remote agent delivery has pushed this design toward the handoffs. Building a component is only part of the job. The next role must be able to use it, the running environment must contain it, and the team needs a way to recover when an effect is uncertain.
 
-This playbook describes the operating model I am working toward, drawing on those projects and the managed-services direction in Kicksights. The sections below are design guidance; each capability needs verification against its implementation and deployment.
+This playbook describes the operating model I'm working toward, drawing on those projects and the managed-services direction in Kicksights. The sections below are design guidance; each capability needs verification against its implementation and deployment.
 
 ## Capture the request where the work happens
 
@@ -39,9 +39,9 @@ Start with the intake source the team already uses. A ticket, an in-app report, 
 
 For an in-app report, capture the intended action, the observed result, the route, and the application release. Resolve the reporter's role and organization through the authenticated server context. Collect only the additional information needed to investigate; screenshots and logs can contain customer data and credentials.
 
-Let the operator describe the interruption in their own words. They should not need to know the component name or guess the cause. The system can attach permitted technical context and ask for missing details later.
+Let the operator describe the interruption in their own words. They shouldn't need to know the component name or guess the cause. The system can attach permitted technical context and ask for missing details later.
 
-An intake agent can group duplicates, locate related incidents, and draft the next question. It should preserve the original report and its source. Instructions inside an attachment or ticket do not authorize the agent to change scope, reveal information, or contact anyone.
+An intake agent can group duplicates, locate related incidents, and draft the next question. It should preserve the original report and its source. Instructions inside an attachment or ticket don't authorize the agent to change scope, reveal information, or contact anyone.
 
 ## Turn the report into a work order
 
@@ -68,7 +68,7 @@ That separation also keeps authority clear. The work queue records the assignmen
 
 A status is useful when it explains who can move the work forward. “Blocked” needs a reason, an owner, and the next action that could resolve it. “Ready” needs to say ready for review, deployment, or operator verification.
 
-I would start with a small lifecycle and keep the details on the request:
+I'd start with a small lifecycle and keep the details on the request:
 
 | State | What happens next |
 | --- | --- |
@@ -102,7 +102,7 @@ Authorize each action against the authenticated actor and organization on the se
 
 External effects need their own status. A database commit can succeed while a notification or provider request remains pending. Record the operation and its pending effect together where the architecture supports it, then track delivery and reconciliation. If the caller loses the response, look up the existing attempt before retrying.
 
-This is especially relevant to migration and fulfillment. A source read does not authorize a source write. A carrier label does not establish physical dispatch. A preview does not reserve inventory or guarantee a price. The system should return enough evidence for the next actor to tell which state has actually been reached.
+This is especially relevant to migration and fulfillment. A source read doesn't authorize a source write. A carrier label doesn't establish physical dispatch. A preview doesn't reserve inventory or guarantee a price. The system should return enough evidence for the next actor to tell which state has actually been reached.
 
 ## Close the request against the deployed workflow
 
@@ -120,11 +120,11 @@ When a reviewer rejects an answer or an operator reopens a request, capture the 
 
 Put the lesson in its existing home. A reproducible defect becomes a regression test. An ambiguous rule becomes a clarified contract. A repeated investigation becomes a short runbook or a bounded tool. Generate facts that can be derived from source, and refresh live state when a decision depends on it.
 
-Keep attempt history for audit and investigation, while editing current guidance in place. An agent starting tomorrow should be able to find the corrected instruction without reading months of contradictory summaries. Durable policy changes still need their owner's review; one successful workaround does not make a rule.
+Keep attempt history for audit and investigation, while editing current guidance in place. An agent starting tomorrow should be able to find the corrected instruction without reading months of contradictory summaries. Durable policy changes still need their owner's review; one successful workaround doesn't make a rule.
 
 ## Pilot one queue before expanding
 
-For a managed-services pilot, I would choose one customer workflow with recurring requests and a reviewer who knows it well. Begin with diagnosis and work-order preparation, then add implementation and release steps as the checks become reliable. Kicksights is one place I am exploring this pattern for Salesforce work; Rebase infrastructure offers another starting point through failed-build investigation and environment setup.
+For a managed-services pilot, I'd choose one customer workflow with recurring requests and a reviewer who knows it well. Begin with diagnosis and work-order preparation, then add implementation and release steps as the checks become reliable. Kicksights is one place I'm exploring this pattern for Salesforce work; Rebase infrastructure offers another starting point through failed-build investigation and environment setup.
 
 Use completed historical cases to test the first version. Include missing evidence, a denied action, an uncertain write result, and a request that should be escalated. Measure whether the next person can act on the output and how much correction it requires.
 

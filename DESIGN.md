@@ -37,6 +37,54 @@ typography:
     fontWeight: 500
     lineHeight: 1.15
     letterSpacing: "-0.02em"
+  contentH2:
+    fontFamily: "'Newsreader', Georgia, serif"
+    fontSize: "1.85rem"
+    fontWeight: 500
+    lineHeight: 1.15
+    letterSpacing: "-0.025em"
+  contentH3:
+    fontFamily: "'Newsreader', Georgia, serif"
+    fontSize: "1.5rem"
+    fontWeight: 500
+    lineHeight: 1.15
+    letterSpacing: "-0.015em"
+  contentH4:
+    fontFamily: "'Geist', system-ui, sans-serif"
+    fontSize: "1.15rem"
+    fontWeight: 600
+    lineHeight: 1.15
+    letterSpacing: "0"
+  code:
+    fontFamily: "'Geist Mono', ui-monospace, monospace"
+    fontSize: "0.84rem"
+    fontWeight: 400
+    lineHeight: 1.6
+    letterSpacing: "0"
+  inlineCode:
+    fontFamily: "'Geist Mono', ui-monospace, monospace"
+    fontSize: "0.86em"
+    fontWeight: 400
+    lineHeight: 1.5
+    letterSpacing: "0"
+  chipMeta:
+    fontFamily: "'Geist Mono', ui-monospace, monospace"
+    fontSize: "0.74rem"
+    fontWeight: 400
+    lineHeight: 1.3
+    letterSpacing: "0.04em"
+  tocLink:
+    fontFamily: "'Geist', system-ui, sans-serif"
+    fontSize: "0.92rem"
+    fontWeight: 400
+    lineHeight: 1.4
+    letterSpacing: "0"
+  tocLabel:
+    fontFamily: "'Geist Mono', ui-monospace, monospace"
+    fontSize: "0.74rem"
+    fontWeight: 500
+    lineHeight: 1.4
+    letterSpacing: "0.08em"
   lede:
     fontFamily: "'Geist', system-ui, sans-serif"
     fontSize: "1.12rem"
@@ -147,8 +195,8 @@ The site shares a visual family with rebase.team: cool-gray paper, white panels,
 ## 3. Typography
 
 **Display and headings:** Newsreader (Google Fonts, optical size axis, weight 500)
-**Body and UI:** Geist (Google Fonts, 400 and 600)
-**Metadata:** Geist Mono, uppercase, tracked 0.08em, 0.72 to 0.74rem
+**Body and UI:** Geist (Google Fonts, 400, 500, and 600)
+**Metadata and code:** Geist Mono 400; TOC label 500. Metadata is 0.72 to 0.74rem, tracked 0.08em (0.04em for chips). Dates and TOC labels are uppercase; playbook chips retain sentence case.
 
 ### Hierarchy
 
@@ -156,17 +204,23 @@ The site shares a visual family with rebase.team: cool-gray paper, white panels,
 - **Headline** (Newsreader 500, `clamp(2.3rem, 5vw, 3.4rem)`, 1.02, -0.03em): page and playbook titles.
 - **Section** (Newsreader 500, `clamp(1.9rem, 3.4vw, 2.6rem)`, 1.02, -0.03em): homepage section headings in the left column.
 - **Content H2** (Newsreader 500, 1.85rem, 1.15, -0.025em): long-form section headings, no underline rule.
-- **Title** (Newsreader 500, 1.5rem list entries, 1.3rem home cards, 1.35rem content H3).
+- **Content H3** (Newsreader 500, 1.5rem, 1.15, -0.015em): subordinate reading sections. H2 and H3 deliberately retain the established serif weight; size and spacing distinguish their levels.
+- **Content H4** (Geist 600, 1.15rem, 1.15): small subsections, larger and heavier than prose.
+- **Title** (Newsreader 500, 1.5rem list entries, 1.3rem home cards).
 - **Lede** (Geist 400, 1.12rem, 1.55, muted): page descriptions and playbook deks, max 62ch.
-- **Prose** (Geist 400, 1.05rem, 1.7): posts and playbooks. Home prose runs at 1.08rem / 1.65.
+- **Prose** (Geist 400, 1.05rem, 1.7): posts and playbooks, maximum 66ch, shrinking to the available width on mobile. Home prose runs at 1.08rem / 1.65.
 - **Body** (Geist 400, 17px, 1.65): default.
-- **Meta** (Geist Mono 400, 0.74rem, uppercase): dates, chips, table-of-contents label, footer.
+- **Meta** (Geist Mono 400, 0.74rem, 1.4): dates; chips use 1.3 leading and 0.04em tracking; footer uses 0.72rem.
+- **TOC**: label Geist Mono 500, 0.74rem / 1.4, uppercase; links Geist 400, 0.92rem / 1.4.
+- **Code** (Geist Mono 400): blocks 0.84rem / 1.6; inline 0.86em / 1.5.
+
+Paragraph rhythm uses 1.25em bottom spacing and no indents. Content H2 margins are 2.6em above / 0.7em below; H3 1.9em / 0.5em; H4 1.6em / 0.4em. The first content element has no top margin. All headings balance; prose paragraphs and list items use pretty wrapping. Font synthesis is disabled. Newsreader retains optical sizing and weights 400 (quotations) and 500 (headings).
 
 ### Named Rules
 
 **The No Eyebrow Rule.** No kicker or label above a heading. If a page needs a stage or audience marker, it goes in a chip below the dek.
 
-**The Serif Carries It Rule.** Headings are 500, never bold. Emphasis in prose is Geist 600.
+**The Serif Carries It Rule.** Serif headings are 500, never bold. Content H4 uses Geist 600. Emphasis in prose is Geist 600.
 
 ## 4. Elevation
 
@@ -215,7 +269,7 @@ Two-column grid: serif section heading in a 0.42fr left column, content in the r
 
 - **Do** keep every page on the same paper, panel, ink, lime set.
 - **Do** list real artifacts (playbooks, posts) in panels rather than describing capabilities in card grids.
-- **Do** keep reading measure at 60 to 62ch.
+- **Do** keep long-form reading measure at 66ch.
 - **Do** keep the Newsreader optical size axis on, so small headings do not look spindly.
 
 ### Don't:

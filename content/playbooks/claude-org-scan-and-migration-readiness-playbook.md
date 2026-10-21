@@ -1,5 +1,5 @@
 ---
-title: "Using Claude for Salesforce Discovery and Migration Planning"
+title: "Using Claude for Salesforce discovery and migration planning"
 description: "Read the configuration, watch the work, and turn the gaps into changes a team can test."
 summary: "Compare Salesforce configuration with operator walkthroughs, resolve the gaps, and define a tested path for repair or migration. Includes an evidence-note template and migration rehearsal guidance."
 weight: 1
@@ -42,7 +42,7 @@ Use approved describe and metadata inventory calls to fill gaps. Look at the obj
 
 This first pass excludes business records, report results, Salesforce file contents, messages, raw payloads, and debug logs. Constrain what each inspection tool can retrieve and return. Metadata can also contain sensitive values, so credentials and embedded customer details stay out of the analysis artifacts.
 
-That limit affects the conclusions. An unreferenced field is a candidate for investigation; metadata alone does not prove nobody uses it. A configured integration does not establish that it is connected. Permission definitions describe possible access, not a complete history of who exercised it.
+That limit affects the conclusions. An unreferenced field is a candidate for investigation; metadata alone doesn't prove nobody uses it. A configured integration doesn't establish that it's connected. Permission definitions describe possible access, not a complete history of who exercised it.
 
 I label major findings **Confirmed**, **Inferred**, or **Unknown**. A confirmed finding has direct evidence; an inference explains the reasoning and its limits. For an unknown, I add the specific observation or decision needed to resolve it. If the saved state is unclear, name the permitted state check and the person who can demonstrate the next step.
 
@@ -65,7 +65,7 @@ Next check: inspect the permitted state evidence and demonstrate the next handof
 Owner: shipping and finance
 ```
 
-That finding directs the next inspection without inventing a cause. It also prevents a UI redesign from removing a control simply because the recording did not show its purpose.
+That finding directs the next inspection without inventing a cause. It also prevents a UI redesign from removing a control simply because the recording didn't show its purpose.
 
 ## Write the map so someone else can act
 
@@ -82,31 +82,31 @@ Each document states its baseline and access limits. The process map is usually 
 
 Give Claude a specific review assignment:
 
-> Compare this source baseline with the approved walkthrough notes. Explain the workflow and its handoffs. Cite each major finding, distinguish observed behavior from inferred causes, and identify the next check for anything unresolved. Do not infer business policy from example values or retrieve additional record data.
+> Compare this source baseline with the approved walkthrough notes. Explain the workflow and its handoffs. Cite each major finding, distinguish observed behavior from inferred causes, and identify the next check for anything unresolved. Don't infer business policy from example values or retrieve additional record data.
 
-Review the result against a few cases the team knows well: a normal transaction, a failed handoff, overlapping automation, and something the evidence cannot answer. Check whether the explanation is correct and useful before adding more cases or automating the report.
+Review the result against a few cases the team knows well: a normal transaction, a failed handoff, overlapping automation, and something the evidence can't answer. Check whether the explanation is correct and useful before adding more cases or automating the report.
 
 ## Choose the first change from the findings
 
 The next step depends on the kind of gap. A defect needs a reproduction and a fix. An awkward but functioning workflow may need better interaction design. An unresolved business rule needs an owner to decide it before implementation.
 
-Keep those differences visible in the backlog. A recording of a negative balance does not establish an overdraft policy. A missing field in one screen does not establish that the underlying capability is absent. Refresh older findings against current source before assigning work; another change may already have addressed them.
+Keep those differences visible in the backlog. A recording of a negative balance doesn't establish an overdraft policy. A missing field in one screen doesn't establish that the underlying capability is absent. Refresh older findings against current source before assigning work; another change may already have addressed them.
 
 Write acceptance around the user's outcome. For a broker-to-shipping handoff, that could mean the shipping operator can resume the transaction, see the required destination and clearance facts, understand any blocker, and complete the next permitted step. The test should include a refusal and recovery path as well as success.
 
-This is where discovery moves into the [implementation playbook](/playbooks/codex-openai-implementation-playbook-business-tools/). Carry the evidence, unresolved rules, and acceptance criteria into the task so the builder does not have to reconstruct them.
+This is where discovery moves into the [implementation playbook](/playbooks/codex-openai-implementation-playbook-business-tools/). Carry the evidence, unresolved rules, and acceptance criteria into the task so the builder doesn't have to reconstruct them.
 
 ## Treat migration as a separate proof problem
 
-A map can justify moving a workflow out of Salesforce. It cannot establish that the records are ready to move.
+A map can justify moving a workflow out of Salesforce. It can't establish that the records are ready to move.
 
 Before extraction, agree on which system owns each entity, which identifiers survive, how relationships will be preserved, and what will be archived. Resolve transformations with the business owner, including dates, currencies, quantities, rounding, duplicates, and lifecycle state. Metadata can suggest a mapping; record quality requires separately approved inspection.
 
 For an approved migration, keep the source read-only. Preserve the permitted extract with a manifest, checksums, access controls, and retention rules. Use sanitized or pseudonymized rehearsal data where appropriate; pseudonymized data still needs protection. Record validation results against the exact extract and target revision.
 
-The rehearsal should reconcile counts, relationships, rejected rows, and the totals or balances the business depends on. It should also prove that operators can continue the workflow after the load. A row count cannot show whether an order can be received, allocated, shipped, or closed.
+The rehearsal should reconcile counts, relationships, rejected rows, and the totals or balances the business depends on. It should also prove that operators can continue the workflow after the load. A row count can't show whether an order can be received, allocated, shipped, or closed.
 
-When a rehearsal fails, inspect the failed artifact, the exact migration, the actual target ledger, and the relevant database state before proposing recovery. A recent pre-production investigation traced a failure to a grant for a role that did not exist. The database already had migration history; a reset would have addressed the wrong problem. The diagnosis identified a possible repair, but the repair still needed review and a successful rehearsal.
+When a rehearsal fails, inspect the failed artifact, the exact migration, the actual target ledger, and the relevant database state before proposing recovery. A recent pre-production investigation traced a failure to a grant for a role that didn't exist. The database already had migration history; a reset would have addressed the wrong problem. The diagnosis identified a possible repair, but the repair still needed review and a successful rehearsal.
 
 Check whether a migration has been applied anywhere before amending it. Record partial application explicitly, then choose the recovery path that fits the evidence. Decide the cutover and recovery procedure before the live load, including how to handle new writes after cutover; restoring the old application may not undo their effects.
 

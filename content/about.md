@@ -8,7 +8,7 @@ ShowToc: false
 
 <section class="page-hero">
   <h1>One foot in operations, the other in the code.</h1>
-  <p class="page-lede">I'm Michael DeGoll. I have spent years inside the systems mid-sized companies rent: Salesforce, integration platforms, and order-management software. I have watched them hold a business together, and I have watched them become the reason nothing can change.</p>
+  <p class="page-lede">I'm Michael DeGoll. I've spent most of my career inside the systems mid-sized companies rent: Salesforce, the integration platforms that sit next to it, and order-management software. Long enough to watch the same kind of system hold one business together and be the reason nothing could change at another, which is most of why I'm skeptical of blanket advice about platforms in either direction.</p>
   <div class="page-actions">
     <a class="button" href="mailto:michael@degoll.net">Send me an email</a>
     <a class="button-secondary" href="/playbooks/">Read the playbooks</a>
@@ -18,7 +18,7 @@ ShowToc: false
 <section class="page-section">
   <h2>What I do now</h2>
   <div class="section-prose">
-    <p>I build the smaller tools that replace the parts of a platform that stopped earning their keep. I stay vendor-neutral because the right answer is sometimes to keep the platform, sometimes to move one workflow out, and sometimes to stop building altogether.</p>
+    <p>I build the smaller tools that replace the parts of a platform that stopped earning their keep. I try to stay vendor-neutral, which in practice means I'm about as likely to tell you to keep what you have as to replace it. Sometimes the right move is to pull one workflow out. Sometimes it's to stop building altogether; a surprising amount of software exists only because an older system forced a process into being.</p>
   </div>
 </section>
 
@@ -41,7 +41,7 @@ ShowToc: false
 <section class="page-section">
   <h2>Where I'm useful</h2>
   <div class="section-prose">
-    <p>A messy process, too many disconnected tools, or a good idea that needs to become a working prototype before anyone can decide what it should be. I find the repeated work hidden inside normal operations, turn it into something a team can use, and explain the tradeoffs without burying anyone in jargon.</p>
+    <p>A messy process, too many disconnected tools, or a good idea that needs to become a working prototype before anyone can decide what it should be. I'm better at finding the repeated work hidden inside normal operations than at polishing something that already works, and I'd rather explain the tradeoff than hide it behind a recommendation.</p>
   </div>
 </section>
 
