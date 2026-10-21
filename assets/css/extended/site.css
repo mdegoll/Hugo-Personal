@@ -162,7 +162,7 @@ h3 {
   padding: 32px var(--gap) 64px;
 }
 
-.main:has(.home) {
+.main:has(.page-flow) {
   max-width: calc(var(--nav-width) + var(--gap) * 2);
 }
 
@@ -518,19 +518,19 @@ h3 {
   color: var(--ink);
 }
 
-/* Home */
+/* Page flow: hero, section rows, panels */
 
-.home {
+.page-flow {
   width: 100%;
 }
 
-.home-hero {
+.page-hero {
   max-width: 860px;
   padding: 36px 0 56px;
   border-bottom: 1px solid var(--rule);
 }
 
-.home-hero h1 {
+.page-hero h1 {
   margin: 0;
   max-width: 15ch;
   font-size: clamp(2.9rem, 7.2vw, 5.4rem);
@@ -538,7 +538,7 @@ h3 {
   letter-spacing: -0.04em;
 }
 
-.home-lede {
+.page-lede {
   max-width: 60ch;
   margin: 1.6rem 0 0;
   color: var(--muted);
@@ -547,14 +547,31 @@ h3 {
   text-wrap: pretty;
 }
 
-.home-actions {
+.page-hero-note {
+  max-width: 60ch;
+  margin: 1.2rem 0 0;
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.page-hero-note p {
+  margin: 0;
+}
+
+.page-hero-note p + p {
+  margin-top: 0.8em;
+}
+
+.page-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 2rem;
 }
 
-.home-section {
+.page-section {
   display: grid;
   grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
   gap: 24px 56px;
@@ -562,7 +579,7 @@ h3 {
   border-bottom: 1px solid var(--rule);
 }
 
-.home-section h2 {
+.page-section h2 {
   margin: 0;
   max-width: 11ch;
   font-size: clamp(1.9rem, 3.4vw, 2.6rem);
@@ -570,11 +587,11 @@ h3 {
   letter-spacing: -0.03em;
 }
 
-.home-section > div {
+.page-section > div {
   min-width: 0;
 }
 
-.home-prose p {
+.section-prose p {
   max-width: 62ch;
   margin: 0 0 1.1em;
   font-size: 1.08rem;
@@ -582,15 +599,15 @@ h3 {
   text-wrap: pretty;
 }
 
-.home-prose p:last-child {
+.section-prose p:last-child {
   margin-bottom: 0;
 }
 
-.home-prose p + p {
+.section-prose p + p {
   margin-top: 0;
 }
 
-.home-list {
+.panel-list {
   display: grid;
   gap: 12px;
   margin: 0;
@@ -598,7 +615,7 @@ h3 {
   list-style: none;
 }
 
-.home-list li {
+.panel-list li {
   padding: 20px 22px;
   border: 1px solid var(--rule);
   border-radius: var(--radius);
@@ -606,28 +623,28 @@ h3 {
   transition: border-color 0.15s ease-out;
 }
 
-.home-list li:hover {
+.panel-list li:hover {
   border-color: var(--rule-strong);
 }
 
-.home-list h3 {
+.panel-list h3 {
   margin: 0 0 4px;
   font-size: 1.3rem;
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
 
-.home-list h3 a {
+.panel-list h3 a {
   text-decoration: none;
 }
 
-.home-list h3 a:hover {
+.panel-list h3 a:hover {
   background: transparent;
   text-decoration: underline;
   text-decoration-color: var(--lime);
 }
 
-.home-list p {
+.panel-list p {
   max-width: 62ch;
   margin: 0;
   color: var(--muted);
@@ -635,7 +652,7 @@ h3 {
   line-height: 1.55;
 }
 
-.home-list .home-list-meta {
+.panel-list .panel-meta {
   margin-top: 10px;
   color: var(--muted);
   font-family: var(--font-mono);
@@ -644,16 +661,16 @@ h3 {
   text-transform: uppercase;
 }
 
-.home-more {
+.section-note {
   margin-top: 14px;
   font-size: 0.95rem;
 }
 
-.home-closing {
+.page-closing {
   padding: 56px 0 8px;
 }
 
-.home-closing h2 {
+.page-closing h2 {
   margin: 0;
   max-width: 16ch;
   font-size: clamp(2rem, 4vw, 3rem);
@@ -661,7 +678,7 @@ h3 {
   letter-spacing: -0.03em;
 }
 
-.home-closing p {
+.page-closing p {
   max-width: 56ch;
   margin: 1.1rem 0 0;
   color: var(--muted);
@@ -669,42 +686,16 @@ h3 {
   text-wrap: pretty;
 }
 
-.home-closing .home-actions {
+.page-closing .page-actions {
   margin-top: 1.6rem;
 }
 
-/* About */
-
-.about-content {
-  max-width: 62ch;
+.page-closing h2 + .page-actions {
+  margin-top: 1.4rem;
 }
 
-.about-content h2 {
-  margin: 2.4em 0 0.6em;
-  padding: 0;
-  border: 0;
-  font-size: 1.75rem;
-  letter-spacing: -0.025em;
-}
-
-.post-content .about-content .button {
-  margin: 0.4rem 0 0;
-}
-
-.post-content .about-links {
-  padding: 0;
-}
-
-.about-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 22px;
-  margin: 0.4rem 0 0;
-  list-style: none;
-}
-
-.about-links li {
-  margin: 0;
+.panel-list p a {
+  text-decoration-thickness: 1px;
 }
 
 /* Footer: lime band, as on rebase.team */
@@ -764,41 +755,41 @@ h3 {
     padding: 20px var(--gap) 48px;
   }
 
-  .home-hero {
+  .page-hero {
     padding: 20px 0 36px;
   }
 
-  .home-hero h1 {
+  .page-hero h1 {
     max-width: none;
     font-size: clamp(2.4rem, 11vw, 3.4rem);
     line-height: 0.98;
   }
 
-  .home-lede {
+  .page-lede {
     margin-top: 1.1rem;
   }
 
-  .home-actions {
+  .page-actions {
     margin-top: 1.4rem;
   }
 
-  .home-actions .button,
-  .home-actions .button-secondary {
+  .page-actions .button,
+  .page-actions .button-secondary {
     width: 100%;
     justify-content: center;
   }
 
-  .home-section {
+  .page-section {
     grid-template-columns: 1fr;
     gap: 16px;
     padding: 36px 0;
   }
 
-  .home-section h2 {
+  .page-section h2 {
     max-width: none;
   }
 
-  .home-closing {
+  .page-closing {
     padding: 40px 0 8px;
   }
 

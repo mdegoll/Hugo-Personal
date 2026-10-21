@@ -1,6 +1,6 @@
 {{- define "main" }}
 
-<div class="home">
+<div class="page-flow">
   {{- if .Content }}
   {{ .Content }}
   {{- end }}
@@ -8,18 +8,19 @@
   {{- with site.GetPage "/playbooks" }}
   {{- $playbooks := .RegularPages.ByWeight }}
   {{- if $playbooks }}
-  <section class="home-section">
+  <section class="page-section">
     <h2>Playbooks</h2>
     <div>
-      <ul class="home-list">
+      <ul class="panel-list">
         {{- range $playbooks }}
         <li>
           <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
           <p>{{ .Description }}</p>
+          {{- with .Params.stage }}<div class="panel-meta">{{ . }}</div>{{ end }}
         </li>
         {{- end }}
       </ul>
-      <p class="home-more">Three stages of one job: understand the workflow, change it, support it. <a href="/playbooks/">Start with the one you are in.</a></p>
+      <p class="section-note">Three stages of one job: understand the workflow, change it, support it. <a href="/playbooks/">Start with the one you are in.</a></p>
     </div>
   </section>
   {{- end }}
@@ -28,15 +29,15 @@
   {{- with site.GetPage "/post" }}
   {{- $posts := first 3 .RegularPages.ByDate.Reverse }}
   {{- if $posts }}
-  <section class="home-section">
+  <section class="page-section">
     <h2>Writing</h2>
     <div>
-      <ul class="home-list">
+      <ul class="panel-list">
         {{- range $posts }}
         <li>
           <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
           <p>{{ .Description }}</p>
-          <div class="home-list-meta">{{ .Date.Format "January 2, 2006" }}</div>
+          <div class="panel-meta">{{ .Date.Format "January 2, 2006" }}</div>
         </li>
         {{- end }}
       </ul>
@@ -45,10 +46,10 @@
   {{- end }}
   {{- end }}
 
-  <section class="home-closing">
+  <section class="page-closing">
     <h2>Tell me what the current system makes you do by hand.</h2>
     <p>That is usually where the first useful slice is. I will tell you whether it belongs in the platform you have, in a small tool of its own, or nowhere.</p>
-    <div class="home-actions">
+    <div class="page-actions">
       <a class="button" href="mailto:michael@degoll.net">Send me an email</a>
     </div>
   </section>

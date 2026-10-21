@@ -1,0 +1,60 @@
+{{- define "main" }}
+
+<div class="page-flow">
+  <section class="page-hero">
+    <h1>{{ .Title }}</h1>
+    {{- with .Description }}
+    <p class="page-lede">{{ . }}</p>
+    {{- end }}
+    {{- with .Content }}
+    <div class="page-hero-note">{{ . }}</div>
+    {{- end }}
+  </section>
+
+  {{- if eq .Section "playbooks" }}
+  {{- range $i, $p := .RegularPages.ByWeight }}
+  <section class="page-section">
+    <h2>{{ with $p.Params.stage }}{{ . }}{{ else }}{{ $p.Title }}{{ end }}</h2>
+    <div>
+      <ul class="panel-list">
+        <li>
+          <h3><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h3>
+          <p>{{ $p.Summary | plainify }}</p>
+          <div class="panel-meta">Updated {{ $p.Lastmod.Format "January 2, 2006" }}</div>
+        </li>
+      </ul>
+    </div>
+  </section>
+  {{- end }}
+  {{- else }}
+  <section class="page-section">
+    <h2>{{ if eq .Kind "taxonomy" }}Tags{{ else if eq .Kind "term" }}Tagged{{ else }}All notes{{ end }}</h2>
+    <div>
+      <ul class="panel-list">
+        {{- range .Pages.ByDate.Reverse }}
+        <li>
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          {{- with .Description }}<p>{{ . }}</p>{{ end }}
+          {{- if .Date }}<div class="panel-meta">{{ .Date.Format "January 2, 2006" }}</div>{{ end }}
+        </li>
+        {{- end }}
+      </ul>
+    </div>
+  </section>
+  {{- end }}
+
+  <section class="page-closing">
+    {{- if eq .Section "playbooks" }}
+    <h2>Working through one of these right now?</h2>
+    <p>Tell me which stage you are in and what the current system makes you do by hand.</p>
+    {{- else }}
+    <h2>Have a workflow that is getting in the way?</h2>
+    <p>Tell me what the current system makes you do by hand. That is usually where the first useful slice is.</p>
+    {{- end }}
+    <div class="page-actions">
+      <a class="button" href="mailto:michael@degoll.net">Send me an email</a>
+    </div>
+  </section>
+</div>
+
+{{- end }}

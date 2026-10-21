@@ -7,6 +7,7 @@ date: 2026-05-18
 lastmod: 2026-09-11
 draft: false
 layout: playbook
+stage: "Understand the workflow"
 ShowToc: true
 TocOpen: true
 aliases:
