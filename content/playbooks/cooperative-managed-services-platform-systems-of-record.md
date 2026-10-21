@@ -9,7 +9,6 @@ draft: false
 layout: playbook
 ShowToc: true
 TocOpen: true
-playbookEyebrow: "Managed services"
 playbookMeta:
   - "For delivery leads, consultants, and platform builders"
   - "Updated September 11, 2026"

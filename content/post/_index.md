@@ -1,6 +1,4 @@
 ---
 title: "Writing"
-description: "Short notes on purpose-built software, AI-augmented operations, and migration decisions."
+description: "Notes on purpose-built software, AI agents in delivery work, and when to leave a platform."
 ---
-
-Short notes from the workbench on purpose-built software, AI agents, and practical operating systems.

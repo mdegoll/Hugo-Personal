@@ -2,190 +2,226 @@
 name: Michael DeGoll
 description: Purpose-built software and AI agent work for operators, founders, and technically forward teams.
 colors:
-  paper: "#ffffff"
-  surface: "#ffffff"
-  ink: "#1e1e1e"
-  body: "#1f1f1f"
-  muted: "#6c6c6c"
-  rule: "#eeeeee"
-  code: "#f5f5f5"
-  teal-wash: "#145c78"
-  green-wash: "#467240"
-  ochre-wash: "#a87026"
+  paper: "#f4f6fa"
+  panel: "#ffffff"
+  ink: "#151923"
+  muted: "#596273"
+  rule: "#dde1e8"
+  rule-strong: "#c5ccd8"
+  code: "#eaeef4"
+  lime: "#a3d500"
+  lime-deep: "#426600"
+  lime-wash: "#f1f8d9"
 typography:
   display:
-    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
-    fontSize: "clamp(2.5rem, 5vw, 5rem)"
-    fontWeight: 700
-    lineHeight: 0.96
-    letterSpacing: "0"
+    fontFamily: "'Newsreader', Georgia, serif"
+    fontSize: "clamp(2.9rem, 7.2vw, 5.4rem)"
+    fontWeight: 500
+    lineHeight: 0.95
+    letterSpacing: "-0.04em"
   headline:
-    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
-    fontSize: "clamp(2.25rem, 5vw, 4.75rem)"
-    fontWeight: 700
-    lineHeight: 0.98
+    fontFamily: "'Newsreader', Georgia, serif"
+    fontSize: "clamp(2.3rem, 5vw, 3.4rem)"
+    fontWeight: 500
+    lineHeight: 1.02
+    letterSpacing: "-0.03em"
+  section:
+    fontFamily: "'Newsreader', Georgia, serif"
+    fontSize: "clamp(1.9rem, 3.4vw, 2.6rem)"
+    fontWeight: 500
+    lineHeight: 1.02
+    letterSpacing: "-0.03em"
+  title:
+    fontFamily: "'Newsreader', Georgia, serif"
+    fontSize: "1.5rem"
+    fontWeight: 500
+    lineHeight: 1.15
+    letterSpacing: "-0.02em"
+  lede:
+    fontFamily: "'Geist', system-ui, sans-serif"
+    fontSize: "1.12rem"
+    fontWeight: 400
+    lineHeight: 1.55
     letterSpacing: "0"
   body:
-    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
-    fontSize: "18px"
+    fontFamily: "'Geist', system-ui, sans-serif"
+    fontSize: "17px"
     fontWeight: 400
-    lineHeight: 1.6
+    lineHeight: 1.65
     letterSpacing: "0"
-  label:
-    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
-    fontSize: "0.78rem"
-    fontWeight: 700
-    lineHeight: 1.2
+  prose:
+    fontFamily: "'Geist', system-ui, sans-serif"
+    fontSize: "1.05rem"
+    fontWeight: 400
+    lineHeight: 1.7
     letterSpacing: "0"
+  button:
+    fontFamily: "'Geist', system-ui, sans-serif"
+    fontSize: "0.92rem"
+    fontWeight: 600
+    lineHeight: 1.3
+    letterSpacing: "-0.01em"
+  meta:
+    fontFamily: "'Geist Mono', ui-monospace, monospace"
+    fontSize: "0.74rem"
+    fontWeight: 400
+    lineHeight: 1.4
+    letterSpacing: "0.08em"
 rounded:
   sm: "4px"
-  md: "8px"
+  md: "6px"
   pill: "999px"
 spacing:
-  xs: "8px"
-  sm: "14px"
+  xs: "6px"
+  sm: "12px"
   md: "20px"
-  lg: "24px"
-  xl: "40px"
+  lg: "36px"
+  xl: "48px"
+  xxl: "56px"
 components:
   button-primary:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
-    rounded: "{rounded.md}"
-    padding: "0.55rem 0.85rem"
-    height: "42px"
-  button-secondary:
-    backgroundColor: "{colors.surface}"
+    backgroundColor: "{colors.lime}"
     textColor: "{colors.ink}"
     rounded: "{rounded.md}"
-    padding: "0.55rem 0.85rem"
-    height: "42px"
+    padding: "0.6rem 1.3rem"
+    height: "46px"
+  button-secondary:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.ink}"
+    border: "1px solid {colors.rule-strong}"
+    rounded: "{rounded.md}"
+    padding: "0.6rem 1.3rem"
+    height: "46px"
   chip:
-    backgroundColor: "{colors.surface}"
+    backgroundColor: "{colors.panel}"
     textColor: "{colors.muted}"
+    border: "1px solid {colors.rule}"
     rounded: "{rounded.pill}"
-    padding: "0.42rem 0.7rem"
+    padding: "5px 11px"
+  panel:
+    backgroundColor: "{colors.panel}"
+    border: "1px solid {colors.rule}"
+    rounded: "{rounded.md}"
+    padding: "20px 22px"
 ---
 
 # Design System: Michael DeGoll
 
 ## 1. Overview
 
-**Creative North Star: "The Field Notebook"**
+**Creative North Star: "The Field Notebook, printed on rebase paper"**
 
-The site should feel like a practical notebook from someone who understands both business operations and software implementation. It is not trying to look like a venture-backed AI product, a Salesforce consultancy, or a polished agency portfolio. It should feel clear, useful, and edited.
-
-The visual system is intentionally light: strong type, tight rhythm, restrained borders, and small moments of muted color. The site should look simple enough to publish quickly, but consistent enough that the ideas feel considered.
+The site shares a visual family with rebase.team: cool-gray paper, white panels, near-black ink, one lime accent, serif headings over a plain sans body. It is still one person's notebook, not a company landing page. No photography, no section numbers, no eyebrow labels, no hero metrics. Headings carry their own weight.
 
 **Key Characteristics:**
 
-- Plainspoken and technically credible
-- Mostly text-led, with one real personal image and useful proof artifacts
-- Restrained palette with muted teal, green, and ochre as quiet support
-- Low decoration, no spectacle, no AI-template gestures
+- Serif display (Newsreader, weight 500, tight tracking) against a quiet Geist body
+- Cool-gray page with white panels for anything that is a list of real artifacts
+- Lime appears in exactly four places: the primary button, link underlines, the active nav item, and the footer band
+- Flat by default: borders and whitespace, never shadows
 
 ## 2. Colors
 
-The palette is neutral-first with a muted operational accent set. Color supports structure instead of becoming the story.
-
 ### Primary
 
-- **Ink** (#1e1e1e): primary text and filled buttons.
-- **Paper** (#ffffff): main page background and button text on filled actions.
+- **Ink** (#151923): all text and the brand mark.
+- **Paper** (#f4f6fa): page background.
+- **Panel** (#ffffff): header, list entries, code blocks, table cells, the table of contents.
 
-### Secondary
+### Accent
 
-- **Muted Teal** (#145c78): used in low-opacity washes and top rules. It should feel like annotation, not branding wallpaper.
-- **Field Green** (#467240): supports the gradient wash on proof sections.
-- **Quiet Ochre** (#a87026): adds warmth to the same wash without becoming a startup gradient.
+- **Lime** (#a3d500): primary button fill, link underline, active nav underline, footer band. Text on lime is always ink.
+- **Lime Deep** (#426600): focus rings, hover underline, blockquote rule. Passes AA on paper as text.
+- **Lime Wash** (#f1f8d9): link hover background and chip hover.
 
 ### Neutral
 
-- **Body Ink** (#1f1f1f): long-form content text.
-- **Muted Copy** (#6c6c6c): secondary paragraphs, metadata, and proof lists.
-- **Rule** (#eeeeee): borders and dividers.
-- **Code Surface** (#f5f5f5): code and low-emphasis surface backgrounds.
+- **Muted** (#596273): ledes, descriptions, metadata, secondary prose.
+- **Rule** (#dde1e8): borders and dividers. **Rule Strong** (#c5ccd8): hovered panel borders and secondary button borders.
+- **Code** (#eaeef4): inline code and table headers.
 
 ### Named Rules
 
-**The Color Stays Useful Rule.** Use accent colors as structure, wash, or subtle emphasis. Do not make the site feel like an AI SaaS gradient.
+**The One Accent Rule.** Lime is the only chroma on the site. Do not add teal, green, or ochre washes, and do not use lime as a text color.
 
 ## 3. Typography
 
-**Display Font:** System sans stack  
-**Body Font:** System sans stack  
-**Label/Mono Font:** System sans stack
-
-**Character:** The type should feel direct and native to the web. The system stack is acceptable here because the writing and spacing carry the identity; do not add a decorative font just to look designed.
+**Display and headings:** Newsreader (Google Fonts, optical size axis, weight 500)
+**Body and UI:** Geist (Google Fonts, 400 and 600)
+**Metadata:** Geist Mono, uppercase, tracked 0.08em, 0.72 to 0.74rem
 
 ### Hierarchy
 
-- **Display** (700, `clamp(2.5rem, 5vw, 5rem)`, 0.96): homepage hero only.
-- **Headline** (700, `clamp(2.25rem, 5vw, 4.75rem)`, 0.98): page titles and playbook heroes.
-- **Title** (700, 1.2 to 1.5rem, 1.25): section and card headings.
-- **Body** (400, 18px, 1.6): posts, playbooks, and page copy. Keep reading width near 65 to 75 characters.
-- **Label** (700, 0.78rem, 0 letter-spacing): occasional kicker text only.
+- **Display** (Newsreader 500, `clamp(2.9rem, 7.2vw, 5.4rem)`, 0.95, -0.04em): homepage hero only, max 15ch.
+- **Headline** (Newsreader 500, `clamp(2.3rem, 5vw, 3.4rem)`, 1.02, -0.03em): page and playbook titles.
+- **Section** (Newsreader 500, `clamp(1.9rem, 3.4vw, 2.6rem)`, 1.02, -0.03em): homepage section headings in the left column.
+- **Content H2** (Newsreader 500, 1.85rem, 1.15, -0.025em): long-form section headings, no underline rule.
+- **Title** (Newsreader 500, 1.5rem list entries, 1.3rem home cards, 1.35rem content H3).
+- **Lede** (Geist 400, 1.12rem, 1.55, muted): page descriptions and playbook deks, max 62ch.
+- **Prose** (Geist 400, 1.05rem, 1.7): posts and playbooks. Home prose runs at 1.08rem / 1.65.
+- **Body** (Geist 400, 17px, 1.65): default.
+- **Meta** (Geist Mono 400, 0.74rem, uppercase): dates, chips, table-of-contents label, footer.
 
 ### Named Rules
 
-**The Fewer Labels Rule.** Kicker labels are allowed, but they should not appear above every section. Repetition reads like AI scaffolding.
+**The No Eyebrow Rule.** No kicker or label above a heading. If a page needs a stage or audience marker, it goes in a chip below the dek.
+
+**The Serif Carries It Rule.** Headings are 500, never bold. Emphasis in prose is Geist 600.
 
 ## 4. Elevation
 
-The site is flat by default. Depth comes from spacing, borders, and tonal shifts rather than shadows. This fits the practical, notebook-like direction and keeps the page from feeling like generic SaaS.
+Flat. Depth comes from the panel-on-paper contrast and 1px rules. Panels darken their border on hover instead of lifting.
 
 ### Named Rules
 
-**The No Floating Deck Rule.** Do not introduce decorative shadows or floating card stacks. Use a border, a rule, or more whitespace first.
+**The No Floating Deck Rule.** No box shadows anywhere.
 
 ## 5. Components
 
 ### Buttons
 
-- **Shape:** compact rectangles with 8px radius.
-- **Primary:** ink background, paper text, 42px minimum height, small horizontal padding.
-- **Secondary:** paper background, ink text, 1px rule border.
-- **Hover / Focus:** preserve PaperMod focus behavior, but make custom buttons expose a visible outline or underline on focus.
+- **Primary:** lime fill, ink text, 1px lime border, 6px radius, 46px minimum height, Geist 600 at 0.92rem. Hover brightens the fill and darkens the border to Lime Deep.
+- **Secondary:** white fill, ink text, Rule Strong border. Hover darkens the border to ink.
+- **Focus:** 2px Lime Deep outline, 3px offset, on every interactive element.
+- On narrow screens, hero and closing buttons go full width and stack.
+
+### Links
+
+Ink text with a 2px lime underline at 0.2em offset. Hover adds a Lime Wash background and a Lime Deep underline. Nav links, footer links, and card title links drop the underline and use color or a plain underline on hover instead.
 
 ### Chips
 
-- **Style:** pill shape, border, white background, muted text.
-- **Use:** metadata and compact qualifiers only. Do not use chips as decorative proof metrics.
+Pill, white, Rule border, muted Geist Mono at 0.74rem. Used for playbook metadata and tags only.
 
-### Cards / Containers
+### Panels
 
-- **Corner Style:** 8px radius maximum.
-- **Background:** white or a very light wash.
-- **Shadow Strategy:** none.
-- **Border:** 1px neutral rule. Avoid colored side stripes.
-- **Internal Padding:** 1rem for compact content, 1.5 to 2.25rem for hero or feature blocks.
-
-### Inputs / Fields
-
-The current public site does not define custom input fields. If a contact form returns, use the same 8px radius, neutral border, visible label, and explicit focus outline.
+White, Rule border, 6px radius, 20 to 22px padding. Used for list entries, home playbook and writing cards, code blocks, the table of contents, and the Mermaid container. Nested panels are never used.
 
 ### Navigation
 
-Keep navigation simple and text-based. The current menu should stay small enough that Home, About, Playbooks, and Blog can coexist without feeling like a product nav.
+White header with a bottom rule. Brand in Geist 600 at 1.2rem with -0.03em tracking. Menu items muted Geist 500 at 0.92rem; the active item is ink with a 2px lime underline. Three items: Playbooks, Writing, About.
 
-### Signature Component
+### Footer
 
-Playbook pages use a bordered hero with clear title, deck, metadata chips, and optional diagrams. Keep this format sober and document-like; it should feel like a proof artifact, not a lead magnet.
+Full-width lime band, Geist Mono uppercase at 0.72rem, ink text, centered: name, email, year. Items separated by a middle dot on desktop and stacked on mobile.
+
+### Home sections
+
+Two-column grid: serif section heading in a 0.42fr left column, content in the right column, 56px column gap, 48px vertical padding, bottom rule. Collapses to one column at 820px.
 
 ## 6. Do's and Don'ts
 
 ### Do:
 
-- **Do** keep pages simple, consistent, and easy to publish.
-- **Do** use direct copy that names the operating problem before the tool.
-- **Do** preserve generous line-height and readable measure for long posts.
-- **Do** use muted color washes sparingly to separate important proof sections.
-- **Do** make the site credible to operators, founders, technical founders, and AI platform teams.
+- **Do** keep every page on the same paper, panel, ink, lime set.
+- **Do** list real artifacts (playbooks, posts) in panels rather than describing capabilities in card grids.
+- **Do** keep reading measure at 60 to 62ch.
+- **Do** keep the Newsreader optical size axis on, so small headings do not look spindly.
 
 ### Don't:
 
-- **Don't** use generic AI consultant language, AI-demo theater, or "transformation" filler.
-- **Don't** make the site Salesforce-first.
-- **Don't** use corporate blue gradients, glassmorphism, gradient text, hero metric blocks, or repeated icon-card grids.
-- **Don't** over-polish the site into an agency deck. It should be pretty and consistent, but still feel personal.
+- **Don't** add kickers, eyebrows, section numbers, icon grids, metric blocks, or gradients.
+- **Don't** add a second accent color or use lime as text.
+- **Don't** use bold serif. Headings are 500.
+- **Don't** reintroduce "Powered by" footers, scroll-to-top buttons, breadcrumbs, or share buttons.
 - **Don't** use em dashes or double-hyphen substitutes in public copy.

@@ -9,7 +9,6 @@ draft: false
 layout: playbook
 ShowToc: true
 TocOpen: true
-playbookEyebrow: "Implementation and verification"
 playbookMeta:
   - "For builders and technical leads"
   - "Updated September 11, 2026"

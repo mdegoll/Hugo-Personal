@@ -386,7 +386,7 @@ Do not remove useful structure, necessary detail, or honest qualifications simpl
 
 - Keep front matter valid and consistent with the content type.
 - Posts should include `title`, `date`, `description`, `summary`, `tags`, `ShowToc`, and `TocOpen` when appropriate.
-- Playbooks should include `title`, `description`, `date`, `draft`, `layout: playbook`, table-of-contents settings, `playbookEyebrow`, `playbookMeta`, and `tags`. Add `mermaid: true` only when the page contains Mermaid.
+- Playbooks should include `title`, `description`, `date`, `draft`, `layout: playbook`, table-of-contents settings, `playbookMeta`, and `tags`. Add `mermaid: true` only when the page contains Mermaid.
 - Write descriptions for the reader scanning a list or search result. Do not repeat the title with filler.
 - Use one H1 supplied by the page template, then follow heading levels in order.
 - Give links meaningful labels. Avoid `click here`.

@@ -11,7 +11,6 @@ ShowToc: true
 TocOpen: true
 aliases:
   - /playbooks/claude-deployment-playbook-salesforce-heavy-enterprises/
-playbookEyebrow: "Discovery and migration"
 playbookMeta:
   - "For Salesforce teams, consultants, and workflow owners"
   - "Updated September 11, 2026"

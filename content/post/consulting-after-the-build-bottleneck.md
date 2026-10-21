@@ -14,15 +14,9 @@ They still need review, context, and business judgment. Enough has shifted that 
 
 If a consultant's main value is screen setup, boilerplate, ticket churn, or status reporting, that value compresses. The work continues, but teams with better tooling can often do the same operations faster than larger execution-heavy teams.
 
-Consultants still matter, but the role moves from output volume to operating judgment.
-
-The useful consultant decides what should exist, what should be removed, what to change next, what risk to accept, and how to make the outcome trustworthy.
-
-Positioning is simple:
+Consultants still matter, but the role moves from output volume to operating judgment. The useful consultant decides what should exist, what should be removed, what to change next, what risk to accept, and how to make the outcome trustworthy.
 
 > AI agents can carry much of the build. Consultants carry the judgment of what should become production software.
-
-The job starts to look like diagnostician, architect, reviewer, migration strategist, and change lead.
 
 ## The Build Bottleneck Is Breaking
 
@@ -70,9 +64,9 @@ The better move is to ask better questions:
 - What process exists only because the current system forced it?
 - What would disappear if the team stopped protecting sunk cost?
 
-That is where consulting value compounds. The consultant translates across operators, executives, admins, developers, finance, security, and customers and points to the operating decision behind the request.
+The consultant translates across operators, executives, admins, developers, finance, security, and customers, and points to the operating decision behind the request.
 
-Discovery only matters when it closes a decision. A two-day prototype can invalidate long planning cycles quickly. The standard now is diagnosis plus immediate execution plan.
+Discovery only matters when it closes a decision. A two-day prototype can invalidate a long planning cycle. The standard now is diagnosis plus an execution plan the team can start on Monday.
 
 ## Architecture Decisions Matter More
 
@@ -184,12 +178,7 @@ Clients increasingly evaluate:
 
 Delivery models built on large long-tail implementation teams must show stronger differentiators or narrower specialization.
 
-The new positioning is clear:
-
-- From "more builders"
-- To "faster clarity, safer decisions, and a cleaner migration path"
-
-Small, technically strong teams can beat large, coordination-heavy teams when they combine strong judgment, clear methods, and proof from live operations.
+The pitch moves from "more builders" to faster clarity, safer decisions, and a cleaner migration path. Small, technically strong teams can beat large, coordination-heavy teams when they combine strong judgment, clear methods, and proof from live operations.
 
 ## What Happens to Junior Consultants?
 
@@ -246,42 +235,16 @@ A practical rollout usually follows this path:
 
 Good consulting includes a better exit option: stopping work that is no longer needed.
 
-## Consulting After the Build Bottleneck
+## What the job looks like now
 
-Judgment becomes the durable consulting role.
+Judgment becomes the durable consulting role. In practice that means five things:
 
-The practical shape is:
+- Diagnose the business behind the surface request, and separate the operating problem from the software ask.
+- Own architecture and migration: stay in Salesforce, simplify it, replace one workflow, migrate data, or build a purpose-built tool.
+- Design the trust layer: evals, permissions, audit, security, quality checks, exception handling, and ownership handoffs.
+- Turn agent output into tested, documented systems the team can support without you.
+- Lead the transition from large implementation plans to smaller decision cycles.
 
-### Diagnose the business behind the surface request
+The consultants who do well here stay close to operators, are comfortable evaluating technical work, and are willing to say "we should not build this" when it adds risk.
 
-Separate the real operating problem from the software ask.
-
-### Own architecture and migration
-
-Choose whether to stay in Salesforce, simplify it, replace one workflow, migrate data, or build a purpose-built tool.
-
-### Design trust and safety
-
-Define evals, permissions, audit, security, quality checks, exception handling, and ownership handoffs.
-
-### Turn output into running systems
-
-Encode agent output into tested, documented, maintainable systems the team can support.
-
-### Lead the transition
-
-Move clients from large implementation plans to smaller decision cycles: more trust, less noise, and clearer results.
-
-## The Practical Opportunity
-
-The best operators and consultants in this phase tend to look different:
-
-- Close to operators and workflow realities
-- Comfortable with technical evaluation
-- Able to simplify architecture without breaking momentum
-- Capable of embedding operations change alongside shipped features
-- Willing to say "we should not build this" when it adds risk
-
-The direction is clear: build capacity keeps rising. Judgment capacity becomes the real advantage.
-
-AI agents make delivery faster. That makes it more important to keep selecting the right work and executing it safely.
+Build capacity keeps rising. Judgment is what gets scarce, and selecting the right work and executing it safely is where the fee is earned.

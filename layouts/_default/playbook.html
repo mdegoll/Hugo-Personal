@@ -2,10 +2,6 @@
 
 <article class="post-single playbook-single">
   <header class="playbook-hero">
-    {{ partial "breadcrumbs.html" . }}
-    {{- with .Params.playbookEyebrow }}
-    <p class="playbook-eyebrow">{{ . }}</p>
-    {{- end }}
     <h1>{{ .Title }}</h1>
     {{- with .Description }}
     <p class="playbook-dek">{{ . }}</p>
